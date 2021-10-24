@@ -13,6 +13,13 @@ mkdir -p ~/.config
 sudo apt -y install stow pip mc tree
 sudo pip install powerline-status netifaces
 
+# if there is no .bashrc that means we are on clean system
+if [ ! -e ~/.bashrc ]; then
+    pushd ~/.dotfiles
+    stow */
+    popd
+fi
+
 # nvim
 if ! which nvim > /dev/null; then
     wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage
@@ -32,9 +39,6 @@ if ! which nvim > /dev/null; then
     # packer.nvim bootstrap
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
          ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-    # install all plugins for nvim
-    nvim +PackerSync +qall
 fi
 
 # rg command https://github.com/BurntSushi/ripgrep

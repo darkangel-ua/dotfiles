@@ -1,3 +1,5 @@
+local need_sync = vim.fn.filewritable(vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua') ~= 1
+
 require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -29,7 +31,6 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   -- use 'tomtom/tcomment_vim'
   use { 'numToStr/Comment.nvim', config = [[ require('Comment').setup() ]] }
-  use { "luukvbaal/stabilize.nvim", config = [[ require("stabilize").setup() ]] }
 
   -- building
   use 'cdelledonne/vim-cmake'
@@ -68,5 +69,9 @@ require('packer').startup(function()
 
   -- Profiling
   use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
+
+  if need_sync then
+      require('packer').sync()
+  end
 end)
 
