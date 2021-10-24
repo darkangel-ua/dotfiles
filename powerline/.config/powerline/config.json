@@ -1,0 +1,16 @@
+{
+	"ext": {
+		"shell": {
+			"colorscheme": "gruvbox",
+			"theme": "default",
+			"local_themes": {
+				"continuation": "continuation",
+				"select": "select"
+			}
+		},
+		"tmux": {
+			"colorscheme": "gruvbox",
+			"theme": "default"
+		}
+	}
+}

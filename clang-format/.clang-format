@@ -1,0 +1,9 @@
+Language: Cpp
+IndentWidth: 4
+IndentCaseLabels: True
+LambdaBodyIndentation: OuterScope
+AccessModifierOffset: -4
+ColumnLimit: 0
+PointerAlignment: Left
+EmptyLineBeforeAccessModifier: LogicalBlock
+BreakConstructorInitializers: BeforeComma
