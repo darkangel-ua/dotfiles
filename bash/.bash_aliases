@@ -1,7 +1,7 @@
 # system
-alias tree='tree -I .git'
-alias l='ls -lh --group-directories-first'
-alias ll='ls -ahl --group-directories-first'
+alias tree='exa --group-directories-first --tree --icons -I .git'
+alias l='exa -lg --group-directories-first --icons'
+alias ll='exa -lga --group-directories-first --icons'
 
 # git
 alias gs='git status'

@@ -10,7 +10,7 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.config
 
 # basic system stuff
-sudo apt -y install stow pip mc tree
+sudo apt -y install stow pip mc
 sudo pip install powerline-status netifaces
 
 # if there is no .bashrc that means we are on clean system
@@ -59,6 +59,27 @@ fi
 # fzf
 if ! which fzf > /dev/null; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
+fi
+
+# exa
+if ! which exa > /dev/null; then
+    tmp=`mktemp -d`
+    pushd "$tmp"
+    wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
+    unzip exa-linux-x86_64-v0.10.1.zip
+    sudo chown root:root ./bin/exa
+    sudo cp ./bin/exa /usr/local/bin/
+    popd
+    rm -rf "$tmp"
+fi
+
+# Hack Nerd font
+if [[ ! -e /usr/share/fonts/Hack ]]; then
+    sudo mkdir /usr/share/fonts/Hack
+    tmp=`mktemp`
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -O "$tmp"
+    unzip "$tmp" -d /usr/share/fonts/Hack
+    rm "$tmp"
 fi
 
 # development tools
