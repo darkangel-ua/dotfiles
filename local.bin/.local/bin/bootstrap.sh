@@ -74,12 +74,13 @@ if ! which exa > /dev/null; then
 fi
 
 # Hack Nerd font
-if [[ ! -e /usr/share/fonts/Hack ]]; then
-    sudo mkdir /usr/share/fonts/Hack
+if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
+    sudo mkdir /usr/local/share/fonts/Hack
     tmp=`mktemp`
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -O "$tmp"
-    sudo unzip "$tmp" -d /usr/share/fonts/Hack
+    sudo unzip "$tmp" -d /usr/local/share/fonts/Hack
     rm "$tmp"
+    sudo fc-cache -f -v
 fi
 
 # development tools
