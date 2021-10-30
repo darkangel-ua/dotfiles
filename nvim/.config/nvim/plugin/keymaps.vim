@@ -36,9 +36,11 @@ nnoremap <silent> <M-CR> :let v:hlsearch=!v:hlsearch<CR>
 
 " Telescope
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fF <cmd>lua require('plugins.telescope').find_files_buffer()<cr>
 nnoremap <leader>fd <cmd>lua require('plugins.telescope').dotfiles()<cr>
 nnoremap <leader>fD <cmd>lua require('plugins.telescope').dotfiles_local()<cr>
 nnoremap <leader>fe <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <leader>fE <cmd>lua require('plugins.telescope').file_browser_buffer()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>

@@ -1,5 +1,7 @@
 local telescope = require('telescope')
+local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
+local utils = require('telescope.utils')
 
 local M = {}
 
@@ -39,7 +41,7 @@ function M.quick_buffers()
       end
   }
 
-  require('telescope.builtin').buffers(opts);
+  builtin.buffers(opts)
 end
 
 function M.dotfiles()
@@ -49,7 +51,7 @@ function M.dotfiles()
       cwd = '~/.dotfiles'
   }
 
-  require('telescope.builtin').git_files(opts);
+  builtin.git_files(opts)
 end
 
 function M.dotfiles_local()
@@ -59,7 +61,23 @@ function M.dotfiles_local()
       cwd = '~/.dotfiles.local'
   }
 
-  require('telescope.builtin').git_files(opts);
+  builtin.git_files(opts)
+end
+
+function M.find_files_buffer()
+    local opts = {
+        cwd = utils.buffer_dir()
+    }
+
+    builtin.find_files(opts)
+end
+
+function M.file_browser_buffer()
+    local opts = {
+        cwd = utils.buffer_dir()
+    }
+
+    builtin.file_browser(opts)
 end
 
 return M
