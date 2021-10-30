@@ -1,0 +1,160 @@
+# colors was taken from https://github.com/gruvbox-community/gruvbox-contrib/blob/master/shell/colors.sh
+
+colors:
+  dark0_hard : '1D2021'
+  dark0 : '282828'
+  dark0_soft : '32302F'
+  dark1 : '3c3836'
+  dark2 : '504945'
+  dark3 : '665c54'
+  dark4 : '7C6F64'
+
+  gray_245 : '928374'
+  gray_244 : '928374'
+
+  light0_hard : 'FB4934'
+  light0 : 'FBF1C7'
+  light0_soft : 'F2E5BC'
+  light1 : 'EBDBB2'
+  light2 : 'D5C4A1'
+  light3 : 'BDAE93'
+  light4 : 'A89984'
+
+  bright_red : 'FB4934'
+  bright_green : 'B8BB26'
+  bright_yellow : 'FABD2F'
+  bright_blue : '83A598'
+  bright_purple : 'D3869B'
+  bright_aqua : '8EC07C'
+  bright_orange : 'FE8019'
+
+  neutral_red : 'CC241D'
+  neutral_green : '98971A'
+  neutral_yellow : 'D79921'
+  neutral_blue : '458588'
+  neutral_purple : 'B16286'
+  neutral_aqua : '689D6A'
+  neutral_orange : 'D65D0E'
+
+  faded_red : '9D0006'
+  faded_green : '79740E'
+  faded_yellow : 'B57614'
+  faded_blue : '076678'
+  faded_purple : '8F3F71'
+  faded_aqua : '427B58'
+  faded_orange : 'AF3A03'
+
+  fg : 'FBF1C7' # same as light0
+  bg : '1D2021' # same as dark0_hard
+
+core:
+  regular_file:
+    foreground: light2
+
+  directory:
+    foreground: fg
+    font-style: bold
+
+  executable_file:
+    foreground: bright_aqua
+    font-style: bold
+
+  symlink:
+    foreground: bright_yellow
+    font-style: bold
+
+  broken_symlink:
+    foreground: bright_red
+    background: bg
+    font-style: bold
+
+  missing_symlink_target:
+    foreground: bright_red
+    background: bg
+    font-style: bold
+
+  fifo:
+    foreground: fg
+    background: bg
+    font-style: underline
+
+  socket:
+    foreground: fg
+    background: bg
+    font-style: underline
+
+  character_device:
+    foreground: fg
+    background: bg
+    font-style: underline
+
+  block_device:
+    foreground: bright_purple
+    font-style: underline
+
+  normal_text:
+    foreground: fg
+
+  other_writable:
+    {}
+
+  sticky:
+    {}
+
+  sticky_other_writable:
+    {}
+
+text:
+  foreground : bright_green
+  special:
+    foreground: bright_green
+    font-style : bold
+
+  todo:
+    foreground : bright_green
+    font-style: bold
+
+  licenses:
+    foreground: bright_green
+    font-style : bold
+
+markup:
+  foreground: bright_green
+
+programming:
+  foreground : bright_orange
+  source:
+    foreground: bright_orange
+
+  tooling:
+    foreground: bright_orange
+    build:
+      foreground: bright_orange
+      font-style: underline
+
+media:
+  foreground: neutral_blue
+  audio:
+    foreground: neutral_blue
+    font-style: bold
+
+  image:
+    foreground: bright_blue
+
+  video:
+    foreground: bright_blue
+    font-style: bold
+
+office:
+  foreground: bright_green
+
+archives:
+  foreground: neutral_purple
+  packages:
+    foreground: neutral_aqua
+
+executable:
+  foreground: neutral_aqua
+
+unimportant:
+  foreground: dark4

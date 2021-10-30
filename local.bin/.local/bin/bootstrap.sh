@@ -73,6 +73,13 @@ if ! which exa > /dev/null; then
     rm -rf "$tmp"
 fi
 
+# vivid to create LS_COLORS easily
+if ! which vivid > /dev/null; then
+    wget https://github.com/sharkdp/vivid/releases/download/v0.7.0/vivid_0.7.0_amd64.deb
+    sudo dpkg -i vivid_0.7.0_amd64.deb
+    rm vivid_0.7.0_amd64.deb
+fi
+
 # Hack Nerd font
 if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
     sudo mkdir /usr/local/share/fonts/Hack

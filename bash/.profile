@@ -25,4 +25,4 @@ fi
 
 export COLORTERM=truecolor
 export EDITOR=/usr/local/bin/nvim
-
+export LS_COLORS=$(vivid generate gruvbox-dark)
