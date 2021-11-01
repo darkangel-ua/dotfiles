@@ -84,7 +84,7 @@ vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
 nnoremap <silent> <leader>a :TroubleToggle lsp_document_diagnostics<cr>
 nnoremap <silent> <leader>; :TroubleToggle quickfix<cr>:CMakeClose<cr>
 
-" builing
+" building
 nnoremap <silent> <leader>mm :CMakeBuild<cr>
 nnoremap <silent> <leader>mo :CMakeOpen<cr>
 nnoremap <silent> <leader>mc :CMakeClose<cr>
