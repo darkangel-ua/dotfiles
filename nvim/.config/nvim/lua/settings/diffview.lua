@@ -1,3 +1,5 @@
+local cb = require'diffview.config'.diffview_callback
+
 require('diffview').setup {
   key_bindings = {
     view = {
@@ -5,6 +7,7 @@ require('diffview').setup {
     },
     file_panel = {
       ["<leader>x"] = ':DiffviewClose<cr>',
+      ["go"] = cb('focus_entry')
     }
   }
 }
