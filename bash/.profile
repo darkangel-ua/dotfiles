@@ -13,7 +13,7 @@
 if [[ -z "$TMUX" ]]; then
    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
    powerline-daemon -q
-fi   
+fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -24,5 +24,4 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 export COLORTERM=truecolor
-export EDITOR=/usr/local/bin/nvim
-export LS_COLORS=$(vivid generate gruvbox-dark)
+export EDITOR=nvim

@@ -1,4 +1,8 @@
 # system
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 alias tree='exa --group-directories-first --tree --icons -I .git'
 alias l='exa -lg --group-directories-first --icons'
 alias ll='exa -lga --group-directories-first --icons'
