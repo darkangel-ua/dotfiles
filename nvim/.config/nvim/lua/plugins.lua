@@ -4,6 +4,10 @@ require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- system
+  use 'nathom/filetype.nvim'
+  use 'lewis6991/impatient.nvim'
+
   -- Colors
   use { "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }
   use 'ap/vim-css-color'
