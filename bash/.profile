@@ -8,12 +8,17 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+export COLORTERM=truecolor
+export EDITOR=nvim
+
 # this is part that runs only when we are not under tmux - tmux creates all panes with logined bash
 # and becase I usually do bash login first this part already has been executed
 if [[ -z "$TMUX" ]]; then
    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
    powerline-daemon -q
 fi
+
+[ -f ~/.profile.local ] && source ~/.profile.local
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -23,5 +28,3 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export COLORTERM=truecolor
-export EDITOR=nvim

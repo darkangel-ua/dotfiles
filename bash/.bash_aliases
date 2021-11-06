@@ -11,6 +11,4 @@ alias ll='exa -lga --group-directories-first --icons'
 alias gs='git status'
 alias gch='git checkout "$(git branch -a | fzf | tr -d '[:space:]')"'
 
-if [ -f ~/.bash_aliases.local ]; then
-    . ~/.bash_aliases.local
-fi
+[ -f ~/.bash_aliases.local ] && source  ~/.bash_aliases.local
