@@ -98,5 +98,7 @@ if [ -z "${MC_SID}" ]; then
    source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
 
