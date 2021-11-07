@@ -72,12 +72,12 @@ nnoremap <leader>gb :Git blame<cr>
 " lsp
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gi :Telescope lsp_implementations<cr>
-nnoremap <silent> gr :Telescope lsp_references<cr>
+nnoremap <silent> gr <cmd>lua require('plugins.telescope').lsp_references()<cr>
 nnoremap <silent> gh :ClangdSwitchSourceHeader<cr>
 nnoremap <silent> ga :CodeActionMenu<cr>
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>o :Telescope lsp_document_symbols<cr>
+nnoremap <silent> <leader>o <cmd>lua require('plugins.telescope').lsp_document_symbols()<cr>
 vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles

@@ -19,9 +19,14 @@ function M.setup()
                       ['<C-j>'] = actions.preview_scrolling_down,
                       ['<C-k>'] = actions.preview_scrolling_up,
                       ['<A-x>'] = actions.close
-                  }
+                  },
+              n = {
+                      ['<C-C>'] = actions.close,
+                      ['<C-j>'] = actions.preview_scrolling_down,
+                      ['<C-k>'] = actions.preview_scrolling_up,
               }
           }
+        }
     })
 end
 
@@ -78,6 +83,29 @@ function M.file_browser_buffer()
     }
 
     builtin.file_browser(opts)
+end
+
+function M.lsp_references()
+    local opts = {
+        initial_mode = 'normal',
+        layout_strategy = 'vertical',
+        layout_config = {
+            height = 0.99,
+            preview_height = 0.7,
+            prompt_position = 'top',
+            mirror = true,
+        }
+    }
+
+    return builtin.lsp_references(opts)
+end
+
+function M.lsp_document_symbols()
+    local opts = {
+      previewer = false,
+    }
+
+    builtin.lsp_document_symbols(opts)
 end
 
 return M
