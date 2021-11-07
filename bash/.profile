@@ -12,7 +12,7 @@ export COLORTERM=truecolor
 export EDITOR=nvim
 
 # this is part that runs only when we are not under tmux - tmux creates all panes with logined bash
-# and becase I usually do bash login first this part already has been executed
+# and because I usually do bash login first this part already has been executed
 if [[ -z "$TMUX" ]]; then
    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
    powerline-daemon -q
