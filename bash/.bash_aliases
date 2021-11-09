@@ -10,5 +10,6 @@ alias ll='exa -lga --group-directories-first --icons'
 # git
 alias gs='git status'
 alias gch='git checkout "$(git branch -a | fzf | tr -d '[:space:]')"'
+alias gsu='git submodule update --init --recursive'
 
 [ -f ~/.bash_aliases.local ] && source  ~/.bash_aliases.local
