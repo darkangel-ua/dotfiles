@@ -78,6 +78,7 @@ nnoremap <silent> ga :CodeActionMenu<cr>
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>o <cmd>lua require('plugins.telescope').lsp_document_symbols()<cr>
+nnoremap <silent> <leader>s <cmd>lua require('plugins.telescope').lsp_workspace_symbols()<cr>
 vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles

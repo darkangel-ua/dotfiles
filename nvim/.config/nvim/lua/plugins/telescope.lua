@@ -108,4 +108,18 @@ function M.lsp_document_symbols()
     builtin.lsp_document_symbols(opts)
 end
 
+function M.lsp_workspace_symbols()
+    local opts = {
+        layout_strategy = 'vertical',
+        layout_config = {
+            height = 0.99,
+            preview_height = 0.7,
+            prompt_position = 'top',
+            mirror = true,
+        }
+    }
+
+    return builtin.lsp_workspace_symbols(opts)
+end
+
 return M
