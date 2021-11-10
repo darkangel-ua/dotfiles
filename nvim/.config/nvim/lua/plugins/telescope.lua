@@ -108,7 +108,7 @@ function M.lsp_document_symbols()
     builtin.lsp_document_symbols(opts)
 end
 
-function M.lsp_workspace_symbols()
+function M.lsp_dynamic_workspace_symbols()
     local opts = {
         layout_strategy = 'vertical',
         layout_config = {
@@ -119,7 +119,7 @@ function M.lsp_workspace_symbols()
         }
     }
 
-    return builtin.lsp_workspace_symbols(opts)
+    return builtin.lsp_dynamic_workspace_symbols(opts)
 end
 
 return M
