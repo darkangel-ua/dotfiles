@@ -3,6 +3,7 @@ require('filetype').setup({
         literal = {
             ['.bashrc.local'] = 'sh',
             ['.bash_aliases'] = 'sh',
+            ['.bash_aliases.local'] = 'sh',
             ['.profile.local'] = 'sh',
         }
     }
