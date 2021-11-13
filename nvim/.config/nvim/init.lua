@@ -11,7 +11,5 @@ require('impatient')
 require('plugins')
 require('settings')
 
-vim.cmd([[colorscheme gruvbox]])
-
 -- for reasons unknown to me this should be here to apply
 vim.g.airline_powerline_fonts = 1
