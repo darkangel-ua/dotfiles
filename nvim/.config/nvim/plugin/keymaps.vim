@@ -23,7 +23,7 @@ inoremap <expr> <A-j> pumvisible() ? "\<C-n>" : "\<A-j>"
 inoremap <expr> <A-k> pumvisible() ? "\<C-p>" : "\<A-k>"
 " lets make saving convenient
 nnoremap <silent> <A-s> :update<cr>
-inoremap <silent> <A-s> :update<cr>
+inoremap <silent> <A-s> <C-o>:update<cr>
 " lets try to use more convenient Alt
 nnoremap <A-w> <C-w>
 " lets use much easier Alt-p for pasting + register in insert mode
