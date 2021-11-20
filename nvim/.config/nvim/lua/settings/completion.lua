@@ -4,6 +4,11 @@ local lspkind = require('lspkind')
 
 lspkind.init()
 
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
     snippet = {
       expand = function(args)
@@ -12,6 +17,36 @@ cmp.setup({
     },
     mapping = {
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      -- snippets works only on Tabs
+      ["<Tab>"] = cmp.mapping(function(fallback)
+          if snip.expand_or_jumpable() then
+              snip.expand_or_jump()
+          else
+              fallback()
+          end
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if snip.jumpable(-1) then
+              snip.jump(-1)
+          else
+              fallback()
+          end
+      end, { "i", "s" }),
+
+      ["<A-j>"] = cmp.mapping(function(fallback)
+          if snip.choice_active() then
+              snip.change_choice(-1)
+          else
+              fallback()
+          end
+      end, { "i", "s" }),
+      ["<A-k>"] = cmp.mapping(function(fallback)
+          if snip.choice_active() then
+              snip.change_choice()
+          else
+              fallback()
+          end
+      end, { "i", "s" }),
     },
     sources = {
         { name = 'nvim_lsp' },
