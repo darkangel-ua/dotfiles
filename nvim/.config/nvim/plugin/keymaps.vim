@@ -18,9 +18,6 @@ nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 vnoremap <C-j> <C-d>
 vnoremap <C-k> <C-u>
-" remap easy Alt variant in completion mode
-inoremap <expr> <A-j> pumvisible() ? "\<C-n>" : "\<A-j>"
-inoremap <expr> <A-k> pumvisible() ? "\<C-p>" : "\<A-k>"
 " lets make saving convenient
 nnoremap <silent> <A-s> :update<cr>
 inoremap <silent> <A-s> <C-o>:update<cr>
