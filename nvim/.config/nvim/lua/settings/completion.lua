@@ -4,9 +4,20 @@ local lspkind = require('lspkind')
 
 lspkind.init()
 
-local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+local function select_or_choice(direction)
+    return function(fallback)
+        if cmp.visible() then
+            if direction == 1 then
+                cmp.select_next_item()
+            else
+                cmp.select_prev_item()
+            end
+        elseif snip.choice_active() then
+            snip.change_choice(direction)
+        else
+            fallback()
+        end
+    end
 end
 
 cmp.setup({
@@ -16,24 +27,6 @@ cmp.setup({
       end
     },
     mapping = {
-        ['<Up>'] = cmp.mapping({
-        c = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            else
-              cmp.complete()
-            end
-        end
-       }), 
-        ['<Down>'] = cmp.mapping({
-        c = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              cmp.complete()
-            end
-        end
-       }), 
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       -- snippets works only on Tabs
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -50,21 +43,17 @@ cmp.setup({
               fallback()
           end
       end, { "i", "s" }),
-      -- use Alt-k and Alt-k for snippet choice selection
-      ["<A-j>"] = cmp.mapping(function(fallback)
-          if snip.choice_active() then
-              snip.change_choice(-1)
-          else
-              fallback()
-          end
-      end, { "i", "s" }),
-      ["<A-k>"] = cmp.mapping(function(fallback)
-          if snip.choice_active() then
-              snip.change_choice()
-          else
-              fallback()
-          end
-      end, { "i", "s" }),
+      -- use Alt-k and Alt-k for Up and Down and for snippet choice selection
+      ["<A-j>"] = cmp.mapping({
+        i = select_or_choice(1),
+        s = select_or_choice(1),
+        c = cmp.mapping.select_next_item()
+      }),
+      ["<A-k>"] = cmp.mapping({
+        i = select_or_choice(-1),
+        s = select_or_choice(-1),
+        c = cmp.mapping.select_prev_item()
+      }),
     },
     sources = {
         { name = 'nvim_lsp' },
