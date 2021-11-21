@@ -16,6 +16,24 @@ cmp.setup({
       end
     },
     mapping = {
+        ['<Up>'] = cmp.mapping({
+        c = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              cmp.complete()
+            end
+        end
+       }), 
+        ['<Down>'] = cmp.mapping({
+        c = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              cmp.complete()
+            end
+        end
+       }), 
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       -- snippets works only on Tabs
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -32,7 +50,7 @@ cmp.setup({
               fallback()
           end
       end, { "i", "s" }),
-
+      -- use Alt-k and Alt-k for snippet choice selection
       ["<A-j>"] = cmp.mapping(function(fallback)
           if snip.choice_active() then
               snip.change_choice(-1)
