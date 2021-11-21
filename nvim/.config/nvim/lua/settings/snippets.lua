@@ -33,4 +33,4 @@ ls.snippets.cpp = {
 }
 
 -- load local snippets configuration
-pcall(require("settings.snippets_local"))
+pcall(require, "settings.snippets_local")
