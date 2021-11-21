@@ -66,6 +66,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-calc'
+  use 'hrsh7th/cmp-cmdline'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   -- use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }

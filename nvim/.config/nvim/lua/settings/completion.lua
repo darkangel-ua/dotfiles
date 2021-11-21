@@ -91,6 +91,20 @@ cmp.setup({
   }
 })
 
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+
 require('nvim-autopairs').setup()
 
 -- this is some magic I copy-paste from nvim-autopairs front page
