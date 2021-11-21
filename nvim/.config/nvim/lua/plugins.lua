@@ -33,7 +33,7 @@ require('packer').startup(function()
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'machakann/vim-highlightedyank'
   use 'tpope/vim-surround'
-  -- use 'tomtom/tcomment_vim'
+  -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
   use { 'numToStr/Comment.nvim', config = [[ require('Comment').setup() ]] }
 
   -- building
