@@ -18,8 +18,13 @@ require('packer').startup(function()
       requires = { { 'nvim-lua/plenary.nvim' } },
       config = [[ require('plugins.telescope').setup() ]]
   }
+  use {
+      'ahmedkhalf/project.nvim',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = [[ require('plugins.projects').setup() ]]
+  }
 
-  -- Icons
+-- Icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
 
