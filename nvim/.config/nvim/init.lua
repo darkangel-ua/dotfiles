@@ -6,7 +6,7 @@ vim.o.background = "dark" -- or "light" for light mode
 -- Do not source the default filetype.vim
 vim.g.did_load_filetypes = 1
 
-require('impatient')
+pcall(require, 'impatient')
 
 require('plugins')
 require('settings')
