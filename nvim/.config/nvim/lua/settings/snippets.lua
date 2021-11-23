@@ -1,6 +1,9 @@
 local ls = require("luasnip")
 local types = require("luasnip.util.types")
 
+-- we need to apply our colors before setup
+require('settings.colors').apply()
+
 ls.config.setup({
     ext_opts = {
         [types.choiceNode] = {
