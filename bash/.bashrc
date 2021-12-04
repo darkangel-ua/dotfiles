@@ -95,6 +95,7 @@ trap historymerge EXIT SIGHUP
 if [ -z "${MC_SID}" ]; then
    POWERLINE_BASH_CONTINUATION=1
    POWERLINE_BASH_SELECT=1
+   export POWERLINE_CONFIG_PATHS=/usr/local/lib/python3.8/dist-packages/powerline/config_files:~/.config/powerline:~/.config/powerline.local
    source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
