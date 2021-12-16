@@ -57,7 +57,7 @@ require('packer').startup(function()
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require("trouble").setup { use_lsp_diagnostic_signs = true }
+        require("trouble").setup { use_diagnostic_signs = true }
       end
   }
   use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.nvim-treesitter') ]] }

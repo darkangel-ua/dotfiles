@@ -22,7 +22,7 @@ fi
 
 # nvim
 if ! which nvim > /dev/null; then
-    wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage
+    wget https://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage
 
     sudo chown root:root nvim.appimage
     sudo chmod a+x nvim.appimage
