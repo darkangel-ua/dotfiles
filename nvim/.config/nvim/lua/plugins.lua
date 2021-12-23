@@ -40,6 +40,7 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
   use { 'numToStr/Comment.nvim', config = [[ require('Comment').setup() ]] }
+  use { 'lewis6991/spellsitter.nvim', config = function() require('spellsitter').setup() end }
 
   -- building
   use 'cdelledonne/vim-cmake'
@@ -72,6 +73,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-calc'
   use 'hrsh7th/cmp-cmdline'
+  use 'f3fora/cmp-spell'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   -- use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }
