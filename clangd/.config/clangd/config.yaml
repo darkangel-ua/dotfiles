@@ -1,2 +1,2 @@
 CompileFlags:                     # Tweak the parse settings
-  Add: [-ferror-limit=0] 
+  Add: [-ferror-limit=0]
