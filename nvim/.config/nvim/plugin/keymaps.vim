@@ -83,7 +83,7 @@ nnoremap <silent> <leader>s <cmd>lua require('plugins.telescope').lsp_dynamic_wo
 vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles
-nnoremap <silent> <leader>a :TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <silent> <leader>a :TroubleToggle document_diagnostics<cr>
 nnoremap <silent> <leader>; :TroubleToggle quickfix<cr>:CMakeClose<cr>
 
 " building

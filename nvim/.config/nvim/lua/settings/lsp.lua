@@ -46,9 +46,10 @@ lspconfig.clangd.setup({
   capabilities = capabilities,
 })
 
+-- make signs same as in trouble.nvim
 vim.cmd [[
-    sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
-    sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
+    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+    sign define DiagnosticSignWarning text= texthl=DiagnosticSignWarning linehl= numhl=
 ]]
 
 vim.api.nvim_command [[autocmd CursorHold  * lua vim.lsp.buf.document_highlight()]]

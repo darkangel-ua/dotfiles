@@ -57,12 +57,10 @@ require('packer').startup(function()
   use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup { use_diagnostic_signs = true }
-      end
+      config = function() require("trouble").setup() end
   }
   use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.nvim-treesitter') ]] }
-  use { 'nvim-treesitter/nvim-treesitter-textobjects', branch = '0.5-compat' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
 

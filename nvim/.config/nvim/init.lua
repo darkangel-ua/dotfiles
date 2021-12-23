@@ -3,9 +3,6 @@ vim.g.mapleader = ' '
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.o.background = "dark" -- or "light" for light mode
 
--- Do not source the default filetype.vim
-vim.g.did_load_filetypes = 1
-
 pcall(require, 'impatient')
 
 require('plugins')
