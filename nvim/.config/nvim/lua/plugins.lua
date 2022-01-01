@@ -7,6 +7,7 @@ require('packer').startup(function()
   -- system
   use 'nathom/filetype.nvim'
   use 'lewis6991/impatient.nvim'
+  use { 'rcarriga/nvim-notify', config = function() require('notify').setup() end }
 
   -- Colors
   use { "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }
@@ -64,7 +65,10 @@ require('packer').startup(function()
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
 
-   -- Autocomplete
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+
+  -- Autocomplete
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -72,7 +76,6 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-calc'
   use 'hrsh7th/cmp-cmdline'
   use 'f3fora/cmp-spell'
-  use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   -- use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }
   use { 'windwp/nvim-autopairs' }
