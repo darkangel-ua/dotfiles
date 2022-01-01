@@ -42,6 +42,11 @@ require('packer').startup(function()
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
   use { 'numToStr/Comment.nvim', config = [[ require('Comment').setup() ]] }
   use { 'lewis6991/spellsitter.nvim', config = function() require('spellsitter').setup() end }
+  use {
+      'AckslD/nvim-neoclip.lua',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = function() require('settings.plugins.neoclip').setup() end
+  }
 
   -- building
   use 'cdelledonne/vim-cmake'

@@ -28,6 +28,10 @@ nnoremap <A-w> <C-w>
 inoremap <A-p> <C-r>+
 " lets use much easier Alt-r for pasting 0 register in insert mode
 inoremap <A-r> <C-r>0
+" show clipboard history
+nnoremap <silent> <C-P> :Telescope neoclip plus<cr>
+inoremap <silent> <C-P> <C-o>:Telescope neoclip plus<cr>
+vnoremap <silent> <C-P> :Telescope neoclip plus<cr>
 " Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
 nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 nnoremap <silent> <M-CR> :let v:hlsearch=!v:hlsearch<CR>
