@@ -91,3 +91,7 @@ nnoremap <silent> <leader>mm :CMakeBuild<cr>
 nnoremap <silent> <leader>mo :CMakeOpen<cr>
 nnoremap <silent> <leader>mc :CMakeClose<cr>
 
+" reloading config/files
+nnoremap <silent> <leader>rc :lua require('settings.reload').reload_all()<cr>
+nnoremap <silent> <leader>rf :lua require('settings.reload').source_current_file()<cr>
+
