@@ -6,19 +6,20 @@ local notify = require('notify')
 
 function M.reload_all()
     local reload = require('plenary.reload').reload_module
+    local source = require('settings').source
 
     -- unload local settings modules
-    reload('settings.snippets')
     reload('settings.colors')
+    reload('settings.snippets')
+    reload('settings.options')
 
     -- apply settings
-    require('settings.snippets')
     require('settings.colors')
+    require('settings.options')
+    require('settings.snippets')
     require('cmp_luasnip').clear_cache()
-
-    -- reload keymaps and options
-    vim.cmd("source " .. vim.fn.stdpath('config') .. "/plugin/keymaps.vim")
-    vim.cmd("source " .. vim.fn.stdpath('config') .. "/plugin/options.lua")
+    -- reload keymaps
+    source('keymaps')
 
     notify('Config has been reloaded', 'info', { title = 'Reload', timeout = 2000 })
 
