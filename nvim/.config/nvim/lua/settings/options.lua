@@ -1,7 +1,6 @@
 local opt = vim.opt
 
 opt.guicursor = ''
-opt.termguicolors = true
 
 opt.hidden = true
 opt.backup = false

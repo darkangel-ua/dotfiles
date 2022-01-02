@@ -1,6 +1,6 @@
-local need_sync = vim.fn.filewritable(vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua') ~= 1
+local need_sync = vim.fn.filewritable(vim.fn.stdpath('config') .. '/lua/packer_compiled.lua') ~= 1
 
-require('packer').startup(function()
+require('packer').startup({function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -90,5 +90,8 @@ require('packer').startup(function()
   if need_sync then
       require('packer').sync()
   end
-end)
-
+end,
+config = {
+    -- Move to lua dir so impatient.nvim can cache it
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+ }})
