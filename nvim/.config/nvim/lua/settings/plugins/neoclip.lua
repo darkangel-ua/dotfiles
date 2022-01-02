@@ -20,7 +20,7 @@ function M.setup()
         },
     })
 
-    -- looks like it doesn't work without this like properly
+    -- looks like it doesn't work without this properly
     require('telescope').load_extension('neoclip')
 end
 
