@@ -22,7 +22,7 @@ require('diffview').setup {
     file_panel = {
       ["<leader>x"] = ':DiffviewClose<cr>',
       ["go"] = cb('focus_entry'),
-      ["cc"] = ':lua require("settings.diffview").commit()<cr>',
+      ["cc"] = ':lua require("settings.plugins.diffview").commit()<cr>',
     }
   }
 }
@@ -30,7 +30,7 @@ require('diffview').setup {
 vim.cmd[[
 augroup my_diffview
     autocmd!
-    autocmd BufEnter * lua require('settings.diffview').buf_enter()
+    autocmd BufEnter * lua require('settings.plugins.diffview').buf_enter()
 augroup END
 ]]
 

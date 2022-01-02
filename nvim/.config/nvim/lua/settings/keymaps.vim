@@ -38,11 +38,11 @@ nnoremap <silent> <M-CR> :let v:hlsearch=!v:hlsearch<CR>
 
 " Telescope
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fF <cmd>lua require('plugins.telescope').find_files_buffer()<cr>
-nnoremap <leader>fd <cmd>lua require('plugins.telescope').dotfiles()<cr>
-nnoremap <leader>fD <cmd>lua require('plugins.telescope').dotfiles_local()<cr>
+nnoremap <leader>fF <cmd>lua require('settings.plugins.telescope').find_files_buffer()<cr>
+nnoremap <leader>fd <cmd>lua require('settings.plugins.telescope').dotfiles()<cr>
+nnoremap <leader>fD <cmd>lua require('settings.plugins.telescope').dotfiles_local()<cr>
 nnoremap <leader>fe <cmd>lua require('telescope.builtin').file_browser()<cr>
-nnoremap <leader>fE <cmd>lua require('plugins.telescope').file_browser_buffer()<cr>
+nnoremap <leader>fE <cmd>lua require('settings.plugins.telescope').file_browser_buffer()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
@@ -50,11 +50,11 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 " this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
-nnoremap <A-j> <cmd>lua require('plugins.telescope').quick_buffers()<cr>
+nnoremap <A-j> <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
 
 " projects
 nnoremap <silent> <leader>fp :Telescope projects <cr>
-nnoremap <silent> <leader>fP :lua require('plugins.projects').edit_project_list()<cr>
+nnoremap <silent> <leader>fP :lua require('settings.plugins.projects').edit_project_list()<cr>
 
 " buffline
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
@@ -77,13 +77,13 @@ nnoremap <leader>gb :Git blame<cr>
 " lsp
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gi :Telescope lsp_implementations<cr>
-nnoremap <silent> gr <cmd>lua require('plugins.telescope').lsp_references()<cr>
+nnoremap <silent> gr <cmd>lua require('settings.plugins.telescope').lsp_references()<cr>
 nnoremap <silent> gh :ClangdSwitchSourceHeader<cr>
 nnoremap <silent> ga :CodeActionMenu<cr>
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>o <cmd>lua require('plugins.telescope').lsp_document_symbols()<cr>
-nnoremap <silent> <leader>s <cmd>lua require('plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
+nnoremap <silent> <leader>o <cmd>lua require('settings.plugins.telescope').lsp_document_symbols()<cr>
+nnoremap <silent> <leader>s <cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
 vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles

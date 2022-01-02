@@ -17,12 +17,12 @@ require('packer').startup(function()
   use {
       'nvim-telescope/telescope.nvim',
       requires = { { 'nvim-lua/plenary.nvim' } },
-      config = [[ require('plugins.telescope').setup() ]]
+      config = [[ require('settings.plugins.telescope').setup() ]]
   }
   use {
       'ahmedkhalf/project.nvim',
       requires = 'nvim-telescope/telescope.nvim',
-      config = [[ require('plugins.projects').setup() ]]
+      config = [[ require('settings.plugins.projects').setup() ]]
   }
 
 -- Icons
@@ -53,7 +53,7 @@ require('packer').startup(function()
   -- git
   use 'tpope/vim-fugitive'
   use { 'lewis6991/gitsigns.nvim', config = [[ require('gitsigns').setup() ]] }
-  use { 'sindrets/diffview.nvim', config = [[ require('settings.diffview') ]] }
+  use { 'sindrets/diffview.nvim', config = [[ require('settings.plugins.diffview') ]] }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -64,7 +64,7 @@ require('packer').startup(function()
       requires = "kyazdani42/nvim-web-devicons",
       config = function() require("trouble").setup() end
   }
-  use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.nvim-treesitter') ]] }
+  use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.plugins.nvim-treesitter') ]] }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
