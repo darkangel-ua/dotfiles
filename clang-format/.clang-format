@@ -8,3 +8,4 @@ PointerAlignment: Left
 EmptyLineBeforeAccessModifier: LogicalBlock
 BreakConstructorInitializers: BeforeComma
 FixNamespaceComments: False
+AllowShortFunctionsOnASingleLine: InlineOnly
