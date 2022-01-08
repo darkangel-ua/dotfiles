@@ -14,6 +14,7 @@ require('packer').startup({function()
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'
 
+  -- Navigation
   use {
       'nvim-telescope/telescope.nvim',
       requires = { { 'nvim-lua/plenary.nvim' } },
@@ -23,6 +24,11 @@ require('packer').startup({function()
       'ahmedkhalf/project.nvim',
       requires = 'nvim-telescope/telescope.nvim',
       config = [[ require('settings.plugins.projects').setup() ]]
+  }
+  use {
+      'nvim-telescope/telescope-file-browser.nvim',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = function() require("telescope").load_extension "file_browser" end
   }
 
 -- Icons

@@ -41,7 +41,7 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fF <cmd>lua require('settings.plugins.telescope').find_files_buffer()<cr>
 nnoremap <leader>fd <cmd>lua require('settings.plugins.telescope').dotfiles()<cr>
 nnoremap <leader>fD <cmd>lua require('settings.plugins.telescope').dotfiles_local()<cr>
-nnoremap <leader>fe <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <leader>fe <cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>
 nnoremap <leader>fE <cmd>lua require('settings.plugins.telescope').file_browser_buffer()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>

@@ -82,7 +82,7 @@ function M.file_browser_buffer()
         cwd = utils.buffer_dir()
     }
 
-    builtin.file_browser(opts)
+    telescope.extensions.file_browser.file_browser(opts)
 end
 
 function M.lsp_references()
