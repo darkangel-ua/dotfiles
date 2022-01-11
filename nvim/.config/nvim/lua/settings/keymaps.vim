@@ -75,7 +75,7 @@ nnoremap <leader>gch :Telescope git_branches<cr>
 nnoremap <leader>gb :Git blame<cr>
 
 " lsp
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd :lua require('settings.plugins.telescope').lsp_definitions()<cr>
 nnoremap <silent> gi :Telescope lsp_implementations<cr>
 nnoremap <silent> gr <cmd>lua require('settings.plugins.telescope').lsp_references()<cr>
 nnoremap <silent> gh :ClangdSwitchSourceHeader<cr>

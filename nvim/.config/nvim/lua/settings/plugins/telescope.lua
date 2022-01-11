@@ -100,6 +100,21 @@ function M.lsp_references()
     return builtin.lsp_references(opts)
 end
 
+function M.lsp_definitions()
+    local opts = {
+        initial_mode = 'normal',
+        layout_strategy = 'vertical',
+        layout_config = {
+            height = 0.99,
+            preview_height = 0.7,
+            prompt_position = 'top',
+            mirror = true,
+        }
+    }
+
+    return builtin.lsp_definitions(opts)
+end
+
 function M.lsp_document_symbols()
     local opts = {
       previewer = false,
