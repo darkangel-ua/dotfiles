@@ -92,10 +92,13 @@ nnoremap <silent> <leader>; :TroubleToggle quickfix<cr>:CMakeClose<cr>
 
 " building
 nnoremap <silent> <leader>mm :CMakeBuild<cr>
-nnoremap <silent> <leader>mo :CMakeOpen<cr>
+nnoremap <silent> <leader>mo <cmd>lua require('settings.plugins.ide').cmake_open()<cr>
 nnoremap <silent> <leader>mc :CMakeClose<cr>
 
 " reloading config/files
 nnoremap <silent> <leader>rc :lua require('settings.reload').reload_all()<cr>
 nnoremap <silent> <leader>rf :lua require('settings.reload').source_current_file()<cr>
+
+" ide like behaviour to close support windows by esc leaving only main window
+nnoremap <silent> <esc> <cmd>lua require('settings.plugins.ide').on_esc_pressed()<cr>
 
