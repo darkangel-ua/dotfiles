@@ -49,6 +49,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>p <cmd>Telescope resume<cr>
 " this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
 nnoremap <A-j> <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
 
