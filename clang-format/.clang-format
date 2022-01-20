@@ -9,3 +9,4 @@ EmptyLineBeforeAccessModifier: LogicalBlock
 BreakConstructorInitializers: BeforeComma
 FixNamespaceComments: False
 AllowShortFunctionsOnASingleLine: InlineOnly
+SpaceBeforeParens: ControlStatements
