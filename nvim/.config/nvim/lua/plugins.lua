@@ -68,7 +68,7 @@ require('packer').startup({function()
   use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = function() require("trouble").setup() end
+      config = function() require("settings.plugins.trouble").setup() end
   }
   use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.plugins.nvim-treesitter') ]] }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
