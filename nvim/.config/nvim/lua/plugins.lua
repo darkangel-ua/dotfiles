@@ -58,7 +58,7 @@ require('packer').startup({function()
 
   -- git
   use 'tpope/vim-fugitive'
-  use { 'lewis6991/gitsigns.nvim', config = [[ require('gitsigns').setup() ]] }
+  use { 'lewis6991/gitsigns.nvim', config = function() require('settings.plugins.gitsigns').setup() end }
   use { 'sindrets/diffview.nvim', config = [[ require('settings.plugins.diffview') ]] }
 
   -- LSP
