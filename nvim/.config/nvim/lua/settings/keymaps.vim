@@ -35,6 +35,8 @@ vnoremap <silent> <C-P> :Telescope neoclip plus<cr>
 " Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
 nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 nnoremap <silent> <M-CR> :let v:hlsearch=!v:hlsearch<CR>
+" edit file in the same folder as current buffer
+nnoremap <leader>e :e <C-R>=expand("%:p:h")<cr>
 
 " Telescope
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
