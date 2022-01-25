@@ -5,10 +5,9 @@ function M.apply()
     local base = require('gruvbox.base')
     local my_colors = lush(function()
         return {
-            TelescopePreviewLine { bg = base.GruvboxBlue.fg.hex, fg = base.GruvboxBg1.fg.hex, gui = "bold" },
-            LuasnipInsertNodePassive { bg = base.GruvboxBg1.fg.hex, fg = base.GruvboxBlue.fg.hex, gui = "italic" },
-            LuasnipChoiceNodePassive { bg = base.GruvboxBg1.fg.hex, fg = base.GruvboxBlue.fg.hex, gui = "italic" },
-            LuasnipExitNodePassive { bg = base.GruvboxBg1.fg.hex, fg = base.GruvboxRed.fg.hex, gui = "italic" },
+            LuasnipInsertNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxBlue.fg, gui = "italic" },
+            LuasnipChoiceNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxBlue.fg, gui = "italic" },
+            LuasnipExitNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxRed.fg, gui = "italic" },
         }
     end)
 
