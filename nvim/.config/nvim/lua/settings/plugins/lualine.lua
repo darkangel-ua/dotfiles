@@ -16,9 +16,9 @@ function M.setup()
             lualine_a = {'mode'},
             lualine_b = {'branch', 'diff', 'diagnostics'},
             lualine_c = { { 'filename', path = 1 } },
-            lualine_x = {'filetype'},
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
+            lualine_x = {'b:lsp_current_function'},
+            lualine_y = {'filetype'},
+            lualine_z = {'%3p%% %3l:%-2v'}
         },
     })
 end
