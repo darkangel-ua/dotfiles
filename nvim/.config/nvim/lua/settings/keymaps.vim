@@ -6,21 +6,24 @@ nnoremap <silent> <leader>X :tabc<cr>
 " Set kj/jk to be escape in insert mode
 inoremap kj <esc>
 inoremap jk <esc>
+tnoremap kj <C-\><C-N>
+tnoremap jk <C-\><C-N>
 " same for command mode
 " this strange <c-u><bs> is because of some vi compatibility
 " see https://stackoverflow.com/questions/24396516/remapping-a-key-to-esc-doesnt-work-in-command-mode
 cnoremap kj <c-u><bs>
 cnoremap jk <c-u><bs>
-" use Alt with j and k for command scrolling in command mode
-cnoremap <A-j> <Down>
-cnoremap <A-k> <Up>
+" use Ctrl with j and k for command scrolling in command mode
+cnoremap <C-j> <C-n>
+cnoremap <C-k> <C-p>
+" Ctrl j and k for page up and page down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 vnoremap <C-j> <C-d>
 vnoremap <C-k> <C-u>
 " lets make saving convenient
-nnoremap <silent> <A-s> :update<cr>
-inoremap <silent> <A-s> <C-o>:update<cr>
+nnoremap <silent> <C-s> :update<cr>
+inoremap <silent> <C-s> <C-o>:update<cr>
 " lets try to use more convenient Alt
 nnoremap <A-w> <C-w>
 " lets use much easier Alt-p for pasting + register in insert mode
@@ -49,11 +52,11 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fs <cmd>lua require("telescope.builtin").live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end})<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>p <cmd>Telescope resume<cr>
 " this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
-nnoremap <A-j> <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
+nnoremap <leader>j <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
 
 " projects
 nnoremap <silent> <leader>fp :Telescope projects <cr>
@@ -87,7 +90,7 @@ nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>o <cmd>lua require('settings.plugins.telescope').lsp_document_symbols()<cr>
 nnoremap <silent> <leader>s <cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
-vnoremap <silent> <A-f> :lua vim.lsp.buf.range_formatting()<cr>
+vnoremap <silent> <C-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles
 nnoremap <silent> <leader>a :TroubleToggle document_diagnostics<cr>

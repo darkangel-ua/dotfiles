@@ -14,11 +14,8 @@ function M.setup()
           },
           mappings = {
               i = {
-                      ['<A-j>'] = actions.move_selection_next,
-                      ['<A-k>'] = actions.move_selection_previous,
                       ['<C-j>'] = actions.preview_scrolling_down,
                       ['<C-k>'] = actions.preview_scrolling_up,
-                      ['<A-x>'] = actions.close
                   },
               n = {
                       ['<C-C>'] = actions.close,

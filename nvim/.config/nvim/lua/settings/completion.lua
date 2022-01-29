@@ -43,13 +43,13 @@ cmp.setup({
               fallback()
           end
       end, { "i", "s" }),
-      -- use Alt-k and Alt-k for Up and Down and for snippet choice selection
-      ["<A-j>"] = cmp.mapping({
+      -- use Ctrl-k and Ctrl-k for Up and Down and for snippet choice selection
+      ["<C-j>"] = cmp.mapping({
         i = select_or_choice(1),
         s = select_or_choice(1),
         c = cmp.mapping.select_next_item()
       }),
-      ["<A-k>"] = cmp.mapping({
+      ["<C-k>"] = cmp.mapping({
         i = select_or_choice(-1),
         s = select_or_choice(-1),
         c = cmp.mapping.select_prev_item()
