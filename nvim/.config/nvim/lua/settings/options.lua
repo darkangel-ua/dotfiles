@@ -45,3 +45,10 @@ opt.smartcase = true
 
 opt.splitright = true
 
+-- this section is options for terminal
+vim.cmd [[
+augroup my_term_settings
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+augroup end
+]]

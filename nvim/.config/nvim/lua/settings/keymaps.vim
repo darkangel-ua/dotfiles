@@ -105,3 +105,7 @@ nnoremap <silent> <leader>rf :lua require('settings.reload').source_current_file
 " ide like behaviour to close support windows by esc leaving only main window
 nnoremap <silent> <esc> <cmd>lua require('settings.plugins.ide').on_esc_pressed()<cr>
 
+" scratch terminal
+nnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
+tnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
+

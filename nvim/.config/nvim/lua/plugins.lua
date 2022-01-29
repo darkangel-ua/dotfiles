@@ -8,6 +8,7 @@ require('packer').startup({function()
   use 'nathom/filetype.nvim'
   use 'lewis6991/impatient.nvim'
   use { 'rcarriga/nvim-notify', config = function() require('notify').setup() end }
+  use { 'numToStr/FTerm.nvim', config = function() require('settings.plugins.fterm').setup() end }
 
   -- Colors
   use { "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }
