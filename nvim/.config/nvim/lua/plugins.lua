@@ -39,9 +39,11 @@ require('packer').startup({function()
 
   -- Status Line and Bufferline
   use 'akinsho/bufferline.nvim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  -- -- use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function() require('settings.plugins.lualine').setup() end
+   }
 
   -- Editing
   use 'axelf4/vim-strip-trailing-whitespace'
