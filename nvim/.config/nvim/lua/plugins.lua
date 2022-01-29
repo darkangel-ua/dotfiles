@@ -31,6 +31,7 @@ require('packer').startup({function()
       requires = 'nvim-telescope/telescope.nvim',
       config = function() require("telescope").load_extension "file_browser" end
   }
+  use { 'christoomey/vim-tmux-navigator' }
 
 -- Icons
   use 'kyazdani42/nvim-web-devicons'
