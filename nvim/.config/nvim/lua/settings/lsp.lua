@@ -35,8 +35,6 @@ lsp_status.config({
   }
 })
 
-lsp_status.register_progress()
-
 lspconfig.clangd.setup({
   handlers = lsp_status.extensions.clangd.setup(),
   init_options = {

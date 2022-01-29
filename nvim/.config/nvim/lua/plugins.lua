@@ -72,6 +72,7 @@ require('packer').startup({function()
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
   use 'nvim-lua/lsp-status.nvim'
+  use { 'j-hui/fidget.nvim', config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end }
   use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
