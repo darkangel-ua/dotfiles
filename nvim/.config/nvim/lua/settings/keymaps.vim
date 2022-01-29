@@ -36,49 +36,49 @@ nnoremap <silent> <C-P> :Telescope neoclip plus<cr>
 inoremap <silent> <C-P> <C-o>:Telescope neoclip plus<cr>
 vnoremap <silent> <C-P> :Telescope neoclip plus<cr>
 " Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
-nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
+nnoremap <silent> <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 nnoremap <silent> <M-CR> :let v:hlsearch=!v:hlsearch<CR>
 " edit file in the same folder as current buffer
 nnoremap <leader>e :e <C-R>=expand("%:p:h")<cr>
 
 " Telescope
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fF <cmd>lua require('settings.plugins.telescope').find_files_buffer()<cr>
-nnoremap <leader>fd <cmd>lua require('settings.plugins.telescope').dotfiles()<cr>
-nnoremap <leader>fD <cmd>lua require('settings.plugins.telescope').dotfiles_local()<cr>
-nnoremap <leader>fe <cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>
-nnoremap <leader>fE <cmd>lua require('settings.plugins.telescope').file_browser_buffer()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fs <cmd>lua require("telescope.builtin").live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end})<cr>
-nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap <leader>p <cmd>Telescope resume<cr>
+nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <silent> <leader>fF <cmd>lua require('settings.plugins.telescope').find_files_buffer()<cr>
+nnoremap <silent> <leader>fd <cmd>lua require('settings.plugins.telescope').dotfiles()<cr>
+nnoremap <silent> <leader>fD <cmd>lua require('settings.plugins.telescope').dotfiles_local()<cr>
+nnoremap <silent> <leader>fe <cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>
+nnoremap <silent> <leader>fE <cmd>lua require('settings.plugins.telescope').file_browser_buffer()<cr>
+nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <silent> <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <silent> <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent> <leader>fs <cmd>lua require("telescope.builtin").live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end})<cr>
+nnoremap <silent> <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <silent> <leader>p <cmd>Telescope resume<cr>
 " this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
-nnoremap <leader>j <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
+nnoremap <silent> <leader>j <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
 
 " projects
 nnoremap <silent> <leader>fp :Telescope projects <cr>
 nnoremap <silent> <leader>fP :lua require('settings.plugins.projects').edit_project_list()<cr>
 
 " buffline
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent> <leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent> <leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent> <leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent> <leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent> <leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent> <leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent> <leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent> <leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent> <leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
 " git
-nnoremap <leader>gs :Git<cr>
-nnoremap <leader>gg :DiffviewOpen<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gch :Telescope git_branches<cr>
-nnoremap <leader>gb :Git blame<cr>
+nnoremap <silent> <leader>gs :Git<cr>
+nnoremap <silent> <leader>gg :DiffviewOpen<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gch :Telescope git_branches<cr>
+nnoremap <silent> <leader>gb :Git blame<cr>
 
 " lsp
 nnoremap <silent> gd :lua require('settings.plugins.telescope').lsp_definitions()<cr>
