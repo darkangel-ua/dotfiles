@@ -112,3 +112,9 @@ nnoremap <silent> <esc> <cmd>lua require('settings.plugins.ide').on_esc_pressed(
 nnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
 tnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
 
+" vim tmux integration
+nnoremap <silent> <C-S-Left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-S-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-S-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-S-Right> :TmuxNavigateRight<cr>
+
