@@ -10,15 +10,17 @@ function M.setup()
     custom_gruvbox.visual.c = custom_gruvbox.normal.c
 
     require('lualine').setup({
-        options = { theme = custom_gruvbox },
-        extensions = { 'fugitive' },
+        options = {
+            theme = custom_gruvbox,
+            component_separators = '',
+        },
         sections = {
             lualine_a = {'mode'},
             lualine_b = {'branch', 'diff', 'diagnostics'},
             lualine_c = { { 'filename', path = 1 } },
             lualine_x = {'b:lsp_current_function'},
             lualine_y = {'filetype'},
-            lualine_z = {'%3p%% %3l:%-2v'}
+            lualine_z = { 'progress', 'location' }
         },
     })
 end
