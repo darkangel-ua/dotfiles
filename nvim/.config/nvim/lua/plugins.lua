@@ -59,6 +59,7 @@ require('packer').startup({function()
       requires = 'nvim-telescope/telescope.nvim',
       config = function() require('settings.plugins.neoclip').setup() end
   }
+  use { 'phaazon/hop.nvim', config = function() require('hop').setup() end }
 
   -- building
   use 'cdelledonne/vim-cmake'

@@ -89,7 +89,7 @@ nnoremap <silent> ga :CodeActionMenu<cr>
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>o <cmd>lua require('settings.plugins.telescope').lsp_document_symbols()<cr>
-nnoremap <silent> <leader>s <cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
+nnoremap <silent> gs <cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
 vnoremap <silent> <C-f> :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles
@@ -117,4 +117,8 @@ nnoremap <silent> <C-S-Left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-S-Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-S-Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-S-Right> :TmuxNavigateRight<cr>
+
+" hop
+nnoremap <silent> s :HopWord<cr>
+nnoremap <silent> <leader>s :HopLine<cr>
 

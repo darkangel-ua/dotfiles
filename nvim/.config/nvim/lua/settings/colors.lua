@@ -8,6 +8,9 @@ function M.apply()
             LuasnipInsertNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxBlue.fg, gui = "italic" },
             LuasnipChoiceNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxBlue.fg, gui = "italic" },
             LuasnipExitNodePassive { bg = base.GruvboxBg1.fg, fg = base.GruvboxRed.fg, gui = "italic" },
+            HopNextKey { fg = base.GruvboxOrange.fg, gui = 'bold' },
+            HopNextKey1 { fg = base.GruvboxOrange.fg, gui = 'bold' },
+            HopNextKey2 { fg = base.GruvboxOrange.fg },
         }
     end)
 
