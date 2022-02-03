@@ -83,6 +83,10 @@ require('packer').startup({function()
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
+  use {
+      'Badhi/nvim-treesitter-cpp-tools',
+      requires = 'nvim-treesitter/nvim-treesitter'
+  }
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
