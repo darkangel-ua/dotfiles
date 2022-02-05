@@ -7,7 +7,8 @@ alias tree='exa --group-directories-first --tree --icons -I .git'
 alias l='exa -lg --group-directories-first --icons'
 alias ll='exa -lga --group-directories-first --icons'
 
-alias restow-dotfiles='pushd ~/.dotfiles > /dev/null;stow -R */;popd > /dev/null'
+alias restow-dotfiles='pushd ~/.dotfiles > /dev/null && stow --no-folding -R */;popd > /dev/null'
+alias restow-dotfiles-local='pushd ~/.dotfiles.local > /dev/null && stow --no-folding -R */;popd > /dev/null'
 
 # git
 alias gs='git status'

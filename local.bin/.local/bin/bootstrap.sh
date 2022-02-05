@@ -4,11 +4,6 @@
 [ ! -L ~/.bashrc ] && rm ~/.bashrc
 [ ! -L ~/.profile ] && rm ~/.profile
 
-# this to prevent folder optimization that stow is doing
-mkdir -p ~/.local/share/mc/skins
-mkdir -p ~/.local/bin
-mkdir -p ~/.config
-
 # basic system stuff
 sudo apt -y install stow pip mc
 sudo pip install powerline-status netifaces
@@ -16,7 +11,7 @@ sudo pip install powerline-status netifaces
 # if there is no .bashrc that means we are on clean system
 if [ ! -e ~/.bashrc ]; then
     pushd ~/.dotfiles
-    stow */
+    stow --no-folding */
     popd
 fi
 
