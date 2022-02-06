@@ -11,7 +11,7 @@ sudo pip install powerline-status netifaces
 # if there is no .bashrc that means we are on clean system
 if [ ! -e ~/.bashrc ]; then
     pushd ~/.dotfiles
-    stow --no-folding */
+    stow --no-folding */ || { echo 'Initial stow has failed. Stopping...'; exit 1; }
     popd
 fi
 
