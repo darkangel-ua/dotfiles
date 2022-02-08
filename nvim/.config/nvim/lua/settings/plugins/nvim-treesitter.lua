@@ -35,4 +35,7 @@ require('nvim-treesitter.configs').setup({
             accept = 'i' -- optional keymapping for accept preview
         },
     },
+    endwise = {
+        enable = true
+    },
 })

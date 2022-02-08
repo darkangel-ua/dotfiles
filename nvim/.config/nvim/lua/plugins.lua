@@ -81,6 +81,7 @@ require('packer').startup({function()
   }
   use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.plugins.nvim-treesitter') ]] }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  use { 'RRethy/nvim-treesitter-endwise' }
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
   use {
