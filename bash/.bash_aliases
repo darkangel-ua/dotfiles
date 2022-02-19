@@ -14,5 +14,6 @@ alias restow-dotfiles-local='pushd ~/.dotfiles.local > /dev/null && stow --no-fo
 alias gs='git status'
 alias gch='git checkout "$(git branch -a | fzf | tr -d '[:space:]')"'
 alias gsu='git submodule update --init --recursive'
+alias gl='git log --oneline -n 20'
 
 [ -f ~/.bash_aliases.local ] && source  ~/.bash_aliases.local
