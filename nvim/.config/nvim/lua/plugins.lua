@@ -41,7 +41,7 @@ require('packer').startup({function()
   use 'ryanoasis/vim-devicons'
 
   -- Status Line and Bufferline
-  use 'akinsho/bufferline.nvim'
+  use { 'akinsho/bufferline.nvim', branch = 'main' }
   use {
       'nvim-lualine/lualine.nvim',
       requires = "kyazdani42/nvim-web-devicons",
