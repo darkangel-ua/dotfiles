@@ -44,6 +44,13 @@ ls.snippets.cpp = {
     ls.parser.parse_snippet({trig = "eanythrow"}, "EXPECT_ANY_THROW(${1:expression});$0"),
     ls.parser.parse_snippet({trig = "ethrow"}, "EXPECT_THROW(${1:expression}, ${2:expected-exception});$0"),
     ls.parser.parse_snippet({trig = "ex"}, "EXPECT"), -- this helps discover other macroses
+    ls.parser.parse_snippet({trig = "atrue"}, "ASSERT_TRUE(${1:condition});$0"),
+    ls.parser.parse_snippet({trig = "afalse"}, "ASSERT_FALSE(${1:condition});$0"),
+    ls.parser.parse_snippet({trig = "aeq"}, "ASSERT_EQ(${1:expected}, ${2:actual});$0"),
+    ls.parser.parse_snippet({trig = "ane"}, "ASSERT_NE(${1:val1}, ${2:val2});$0"),
+    ls.parser.parse_snippet({trig = "anothrow"}, "ASSERT_NO_THROW(${1:expression});$0"),
+    ls.parser.parse_snippet({trig = "aanythrow"}, "ASSERT_ANY_THROW(${1:expression});$0"),
+    ls.parser.parse_snippet({trig = "athrow"}, "ASSERT_THROW(${1:expression}, ${2:expected-exception});$0"),
 }
 
 -- load local snippets configuration
