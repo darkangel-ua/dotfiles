@@ -10,8 +10,10 @@ function M.reload_all()
 
     -- unload local settings modules
     reload('settings.colors')
-    reload('settings.snippets')
     reload('settings.options')
+    reload('settings.snippets')
+
+    reload('settings.plugins.cmake')
 
     -- apply settings
     require('settings.colors')
@@ -19,7 +21,7 @@ function M.reload_all()
     require('settings.snippets')
     require('cmp_luasnip').clear_cache()
     -- reload keymaps
-    source('keymaps')
+    source('keymaps.vim')
 
     notify('Config has been reloaded', 'info', { title = 'Reload', timeout = 2000 })
 
