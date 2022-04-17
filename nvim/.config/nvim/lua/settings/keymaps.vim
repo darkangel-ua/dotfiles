@@ -102,6 +102,15 @@ nnoremap <silent> <leader>; :TroubleToggle quickfix<cr>:CMakeClose<cr>
 nnoremap <silent> <leader>mm :CMakeBuild<cr>
 nnoremap <silent> <leader>mo <cmd>lua require('settings.plugins.ide').cmake_open()<cr>
 nnoremap <silent> <leader>mc :CMakeClose<cr>
+nnoremap <silent> <leader>mt :lua require('settings.plugins.cmake').select_build_targets()<cr>
+
+" debugging
+nnoremap <silent> <F5> :lua require("dap").continue()<cr>
+nnoremap <silent> <F8> :lua require("dap").step_over()<cr>
+nnoremap <silent> <F9> :lua require("dap").step_into()<cr>
+nnoremap <silent> <F21> :lua require("dap").step_out()<cr>          " F21 is actually Shift-F9
+nnoremap <silent> <F2> :lua require("dap").toggle_breakpoint()<cr>
+nnoremap <silent> <F22> :lua require("dap").terminate()<cr>         " F22 is actually Shift-F10
 
 " reloading config/files
 nnoremap <silent> <leader>rc :lua require('settings.reload').reload_all()<cr>

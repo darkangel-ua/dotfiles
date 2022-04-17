@@ -62,7 +62,11 @@ require('packer').startup({function()
   use { 'phaazon/hop.nvim', config = function() require('hop').setup() end }
 
   -- building
-  use 'cdelledonne/vim-cmake'
+  use { 'darkangel-ua/vim-cmake', branch = 'generate-cmake-codemodel' }
+  -- use { "Shatur/neovim-cmake", config = function() require("cmake").setup({}) end }
+
+  -- debugging
+  use { "mfussenegger/nvim-dap", config = function() require('settings.plugins.nvim-dap') end }
 
   -- git
   use 'tpope/vim-fugitive'
