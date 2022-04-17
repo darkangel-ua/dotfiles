@@ -6,20 +6,22 @@ local lspkind = require('lspkind')
 
 lspkind.init()
 
-local function select_or_choice(direction)
-    return function(fallback)
-        if cmp.visible() then
-            if direction == 1 then
-                cmp.select_next_item()
-            else
-                cmp.select_prev_item()
-            end
-        elseif snip.choice_active() then
-            snip.change_choice(direction)
+local function select_or_choice_impl(direction, fallback)
+    if cmp.visible() then
+        if direction == 1 then
+            cmp.select_next_item()
         else
-            fallback()
+            cmp.select_prev_item()
         end
+    elseif snip.choice_active() then
+        snip.change_choice(direction)
+    else
+        fallback()
     end
+end
+
+local function select_or_choice(direction)
+    return function(fallback) select_or_choice_impl(direction, fallback) end
 end
 
 cmp.setup({
@@ -51,16 +53,16 @@ cmp.setup({
           if snip.expand_or_jumpable() then
               snip.expand_or_jump()
           else
-              fallback()
+              select_or_choice_impl(1, fallback)
           end
-      end, { "i", "s" }),
+      end, { "i", "s", "c"}),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
           if snip.jumpable(-1) then
               snip.jump(-1)
           else
-              fallback()
+              select_or_choice_impl(-1, fallback)
           end
-      end, { "i", "s" }),
+      end, { "i", "s", "c"}),
       -- use Ctrl-k and Ctrl-k for Up and Down and for snippet choice selection
       ["<C-j>"] = cmp.mapping({
         i = select_or_choice(1),
