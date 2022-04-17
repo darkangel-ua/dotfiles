@@ -1,4 +1,6 @@
 local cmp = require('cmp')
+local mapping = require('cmp.config.mapping')
+local types = require('cmp.types')
 local snip = require('luasnip')
 local lspkind = require('lspkind')
 
@@ -28,6 +30,22 @@ cmp.setup({
     },
     mapping = {
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Down>'] = mapping({
+          i = mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+          c = function(fallback)
+              cmp.close()
+              vim.schedule(cmp.suspend())
+              fallback()
+          end,
+      }),
+      ['<Up>'] = mapping({
+          i = mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+          c = function(fallback)
+              cmp.close()
+              vim.schedule(cmp.suspend())
+              fallback()
+          end,
+      }),
       -- snippets works only on Tabs
       ["<Tab>"] = cmp.mapping(function(fallback)
           if snip.expand_or_jumpable() then
