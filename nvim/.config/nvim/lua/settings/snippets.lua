@@ -30,7 +30,7 @@ public:
 };
 ]]
 
-ls.snippets.cpp = {
+ls.add_snippets("cpp", {
     ls.parser.parse_snippet({trig = "main"}, cpp_main),
     ls.parser.parse_snippet({trig = "class"}, cpp_class),
     -- gtest
@@ -51,7 +51,7 @@ ls.snippets.cpp = {
     ls.parser.parse_snippet({trig = "anothrow"}, "ASSERT_NO_THROW(${1:expression});$0"),
     ls.parser.parse_snippet({trig = "aanythrow"}, "ASSERT_ANY_THROW(${1:expression});$0"),
     ls.parser.parse_snippet({trig = "athrow"}, "ASSERT_THROW(${1:expression}, ${2:expected-exception});$0"),
-}
+})
 
 -- load local snippets configuration
 pcall(require, "settings.snippets_local")
