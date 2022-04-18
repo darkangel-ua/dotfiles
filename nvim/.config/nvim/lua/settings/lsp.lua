@@ -3,8 +3,38 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
--- use it only for b:lsp_current_function
-lsp_status.config({})
+lsp_status.config({
+    show_filename = false,
+    diagnostics = false,
+    kind_labels = {
+    -- just copied this from lsp-kind plugin
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+  }
+})
 
 lspconfig.clangd.setup({
   handlers = lsp_status.extensions.clangd.setup(),
