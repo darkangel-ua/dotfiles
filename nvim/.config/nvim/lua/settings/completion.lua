@@ -4,7 +4,7 @@ local types = require('cmp.types')
 local snip = require('luasnip')
 local lspkind = require('lspkind')
 
-lspkind.init()
+lspkind.setup()
 
 local function select_or_choice_impl(direction, fallback)
     if cmp.visible() then
