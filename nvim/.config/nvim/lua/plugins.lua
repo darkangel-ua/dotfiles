@@ -11,7 +11,7 @@ require('packer').startup({function()
   use { 'numToStr/FTerm.nvim', config = function() require('settings.plugins.fterm').setup() end }
 
   -- Colors
-  use { "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }
+  use { "ellisonleao/gruvbox.nvim", commit = 'dc6bae93ded04ac542d429ff5cc87189dde44294', requires = { "rktjmp/lush.nvim" } }
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'
 
