@@ -7,7 +7,14 @@ require('packer').startup({function()
   -- system
   use 'nathom/filetype.nvim'
   use 'lewis6991/impatient.nvim'
-  use { 'rcarriga/nvim-notify', config = function() require('notify').setup() end }
+  use {
+      'rcarriga/nvim-notify',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = function()
+          require('notify').setup()
+          require("telescope").load_extension("notify")
+      end
+  }
   use { 'numToStr/FTerm.nvim', config = function() require('settings.plugins.fterm').setup() end }
 
   -- Colors
