@@ -11,7 +11,4 @@ require('plugins')
 require('packer_compiled')
 require('settings')
 
--- for reasons unknown to me this should be here to apply
-vim.g.airline_powerline_fonts = 1
-
 vim.cmd[[ colorscheme gruvbox ]]
