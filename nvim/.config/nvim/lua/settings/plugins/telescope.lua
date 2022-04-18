@@ -135,4 +135,21 @@ function M.lsp_dynamic_workspace_symbols()
     return builtin.lsp_dynamic_workspace_symbols(opts)
 end
 
+function M.grep_string_in_buffer()
+    local opts = {
+        prompt_title = 'Find word in current buffer',
+        default_text = vim.fn.expand('<cword>'),
+        sorter = require('telescope.sorters').get_substr_matcher({}),
+        initial_mode = 'normal',
+        layout_strategy = 'vertical',
+        layout_config = {
+            height = 0.99,
+            preview_height = 0.7,
+            mirror = true,
+        }
+    }
+
+    builtin.current_buffer_fuzzy_find(opts)
+end
+
 return M
