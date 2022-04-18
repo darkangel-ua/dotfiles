@@ -84,21 +84,11 @@ cmp.setup({
         { name = 'path' }
     },
     formatting = {
-        format = function(entry, vim_item)
-          -- fancy icons and a name of kind
-          vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
-
-          -- set a name for each source
-          vim_item.menu = ({
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[Latex]",
-          })[entry.source.name]
-          return vim_item
-        end,
-  }
+        format = lspkind.cmp_format({
+            mode = 'symbol_text', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        }),
+    }
 })
 
 cmp.setup.cmdline('/', {
