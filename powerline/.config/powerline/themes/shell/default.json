@@ -2,6 +2,13 @@
 	"segments": {
 		"left": [
 			{
+				"function": "powerline.segments.common.env.environment",
+				"priority": 30,
+                "args": {
+                    "variable" : "POWERLINE_CONDITIONAL_HOST"
+                }
+			},
+			{
 				"function": "powerline.segments.common.env.user",
 				"priority": 30
 			},

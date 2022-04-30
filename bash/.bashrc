@@ -99,6 +99,21 @@ if [ -z "${MC_SID}" ]; then
    source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
+if [[ -z "$TMUX" ]]; then
+    hostname=$(hostname)
+
+    virt=$(systemd-detect-virt)
+    if [[ "$virt" != "none" ]]; then
+        hostname="$virt($hostname))"
+    fi
+
+    if [[ ! -z "$SSH_CLIENT" ]]; then
+        hostname="ssh($hostname)"
+    fi
+
+    export POWERLINE_CONDITIONAL_HOST="$hostname"
+fi
+
 if [ -f ~/.bashrc.local ]; then
     source ~/.bashrc.local
 fi
