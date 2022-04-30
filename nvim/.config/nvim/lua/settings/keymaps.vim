@@ -125,10 +125,10 @@ nnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
 tnoremap <silent> <C-h> <cmd>lua require('FTerm').toggle()<cr>
 
 " vim tmux integration
-nnoremap <silent> <C-S-Left> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-S-Down> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-S-Up> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-S-Right> :TmuxNavigateRight<cr>
+nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 
 " hop
 nnoremap <silent> s :HopWord<cr>
