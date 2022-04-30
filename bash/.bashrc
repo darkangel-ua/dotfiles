@@ -104,7 +104,7 @@ if [[ -z "$TMUX" ]]; then
 
     virt=$(systemd-detect-virt)
     if [[ "$virt" != "none" ]]; then
-        hostname="$virt($hostname))"
+        hostname="$virt($hostname)"
     fi
 
     if [[ ! -z "$SSH_CLIENT" ]]; then
@@ -112,6 +112,8 @@ if [[ -z "$TMUX" ]]; then
     fi
 
     export POWERLINE_CONDITIONAL_HOST="$hostname"
+else
+    export -n POWERLINE_CONDITIONAL_HOST
 fi
 
 if [ -f ~/.bashrc.local ]; then
