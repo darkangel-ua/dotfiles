@@ -59,6 +59,7 @@ nnoremap <silent> <leader>p <cmd>Telescope resume<cr>
 " this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
 nnoremap <silent> <leader>j <cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>
 nnoremap <silent> S :Telescope spell_suggest<cr>
+nnoremap <silent> <leader>fm <cmd>Telescope man_pages<cr>
 
 " projects
 nnoremap <silent> <leader>fp :Telescope projects <cr>
