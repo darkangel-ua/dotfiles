@@ -1,14 +1,14 @@
 {
 	"groups": {
-		"active_window_status": {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"window_status":        {"fg": "gray70",                    "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"activity_status":      {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"bell_status":          {"fg": "red",                       "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"window":               {"fg": "gray6",                     "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"window:divider":       {"fg": "gray4",                     "bg": "gruvbox:dark0_hard",    "attrs": []},
-		"window:current":       {"fg": "gruvbox:dark0_hard",        "bg": "gruvbox:bright_green", "attrs": []},
-		"window_name":          {"fg": "gruvbox:dark0_hard",        "bg": "gruvbox:bright_green", "attrs": ["bold"]},
-		"session":              {"fg": "gruvbox:dark0_hard",        "bg": "gruvbox:bright_green",   "attrs": ["bold"]},
-		"session:prefix":       {"fg": "gruvbox:dark0_hard",        "bg": "gruvbox:light1", "attrs": ["bold"]}
+		"active_window_status": {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0",    "attrs": []},
+		"window_status":        {"fg": "gruvbox:dark0",             "bg": "gruvbox:dark0",    "attrs": []},
+		"activity_status":      {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0",    "attrs": []},
+		"bell_status":          {"fg": "red",                       "bg": "gruvbox:dark0",    "attrs": []},
+		"window":               {"fg": "gray6",                     "bg": "gruvbox:dark0",    "attrs": []},
+		"window:divider":       {"fg": "gray4",                     "bg": "gruvbox:dark0",    "attrs": []},
+		"window:current":       {"fg": "gruvbox:dark0",             "bg": "gruvbox:bright_green", "attrs": []},
+		"window_name":          {"fg": "gruvbox:dark0",             "bg": "gruvbox:bright_green", "attrs": ["bold"]},
+		"session":              {"fg": "gruvbox:dark0",             "bg": "gruvbox:bright_green",   "attrs": ["bold"]},
+		"session:prefix":       {"fg": "gruvbox:dark0",             "bg": "gruvbox:light1", "attrs": ["bold"]}
 	}
 }
