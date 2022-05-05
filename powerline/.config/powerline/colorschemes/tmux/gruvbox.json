@@ -1,7 +1,7 @@
 {
 	"groups": {
 		"active_window_status": {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0",    "attrs": []},
-		"window_status":        {"fg": "gruvbox:dark0",             "bg": "gruvbox:dark0",    "attrs": []},
+		"window_status":        {"fg": "gruvbox:light3",            "bg": "gruvbox:dark0",    "attrs": []},
 		"activity_status":      {"fg": "gruvbox:bright_green",      "bg": "gruvbox:dark0",    "attrs": []},
 		"bell_status":          {"fg": "red",                       "bg": "gruvbox:dark0",    "attrs": []},
 		"window":               {"fg": "gray6",                     "bg": "gruvbox:dark0",    "attrs": []},
