@@ -2,9 +2,34 @@ local cmp = require('cmp')
 local mapping = require('cmp.config.mapping')
 local types = require('cmp.types')
 local snip = require('luasnip')
-local lspkind = require('lspkind')
 
-lspkind.init()
+local icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+}
 
 local function select_or_choice_impl(direction, fallback)
     if cmp.visible() then
@@ -84,11 +109,14 @@ cmp.setup({
         { name = 'path' }
     },
     formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol_text', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-        }),
-    }
+        fields = { "kind", "abbr", "menu" },
+        format = function(_, vim_item)
+            vim_item.menu = vim_item.kind
+            vim_item.kind = icons[vim_item.kind]
+
+            return vim_item
+        end,
+    },
 })
 
 cmp.setup.cmdline('/', {
