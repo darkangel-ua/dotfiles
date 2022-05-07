@@ -11,6 +11,7 @@ function M.apply()
             HopNextKey { fg = base.GruvboxOrange.fg, gui = 'bold' },
             HopNextKey1 { fg = base.GruvboxOrange.fg, gui = 'bold' },
             HopNextKey2 { fg = base.GruvboxOrange.fg },
+            Pmenu { bg = base.GruvboxBg1.fg }
         }
     end)
 
