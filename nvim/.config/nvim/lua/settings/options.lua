@@ -9,7 +9,6 @@ opt.writebackup = false
 opt.showmode = false
 -- turn hybrid line numbers on
 opt.number = true
-opt.relativenumber = true
 -- Give more space for displaying messages.
 opt.cmdheight = 2
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
