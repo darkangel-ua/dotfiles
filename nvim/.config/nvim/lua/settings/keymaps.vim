@@ -132,8 +132,10 @@ nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 
 " hop
-nnoremap <silent> s :HopWord<cr>
-nnoremap <silent> <leader>s :HopLine<cr>
+nnoremap <silent> s <cmd>HopWord<cr>
+vnoremap <silent> s <cmd>HopWord<cr>
+nnoremap <silent> <leader>s <cmd>:HopLine<cr>
+vnoremap <silent> <leader>s <cmd>HopLine<cr>
 
 " command history
 nnoremap <silent> <leader>fc :Telescope command_history<cr>
