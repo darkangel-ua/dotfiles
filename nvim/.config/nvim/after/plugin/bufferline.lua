@@ -1,10 +1,9 @@
 require("bufferline").setup({
-   options = {
+    options = {
         numbers = function(opts)
             return string.format('%s', opts.ordinal)
         end,
-   },
-   show_buffer_close_icon = false,
-   show_close_icon = false,
-   separator_style = 'slant',
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+    },
 })
