@@ -30,9 +30,16 @@ public:
 };
 ]]
 
+local cpp_struct = [[
+struct $1 {
+    $0
+};
+]]
+
 ls.add_snippets("cpp", {
     ls.parser.parse_snippet({trig = "main"}, cpp_main),
     ls.parser.parse_snippet({trig = "class"}, cpp_class),
+    ls.parser.parse_snippet({trig = "struct"}, cpp_struct),
     -- gtest
     ls.parser.parse_snippet({trig = "test"}, "GTEST_TEST(${1:test-suit-name}, ${2:test-name}) {\n\t$0\n}"),
     ls.parser.parse_snippet({trig = "testf"}, "TEST_F(${1:test-fixture}, ${2:test-name}) {\n\t$0\n}"),
