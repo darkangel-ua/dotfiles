@@ -77,7 +77,6 @@ nnoremap <silent> <leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent> <leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
 " git
-nnoremap <silent> <leader>gs :Git<cr>
 nnoremap <silent> <leader>gg :DiffviewOpen<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gch :Telescope git_branches<cr>
