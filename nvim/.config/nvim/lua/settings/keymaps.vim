@@ -100,7 +100,7 @@ nnoremap <silent> <leader>a :TroubleToggle document_diagnostics<cr>
 nnoremap <silent> <leader>; :TroubleToggle quickfix<cr>:CMakeClose<cr>
 
 " building
-nnoremap <silent> <leader>mm :CMakeBuild<cr>
+nnoremap <silent> <leader>mm :TroubleClose<cr> \| :CMakeBuild<cr>
 nnoremap <silent> <leader>mo <cmd>lua require('settings.plugins.ide').cmake_open()<cr>
 nnoremap <silent> <leader>mc :CMakeClose<cr>
 nnoremap <silent> <leader>mt :lua require('settings.plugins.cmake').select_build_targets()<cr>
