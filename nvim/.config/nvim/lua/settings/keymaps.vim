@@ -94,6 +94,7 @@ nnoremap <silent> <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>o <cmd>lua require('settings.plugins.telescope').lsp_document_symbols()<cr>
 nnoremap <silent> gs <cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>
 vnoremap <silent> <C-f> :lua vim.lsp.buf.range_formatting()<cr>
+nnoremap <silent> <C-f> va{ \| :lua vim.lsp.buf.range_formatting()<cr>
 
 " troubles
 nnoremap <silent> <leader>a :TroubleToggle document_diagnostics<cr>
