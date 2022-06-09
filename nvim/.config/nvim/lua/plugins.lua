@@ -56,6 +56,7 @@ require('packer').startup({function()
    }
 
   -- Editing
+  use { 'antoinemadec/FixCursorHold.nvim', config = function() vim.g.cursorhold_updatetime = 300 end }
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'tpope/vim-surround'
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
