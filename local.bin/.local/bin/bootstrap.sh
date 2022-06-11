@@ -5,7 +5,7 @@
 [ ! -L ~/.profile ] && rm ~/.profile
 
 # basic system stuff
-sudo apt -y install stow pip mc
+sudo apt -y install stow pip mc fontconfig
 sudo pip install powerline-status netifaces
 
 # if there is no .bashrc that means we are on clean system
@@ -17,14 +17,9 @@ fi
 
 # nvim
 if ! which nvim > /dev/null; then
-    wget https://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage
-
-    sudo chown root:root nvim.appimage
-    sudo chmod a+x nvim.appimage
-    sudo mv nvim.appimage /usr/local/bin/
-    pushd /usr/local/bin
-    sudo ln -s nvim.appimage nvim
-    popd
+    wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+    sudo dpkg -i nvim-linux64.deb
+    rm nvim-linux64.deb
 
     # nvim Python integration module
     sudo pip install neovim
