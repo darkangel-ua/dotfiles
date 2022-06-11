@@ -62,8 +62,7 @@ nnoremap <silent> S :Telescope spell_suggest<cr>
 nnoremap <silent> <leader>fm <cmd>Telescope man_pages<cr>
 
 " projects
-nnoremap <silent> <leader>fp :Telescope projects <cr>
-nnoremap <silent> <leader>fP :lua require('settings.plugins.projects').edit_project_list()<cr>
+nnoremap <silent> <leader>fp :Telescope projects<cr>
 
 " buffline
 nnoremap <silent> <leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
