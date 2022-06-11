@@ -90,6 +90,9 @@ trap historymerge EXIT SIGHUP
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# zoxide for z
+eval "$(zoxide init bash)"
+
 # powerline
 # dont use powerline under MC shell - it looks baaad
 if [ -z "${MC_SID}" ]; then

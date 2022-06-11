@@ -24,7 +24,7 @@ if ! which nvim > /dev/null; then
     # nvim Python integration module
     sudo pip install neovim
     # this is needed otherwise yank to system clipboard will not work
-    sudo apt install xclip
+    sudo apt -y install xclip
 
     # packer.nvim bootstrap
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -49,6 +49,10 @@ fi
 # fzf
 if ! which fzf > /dev/null; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
+fi
+
+if ! which zoxide > /dev/null; then
+    curl -sS https://webinstall.dev/zoxide | bash
 fi
 
 # exa
