@@ -4,6 +4,9 @@
 [ ! -L ~/.bashrc ] && rm ~/.bashrc
 [ ! -L ~/.profile ] && rm ~/.profile
 
+# in lxc containers there is no ~/.cache directory
+[ ! -e ~/.cache ] && mkdir ~/.cache
+
 # basic system stuff
 sudo apt -y install stow pip mc fontconfig
 sudo pip install powerline-status netifaces
