@@ -10,6 +10,7 @@
 # basic system stuff
 sudo apt -y install stow pip mc fontconfig
 sudo pip install powerline-status netifaces
+sudo snap install btop
 
 # if there is no .bashrc that means we are on clean system
 if [ ! -e ~/.bashrc ]; then
