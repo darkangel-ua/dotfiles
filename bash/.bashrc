@@ -96,10 +96,18 @@ eval "$(zoxide init bash)"
 # powerline
 # dont use powerline under MC shell - it looks baaad
 if [ -z "${MC_SID}" ]; then
-   POWERLINE_BASH_CONTINUATION=1
-   POWERLINE_BASH_SELECT=1
-   export POWERLINE_CONFIG_PATHS=/usr/local/lib/python3.8/dist-packages/powerline/config_files:~/.config/powerline:~/.config/powerline.local
-   source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
+    # need to cache location because pip invocation is quite costly
+    powerline_cached_location="$HOME/.cache/powerline-status-dist-path"
+    if [ -e $powerline_cached_location ]; then
+        powerline_dist_path=$(<$powerline_cached_location)
+    else
+        powerline_dist_path=`pip show powerline-status 2>/dev/null | egrep "^Location:" | cut -d ' ' -f 2 | tee $powerline_cached_location`
+    fi
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    export POWERLINE_CONFIG_PATHS=$powerline_dist_path/powerline/config_files:~/.config/powerline:~/.config/powerline.local
+    export POWERLINE_DIST_PATH="$powerline_dist_path"
+    source $powerline_dist_path/powerline/bindings/bash/powerline.sh
 fi
 
 if [[ -z "$TMUX" ]]; then
