@@ -90,6 +90,12 @@ trap historymerge EXIT SIGHUP
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# fzf tab completion
+if [ -f ~/.fzf-tab-completion/bash/fzf-bash-completion.sh ]; then
+    source ~/.fzf-tab-completion/bash/fzf-bash-completion.sh
+    bind -x '"\t": fzf_bash_completion'
+fi
+
 # zoxide for z
 eval "$(zoxide init bash)"
 

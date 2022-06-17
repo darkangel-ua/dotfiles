@@ -55,6 +55,11 @@ if ! which fzf > /dev/null; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
 fi
 
+# fzf tab completion
+if [ ! -e ~/.fzf-tab-completion/bash/fzf-bash-completion.sh ]; then
+    git clone https://github.com/lincheney/fzf-tab-completion ~/.fzf-tab-completion
+fi
+
 if ! which zoxide > /dev/null; then
     curl -sS https://webinstall.dev/zoxide | bash
 fi
