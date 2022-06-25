@@ -15,10 +15,17 @@ require('packer').startup({function()
           require("telescope").load_extension("notify")
       end
   }
-  use { 'numToStr/FTerm.nvim', config = function() require('settings.plugins.fterm').setup() end }
+  use {
+      'numToStr/FTerm.nvim',
+      config = function() require('settings.plugins.fterm').setup() end
+  }
 
   -- Colors
-  use { "ellisonleao/gruvbox.nvim", commit = 'dc6bae93ded04ac542d429ff5cc87189dde44294', requires = { "rktjmp/lush.nvim" } }
+  use {
+      "ellisonleao/gruvbox.nvim",
+      commit = 'dc6bae93ded04ac542d429ff5cc87189dde44294',
+      requires = 'rktjmp/lush.nvim'
+  }
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'
 
@@ -56,7 +63,10 @@ require('packer').startup({function()
    }
 
   -- Editing
-  use { 'antoinemadec/FixCursorHold.nvim', config = function() vim.g.cursorhold_updatetime = 300 end }
+  use {
+      'antoinemadec/FixCursorHold.nvim',
+      config = function() vim.g.cursorhold_updatetime = 300 end
+  }
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'tpope/vim-surround'
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
