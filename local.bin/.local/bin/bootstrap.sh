@@ -20,6 +20,11 @@ if [ ! -e ~/.bashrc ]; then
 fi
 
 # nvim
+# remove appimage variant first if any
+if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
+    sudo rm /usr/local/bin/nvim*
+fi
+
 if ! which nvim > /dev/null; then
     wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
     sudo dpkg -i nvim-linux64.deb
