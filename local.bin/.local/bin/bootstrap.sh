@@ -96,10 +96,14 @@ fi
 # development tools
 sudo apt -y install cmake clangd ninja-build
 
-if ! which clangd-13 > /dev/null; then
-    pushd /tmp
-    sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-    popd
-    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-13 100
+if ! which clangd-14 > /dev/null; then
+    tmp=`mktemp`
+    wget https://apt.llvm.org/llvm.sh -O "$tmp"
+    chmod +x "$tmp"
+    sudo "$tmp" 14
+    rm "$tmp"
+    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
+
+    sudo apt -y remove clangd-13
 fi
 
