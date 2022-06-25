@@ -49,6 +49,19 @@ require('packer').startup({function()
       'christoomey/vim-tmux-navigator',
       setup = function() require('settings.plugins.vim-tmux') end,
   }
+  use {
+      'mrjones2014/smart-splits.nvim',
+      config = function() require('smart-splits').setup({}) end
+  }
+  use {
+      'anuvyklack/hydra.nvim',
+      requires = 'anuvyklack/keymap-layer.nvim',
+      config = function() require('settings.plugins.hydra').setup() end
+  }
+  use {
+      'sindrets/winshift.nvim',
+      config = function() require('settings.plugins.winshift').setup() end
+  }
 
 -- Icons
   use 'kyazdani42/nvim-web-devicons'
