@@ -19,6 +19,14 @@ if [ ! -e ~/.bashrc ]; then
     popd
 fi
 
+# git - install latest from ppa
+git_core_list="/etc/apt/sources.list.d/git-core-ubuntu-ppa-$(lsb_release -cs).list"
+if [[ ! -f "$git_core_list" ]]; then
+    sudo add-apt-repository ppa:git-core/ppa -y
+    sudo apt update
+    sudo apt -y install git
+fi
+
 # nvim
 # remove appimage variant first if any
 if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
