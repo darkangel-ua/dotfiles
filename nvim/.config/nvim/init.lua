@@ -10,5 +10,3 @@ local r, m = pcall(require, 'impatient')
 require('plugins')
 require('packer_compiled')
 require('settings')
-
-vim.cmd[[ colorscheme gruvbox ]]

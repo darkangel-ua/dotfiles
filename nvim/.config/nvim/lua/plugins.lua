@@ -5,7 +5,10 @@ require('packer').startup({function()
   use 'wbthomason/packer.nvim'
 
   -- system
-  use 'nathom/filetype.nvim'
+  use {
+      'nathom/filetype.nvim',
+      config = function() require('settings.plugins.filetype').setup() end,
+  }
   use 'lewis6991/impatient.nvim'
   use {
       'rcarriga/nvim-notify',
@@ -24,7 +27,8 @@ require('packer').startup({function()
   use {
       "ellisonleao/gruvbox.nvim",
       commit = 'dc6bae93ded04ac542d429ff5cc87189dde44294',
-      requires = 'rktjmp/lush.nvim'
+      requires = 'rktjmp/lush.nvim',
+      config = function() vim.cmd [[ colorscheme gruvbox ]] end,
   }
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'
@@ -68,7 +72,12 @@ require('packer').startup({function()
   use 'ryanoasis/vim-devicons'
 
   -- Status Line and Bufferline
-  use { 'akinsho/bufferline.nvim', branch = 'main' }
+  use {
+      'akinsho/bufferline.nvim',
+      branch = 'main',
+      config = function() require('settings.plugins.bufferline').setup() end,
+      after = "gruvbox.nvim"
+  }
   use {
       'nvim-lualine/lualine.nvim',
       requires = "kyazdani42/nvim-web-devicons",
