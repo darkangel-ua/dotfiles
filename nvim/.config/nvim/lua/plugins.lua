@@ -37,12 +37,12 @@ require('packer').startup({function()
   use {
       'nvim-telescope/telescope.nvim',
       requires = { { 'nvim-lua/plenary.nvim' } },
-      config = [[ require('settings.plugins.telescope').setup() ]]
+      config = function() require('settings.plugins.telescope').setup() end,
   }
   use {
       'ahmedkhalf/project.nvim',
       requires = 'nvim-telescope/telescope.nvim',
-      config = [[ require('settings.plugins.projects').setup() ]]
+      config = function() require('settings.plugins.projects').setup() end,
   }
   use {
       'nvim-telescope/telescope-file-browser.nvim',
@@ -92,7 +92,7 @@ require('packer').startup({function()
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'tpope/vim-surround'
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
-  use { 'numToStr/Comment.nvim', config = [[ require('Comment').setup() ]] }
+  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   use { 'lewis6991/spellsitter.nvim', config = function() require('spellsitter').setup() end }
   use {
       'AckslD/nvim-neoclip.lua',
@@ -111,7 +111,7 @@ require('packer').startup({function()
   -- git
   use 'tpope/vim-fugitive'
   use { 'lewis6991/gitsigns.nvim', config = function() require('settings.plugins.gitsigns').setup() end }
-  use { 'sindrets/diffview.nvim', config = [[ require('settings.plugins.diffview') ]] }
+  use { 'sindrets/diffview.nvim', config = function() require('settings.plugins.diffview') end }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -122,7 +122,7 @@ require('packer').startup({function()
       requires = "kyazdani42/nvim-web-devicons",
       config = function() require("settings.plugins.trouble").setup() end
   }
-  use { 'nvim-treesitter/nvim-treesitter', config = [[ require('settings.plugins.nvim-treesitter') ]] }
+  use { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use { 'RRethy/nvim-treesitter-endwise' }
   use 'kosayoda/nvim-lightbulb'
