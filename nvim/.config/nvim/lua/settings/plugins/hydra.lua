@@ -40,8 +40,10 @@ function M.setup()
         mode = 'n',
         body = '<leader>hg',
         heads = {
-            { 'j' , ':Gitsigns next_hunk<cr>', { silent = true, desc = 'Next hunk'} },
-            { 'k' , ':Gitsigns prev_hunk<cr>', { silent = true, desc = 'Prev hunk' } },
+            { 'j' , ':Gitsigns next_hunk<cr> | zz', { silent = true, desc = 'Next hunk'} },
+            { 'k' , ':Gitsigns prev_hunk<cr> | zz', { silent = true, desc = 'Prev hunk' } },
+            { 'gg' , 'gg' },
+            { 'G' , 'G' },
             { 'q', nil, { exit = true, nowait = true } },
         }
     })
