@@ -8,7 +8,7 @@
 [ ! -e ~/.cache ] && mkdir ~/.cache
 
 # basic system stuff
-sudo apt -y install stow pip mc fontconfig
+sudo apt -y install stow pip mc fontconfig curl
 sudo pip install powerline-status netifaces
 sudo snap install btop
 
