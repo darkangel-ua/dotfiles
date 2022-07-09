@@ -115,7 +115,7 @@ end
 function M.lsp_document_symbols()
     local opts = {
       previewer = false,
-      symbol_width = 50,
+      show_line = true,
     }
 
     builtin.lsp_document_symbols(opts)
