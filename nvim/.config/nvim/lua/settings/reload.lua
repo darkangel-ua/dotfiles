@@ -9,14 +9,12 @@ function M.reload_all()
     local source = require('settings').source
 
     -- unload local settings modules
-    reload('settings.colors')
     reload('settings.options')
     reload('settings.snippets')
 
     reload('settings.plugins.cmake')
 
     -- apply settings
-    require('settings.colors')
     require('settings.options')
     require('settings.snippets')
     require('cmp_luasnip').clear_cache()

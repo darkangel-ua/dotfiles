@@ -26,9 +26,7 @@ require('packer').startup({function()
   -- Colors
   use {
       "ellisonleao/gruvbox.nvim",
-      commit = 'dc6bae93ded04ac542d429ff5cc87189dde44294',
-      requires = 'rktjmp/lush.nvim',
-      config = function() vim.cmd [[ colorscheme gruvbox ]] end,
+      config = function() require('settings.plugins.gruvbox').setup() end,
   }
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'

@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 
-vim.g.gruvbox_contrast_dark = 'hard'
 vim.o.background = "dark" -- or "light" for light mode
 vim.o.termguicolors = true
 
