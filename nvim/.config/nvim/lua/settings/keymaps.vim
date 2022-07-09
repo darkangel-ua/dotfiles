@@ -65,15 +65,16 @@ nnoremap <silent> <leader>fm <cmd>Telescope man_pages<cr>
 nnoremap <silent> <leader>fp :Telescope projects<cr>
 
 " buffline
-nnoremap <silent> <leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent> <leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent> <leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent> <leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent> <leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent> <leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent> <leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent> <leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent> <leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent> <leader>1 <Cmd>lua require('bufferline').go_to(1, true)<cr>
+nnoremap <silent> <leader>2 <Cmd>lua require('bufferline').go_to(2, true)<cr>
+nnoremap <silent> <leader>3 <Cmd>lua require('bufferline').go_to(3, true)<cr>
+nnoremap <silent> <leader>4 <Cmd>lua require('bufferline').go_to(4, true)<cr>
+nnoremap <silent> <leader>5 <Cmd>lua require('bufferline').go_to(5, true)<cr>
+nnoremap <silent> <leader>6 <Cmd>lua require('bufferline').go_to(6, true)<cr>
+nnoremap <silent> <leader>7 <Cmd>lua require('bufferline').go_to(7, true)<cr>
+nnoremap <silent> <leader>8 <Cmd>lua require('bufferline').go_to(8, true)<cr>
+nnoremap <silent> <leader>9 <Cmd>lua require('bufferline').go_to(9, true)<cr>
+nnoremap <silent> <leader>0 :BufferLineTogglePin<cr> \| :lua require('bufferline').sort_by('none')<cr>
 
 " git
 nnoremap <silent> <leader>gg :DiffviewOpen<cr>
