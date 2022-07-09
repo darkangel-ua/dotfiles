@@ -47,6 +47,26 @@ function M.setup()
             { 'q', nil, { exit = true, nowait = true } },
         }
     })
+
+    Hydra({
+        name = 'Buffers',
+        config = {
+            invoke_on_body = true,
+            color = 'amaranth',
+        },
+        mode = 'n',
+        body = '<leader>hb',
+        heads = {
+            { 'h' , ':BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev buffer'} },
+            { 'l' , ':BufferLineCycleNext<cr>', { silent = true, desc = 'Next buffer' } },
+            { '<C-h>' , ':BufferLineMovePrev<cr>', { silent = true, desc = 'Move left'} },
+            { '<C-l>' , ':BufferLineMoveNext<cr>', { silent = true, desc = 'Move right' } },
+            { '<leader>l' , ':BufferLineCloseRight<cr>', { silent = true, desc = 'Close right' } },
+            { '0' , ':BufferLineTogglePin<cr>', { silent = true, desc = 'Pin' } },
+            { 'p' , ':BufferLinePick<cr>', { silent = true, desc = 'Pick' } },
+            { 'q', nil, { exit = true, nowait = true } },
+        }
+    })
 end
 
 return M
