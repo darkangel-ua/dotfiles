@@ -91,7 +91,8 @@ function M.lsp_references()
             preview_height = 0.7,
             prompt_position = 'top',
             mirror = true,
-        }
+        },
+        fname_width = 50,
     }
 
     return builtin.lsp_references(opts)
@@ -116,6 +117,7 @@ function M.lsp_document_symbols()
     local opts = {
       previewer = false,
       show_line = true,
+      symbol_width = 45,
     }
 
     builtin.lsp_document_symbols(opts)
@@ -129,7 +131,9 @@ function M.lsp_dynamic_workspace_symbols()
             preview_height = 0.7,
             prompt_position = 'top',
             mirror = true,
-        }
+        },
+        symbol_width = 45,
+        fname_width = 50,
     }
 
     return builtin.lsp_dynamic_workspace_symbols(opts)
