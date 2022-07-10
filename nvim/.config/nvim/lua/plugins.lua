@@ -83,8 +83,9 @@ require('packer').startup({function()
   }
   use {
       'nvim-lualine/lualine.nvim',
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function() require('settings.plugins.lualine').setup() end
+      requires = { "kyazdani42/nvim-web-devicons", 'SmiteshP/nvim-navic' },
+      config = function() require('settings.plugins.lualine').setup() end,
+      after = 'nvim-navic',
    }
 
   -- Editing
@@ -118,7 +119,10 @@ require('packer').startup({function()
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/lsp-status.nvim'
+  use {
+      'SmiteshP/nvim-navic',
+      config = function() require('settings.plugins.nvim-navic').setup() end,
+  }
   use { 'j-hui/fidget.nvim', config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end }
   use {
       "folke/trouble.nvim",
