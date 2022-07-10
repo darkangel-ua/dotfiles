@@ -78,6 +78,7 @@ nnoremap <silent> <leader>0 :BufferLineTogglePin<cr> \| :lua require('bufferline
 
 " git
 nnoremap <silent> <leader>gg :DiffviewOpen<cr>
+nnoremap <silent> <leader>gG :DiffviewOpen develop..HEAD<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gch :Telescope git_branches<cr>
 nnoremap <silent> <leader>gb :Git blame<cr>
