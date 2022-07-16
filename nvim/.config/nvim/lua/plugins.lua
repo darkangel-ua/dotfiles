@@ -15,7 +15,7 @@ require('packer').startup({function()
       requires = 'nvim-telescope/telescope.nvim',
       config = function()
           require('notify').setup()
-          require("telescope").load_extension("notify")
+          require('telescope').load_extension('notify')
       end
   }
   use {
@@ -25,7 +25,7 @@ require('packer').startup({function()
 
   -- Colors
   use {
-      "ellisonleao/gruvbox.nvim",
+      'ellisonleao/gruvbox.nvim',
       config = function() require('settings.plugins.gruvbox').setup() end,
   }
   use 'ap/vim-css-color'
@@ -45,7 +45,7 @@ require('packer').startup({function()
   use {
       'nvim-telescope/telescope-file-browser.nvim',
       requires = 'nvim-telescope/telescope.nvim',
-      config = function() require("telescope").load_extension "file_browser" end
+      config = function() require('telescope').load_extension('file_browser') end
   }
   use {
       'christoomey/vim-tmux-navigator',
@@ -74,7 +74,7 @@ require('packer').startup({function()
       'akinsho/bufferline.nvim',
       branch = 'main',
       config = function() require('settings.plugins.bufferline').setup() end,
-      after = "gruvbox.nvim"
+      after = 'gruvbox.nvim'
   }
   -- hide all buffers that doesn't belong to current tab from bufferline
   use {
@@ -83,7 +83,7 @@ require('packer').startup({function()
   }
   use {
       'nvim-lualine/lualine.nvim',
-      requires = { "kyazdani42/nvim-web-devicons", 'SmiteshP/nvim-navic' },
+      requires = { 'kyazdani42/nvim-web-devicons', 'SmiteshP/nvim-navic' },
       config = function() require('settings.plugins.lualine').setup() end,
       after = 'nvim-navic',
    }
@@ -110,10 +110,10 @@ require('packer').startup({function()
 
   -- building
   use { 'darkangel-ua/vim-cmake', branch = 'generate-cmake-codemodel' }
-  -- use { "Shatur/neovim-cmake", config = function() require("cmake").setup({}) end }
+  -- use { 'Shatur/neovim-cmake', config = function() require('cmake').setup({}) end }
 
   -- debugging
-  use { "mfussenegger/nvim-dap", config = function() require('settings.plugins.nvim-dap') end }
+  use { 'mfussenegger/nvim-dap', config = function() require('settings.plugins.nvim-dap') end }
 
   -- git
   use 'tpope/vim-fugitive'
@@ -128,9 +128,9 @@ require('packer').startup({function()
   }
   use { 'j-hui/fidget.nvim', config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end }
   use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function() require("settings.plugins.trouble").setup() end
+      'folke/trouble.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function() require('settings.plugins.trouble').setup() end
   }
   use { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }

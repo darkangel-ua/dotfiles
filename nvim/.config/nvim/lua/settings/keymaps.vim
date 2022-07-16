@@ -52,7 +52,7 @@ nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').git_files()<c
 nnoremap <silent> <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <silent> <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <silent> <leader>fs <cmd>lua require("telescope.builtin").live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end})<cr>
+nnoremap <silent> <leader>fs <cmd>lua require('telescope.builtin').live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end})<cr>
 nnoremap <silent> <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <silent> <leader>fW <cmd>lua require('settings.plugins.telescope').grep_string_in_buffer()<cr>
 nnoremap <silent> <leader>p <cmd>Telescope resume<cr>
@@ -109,12 +109,12 @@ nnoremap <silent> <leader>mc :CMakeClose<cr>
 nnoremap <silent> <leader>mt :lua require('settings.plugins.cmake').select_build_targets()<cr>
 
 " debugging
-nnoremap <silent> <F5> :lua require("dap").continue()<cr>
-nnoremap <silent> <F8> :lua require("dap").step_over()<cr>
-nnoremap <silent> <F9> :lua require("dap").step_into()<cr>
-nnoremap <silent> <F21> :lua require("dap").step_out()<cr>          " F21 is actually Shift-F9
-nnoremap <silent> <F2> :lua require("dap").toggle_breakpoint()<cr>
-nnoremap <silent> <F22> :lua require("dap").terminate()<cr>         " F22 is actually Shift-F10
+nnoremap <silent> <F5> :lua require('dap').continue()<cr>
+nnoremap <silent> <F8> :lua require('dap').step_over()<cr>
+nnoremap <silent> <F9> :lua require('dap').step_into()<cr>
+nnoremap <silent> <F21> :lua require('dap').step_out()<cr>          " F21 is actually Shift-F9
+nnoremap <silent> <F2> :lua require('dap').toggle_breakpoint()<cr>
+nnoremap <silent> <F22> :lua require('dap').terminate()<cr>         " F22 is actually Shift-F10
 
 " reloading config/files
 nnoremap <silent> <leader>rc :lua require('settings.reload').reload_all()<cr>
