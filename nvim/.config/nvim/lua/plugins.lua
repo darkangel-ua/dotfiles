@@ -117,7 +117,11 @@ require('packer').startup({function()
 
   -- git
   use 'tpope/vim-fugitive'
-  use { 'lewis6991/gitsigns.nvim', config = function() require('settings.plugins.gitsigns').setup() end }
+  use {
+      'lewis6991/gitsigns.nvim',
+      config = function() require('settings.plugins.gitsigns').setup() end,
+      event = { 'BufAdd', 'BufWrite' },
+  }
   use { 'sindrets/diffview.nvim', config = function() require('settings.plugins.diffview') end }
 
   -- LSP
@@ -126,7 +130,11 @@ require('packer').startup({function()
       'SmiteshP/nvim-navic',
       config = function() require('settings.plugins.nvim-navic').setup() end,
   }
-  use { 'j-hui/fidget.nvim', config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end }
+  use {
+      'j-hui/fidget.nvim',
+      config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end,
+      ft = { 'cpp' },
+  }
   use {
       'folke/trouble.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
@@ -134,12 +142,13 @@ require('packer').startup({function()
   }
   use { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-  use { 'RRethy/nvim-treesitter-endwise' }
+  use { 'RRethy/nvim-treesitter-endwise', event = 'InsertEnter' }
   use 'kosayoda/nvim-lightbulb'
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
   use {
       'Badhi/nvim-treesitter-cpp-tools',
-      requires = 'nvim-treesitter/nvim-treesitter'
+      requires = 'nvim-treesitter/nvim-treesitter',
+      ft = 'cpp',
   }
 
   -- Snippets
