@@ -85,6 +85,7 @@ nnoremap <silent> <leader>gb :Git blame<cr>
 
 " lsp
 nnoremap <silent> gd :lua require('settings.plugins.telescope').lsp_definitions()<cr>
+nnoremap <silent> gD :Telescope lsp_type_definitions<cr>
 nnoremap <silent> gi :Telescope lsp_implementations<cr>
 vnoremap <silent> gi :TSCppDefineClassFunc<cr>
 nnoremap <silent> gr <cmd>lua require('settings.plugins.telescope').lsp_references()<cr>
