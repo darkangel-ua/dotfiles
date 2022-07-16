@@ -94,7 +94,10 @@ require('packer').startup({function()
       config = function() vim.g.cursorhold_updatetime = 300 end
   }
   use 'axelf4/vim-strip-trailing-whitespace'
-  use 'tpope/vim-surround'
+  use {
+      'kylechui/nvim-surround',
+      config = function() require('nvim-surround').setup({}) end,
+  }
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   use { 'lewis6991/spellsitter.nvim', config = function() require('spellsitter').setup() end }
