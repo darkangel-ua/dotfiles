@@ -168,7 +168,7 @@ require('packer').startup({function()
   use { 'windwp/nvim-autopairs' }
 
   -- Profiling
-  use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
+  use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
   if need_sync then
       require('packer').sync()
