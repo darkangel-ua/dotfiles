@@ -5,6 +5,48 @@ local keymap = function(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true, noremap = true }, opts))
 end
 
+-- General movement and editing mappings
+-- stupid way to close current buffer
+keymap('n', '<leader>x', ":bd<cr>", { desc ='' })
+-- even more stupid way to close tab
+keymap('n', '<leader>X', ":tabc<cr>", { desc ='' })
+-- Set kj/jk to be escape in insert mode
+keymap('i', 'kj', "<esc>", { desc ='' })
+keymap('i', 'jk', "<esc>", { desc ='' })
+keymap('t', 'kj', "<C-\\><C-N>", { desc ='' })
+keymap('t', 'jk', "<C-\\><C-N>", { desc ='' })
+-- same for command mode
+-- this strange <c-u><bs> is because of some vi compatibility
+-- see https://stackoverflow.com/questions/24396516/remapping-a-key-to-esc-doesnt-work-in-command-mode
+keymap('c', 'kj', "<c-u><bs>", { desc ='' })
+keymap('c', 'jk', "<c-u><bs>", { desc ='' })
+-- use Ctrl with j and k for command scrolling in command mode
+keymap('c', '<C-j>', "<C-n>", { desc ='' })
+keymap('c', '<C-k>', "<C-p>", { desc ='' })
+-- Ctrl j and k for page up and page down
+keymap('n', '<C-j>', "<C-d>", { desc ='' })
+keymap('n', '<C-k>', "<C-u>", { desc ='' })
+keymap('n', '<C-j>', "<C-d>", { desc ='' })
+keymap('n', '<C-k>', "<C-u>", { desc ='' })
+-- lets make saving convenient
+keymap('n', '<C-s>', ":update<cr>", { desc ='' })
+keymap('i', '<C-s>', "<C-o>:update<cr>", { desc ='' })
+-- lets use much easier Alt-p for pasting + register in insert mode
+-- because I use clipboard+=unnamedplus we will get system wide clipboard paste
+keymap('i', '<A-p>', "<C-r>+", { desc ='' })
+-- lets use much easier Alt-r for pasting 0 register in insert mode
+keymap('i', '<A-r>', "<C-r>0", { desc ='' })
+-- Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
+keymap('n', '<CR>', '{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()', { expr = true })
+keymap('n', '<M-CR>', ":let v:hlsearch=!v:hlsearch<CR>", { desc ='' })
+-- edit file in the same folder as current buffer
+keymap('n', 'e', ":e <C-R>=expand(\"%:p:h\")<cr>", { desc ='' })
+
+-- clipboard
+keymap('n', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
+keymap('i', '<C-P>', "<C-o>:Telescope neoclip plus<cr>", { desc ='' })
+keymap('v', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
+
 -- Telescope
 keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", { desc ='' })
 keymap('n', '<leader>fF', "<cmd>lua require('settings.plugins.telescope').find_files_buffer()<cr>", { desc ='' })
