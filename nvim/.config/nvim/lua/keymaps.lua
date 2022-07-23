@@ -1,5 +1,5 @@
 local keymap = function(mode, lhs, rhs, opts)
-    if opts.desc == '' then
+    if opts.desc and opts.desc == '' then
         opts.desc = rhs
     end
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true, noremap = true }, opts))
