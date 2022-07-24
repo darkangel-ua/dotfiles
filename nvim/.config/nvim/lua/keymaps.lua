@@ -151,6 +151,10 @@ keymap('n', '<leader>fc', ':Telescope command_history<cr>', { desc ='' })
 local M = {}
 
 function M.dashboard()
+    keymap('n', 'O', ':SessionManager load_session<cr>', { buffer = true })
+    keymap('n', 'S', ':SessionManager load_last_session<cr>', { buffer = true })
+    keymap('n', 'o', ":lua require('telescope.builtin').oldfiles()<cr>", { buffer = true })
+    keymap('n', 's', ":lua require('settings.plugins.telescope').dotfiles()<cr>", { buffer = true })
     keymap('n', 'q', ':q<cr>', { buffer = true })
 end
 

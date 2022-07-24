@@ -37,6 +37,11 @@ require('packer').startup({function()
       config = function() require('settings.plugins.dashboard').setup() end,
   }
 
+  use {
+      'Shatur/neovim-session-manager',
+      config = function() require('settings.plugins.neovim-session-manager').setup() end,
+  }
+
   -- Navigation
   use {
       'nvim-telescope/telescope.nvim',
