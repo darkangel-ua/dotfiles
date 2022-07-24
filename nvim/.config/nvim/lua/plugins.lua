@@ -20,7 +20,8 @@ require('packer').startup({function()
   }
   use {
       'numToStr/FTerm.nvim',
-      config = function() require('settings.plugins.fterm').setup() end
+      config = function() require('settings.plugins.fterm').setup() end,
+      module = 'FTerm',
   }
 
   -- Colors
@@ -115,14 +116,22 @@ require('packer').startup({function()
       config = function() require('nvim-surround').setup({}) end,
   }
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
-  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+  use {
+      'numToStr/Comment.nvim',
+      config = function() require('Comment').setup() end,
+      event = { 'BufRead', 'InsertEnter' },
+  }
   use { 'lewis6991/spellsitter.nvim', config = function() require('spellsitter').setup() end }
   use {
       'AckslD/nvim-neoclip.lua',
       requires = 'nvim-telescope/telescope.nvim',
       config = function() require('settings.plugins.neoclip').setup() end
   }
-  use { 'phaazon/hop.nvim', config = function() require('hop').setup() end }
+  use {
+      'phaazon/hop.nvim',
+      config = function() require('hop').setup() ; print('hop loaded'); end,
+      event = { 'BufRead', 'InsertEnter' },
+  }
 
   -- building
   use { 'darkangel-ua/vim-cmake', branch = 'generate-cmake-codemodel' }
@@ -138,7 +147,11 @@ require('packer').startup({function()
       config = function() require('settings.plugins.gitsigns').setup() end,
       event = { 'BufAdd', 'BufWrite' },
   }
-  use { 'sindrets/diffview.nvim', config = function() require('settings.plugins.diffview') end }
+  use {
+      'sindrets/diffview.nvim',
+      config = function() require('settings.plugins.diffview') end,
+      cmd = { 'DiffviewOpen' },
+  }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -154,7 +167,8 @@ require('packer').startup({function()
   use {
       'folke/trouble.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
-      config = function() require('settings.plugins.trouble').setup() end
+      config = function() require('settings.plugins.trouble').setup() end,
+      cmd = { 'TroubleToggle' },
   }
   use { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
