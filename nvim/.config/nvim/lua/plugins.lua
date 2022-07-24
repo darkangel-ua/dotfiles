@@ -129,7 +129,7 @@ require('packer').startup({function()
   }
   use {
       'phaazon/hop.nvim',
-      config = function() require('hop').setup() ; print('hop loaded'); end,
+      config = function() require('hop').setup() end,
       event = { 'BufRead', 'InsertEnter' },
   }
 
