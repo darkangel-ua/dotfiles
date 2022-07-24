@@ -45,7 +45,7 @@ require('packer').startup({function()
   -- Navigation
   use {
       'nvim-telescope/telescope.nvim',
-      requires = { { 'nvim-lua/plenary.nvim' } },
+      requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
       config = function() require('settings.plugins.telescope').setup() end,
   }
   use {
@@ -74,6 +74,11 @@ require('packer').startup({function()
   use {
       'sindrets/winshift.nvim',
       config = function() require('settings.plugins.winshift').setup() end
+  }
+  use {
+      'nvim-telescope/telescope-ui-select.nvim',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = function() require("telescope").load_extension("ui-select") end,
   }
 
 -- Icons
