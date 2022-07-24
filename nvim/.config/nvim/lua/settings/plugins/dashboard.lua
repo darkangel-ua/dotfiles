@@ -28,8 +28,9 @@ function M.setup()
     [[                               ]],
 }
     db.custom_center = {
-        { icon = '☰  ', desc = 'Open session                            ', shortcut = '      O', action = "SessionManager load_session" },
-        { icon = '  ', desc = 'Open last session                       ', shortcut = '      S', action = "SessionManager load_last_session" },
+        { icon = '☰  ', desc = 'Load session                            ', shortcut = '      O', action = "SessionManager load_session" },
+        { icon = '  ', desc = 'Load last session                       ', shortcut = '      S', action = "SessionManager load_last_session" },
+        { icon = '  ', desc = 'Load current dir session                ', shortcut = '      C', action = "SessionManager load_current_dir_session" },
         { icon = '  ', desc = 'Recently opened files                   ', shortcut = '      o', action = "lua require('telescope.builtin').oldfiles()" },
         { icon = '  ', desc = 'Settings                                ', shortcut = '      s', action = "lua require('telescope.builtin').dotfiles()" },
         { icon = '⎋  ', desc = 'Exit                                    ', shortcut = '      q', action = 'q' },
