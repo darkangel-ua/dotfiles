@@ -31,6 +31,12 @@ require('packer').startup({function()
   use 'ap/vim-css-color'
   use 'kmonad/kmonad-vim'
 
+  -- dashboard
+  use {
+      'glepnir/dashboard-nvim',
+      config = function() require('settings.plugins.dashboard').setup() end,
+  }
+
   -- Navigation
   use {
       'nvim-telescope/telescope.nvim',

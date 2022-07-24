@@ -12,6 +12,12 @@ function M.setup()
             GruvboxGreenSign = { bg = colors.dark0_hard },
             GruvboxAquaSign = { bg = colors.dark0_hard },
 
+            DashboardHeader = { link = 'GruvboxGreen' },
+            DashboardCenter = { link = 'GruvboxBlue' },
+            DashboardCenterIcon = { link = 'GruvboxOrange' },
+            DashboardShortcut = { link = 'GruvboxRed' },
+            DashboardFooter = { link = 'GruvboxYellow' },
+
             BufferLineFill = { bg = colors.dark0_hard },
             BufferLineSeparator = { fg = colors.dark0 },
             BufferLineIndicatorSelected = { fg = colors.dark0_hard },
