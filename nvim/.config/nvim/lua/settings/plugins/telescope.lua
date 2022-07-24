@@ -2,6 +2,7 @@ local telescope = require('telescope')
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local utils = require('telescope.utils')
+local actions_layout = require('telescope.actions.layout')
 
 local M = {}
 
@@ -16,11 +17,13 @@ function M.setup()
               i = {
                       ['<C-j>'] = actions.preview_scrolling_down,
                       ['<C-k>'] = actions.preview_scrolling_up,
+                      ['<C-p>'] = actions_layout.toggle_preview,
                   },
               n = {
                       ['<C-C>'] = actions.close,
                       ['<C-j>'] = actions.preview_scrolling_down,
                       ['<C-k>'] = actions.preview_scrolling_up,
+                      ['<C-p>'] = actions_layout.toggle_preview,
               }
           }
         }
@@ -118,6 +121,11 @@ function M.lsp_document_symbols()
       previewer = false,
       show_line = true,
       symbol_width = 45,
+      layout_strategy = 'vertical',
+      layout_config = {
+          prompt_position = 'top',
+          mirror = true,
+      }
     }
 
     builtin.lsp_document_symbols(opts)
