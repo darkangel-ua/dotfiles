@@ -168,7 +168,7 @@ require('packer').startup({function()
       'folke/trouble.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function() require('settings.plugins.trouble').setup() end,
-      cmd = { 'TroubleToggle' },
+      cmd = { 'TroubleToggle', 'TroubleClose' },
   }
   use { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
