@@ -40,7 +40,7 @@ keymap('i', '<A-r>', "<C-r>0", { desc ='' })
 keymap('n', '<CR>', '{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()', { expr = true })
 keymap('n', '<M-CR>', ":let v:hlsearch=!v:hlsearch<CR>", { desc ='' })
 -- edit file in the same folder as current buffer
-keymap('n', 'e', ":e <C-R>=expand(\"%:p:h\")<cr>", { silent = false, desc ='' })
+keymap('n', '<leader>e', ":e <C-R>=expand(\"%:p:h\")<cr>", { silent = false, desc ='' })
 
 -- clipboard
 keymap('n', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
