@@ -131,7 +131,7 @@ keymap('n', '<esc>', "<cmd>lua require('settings.plugins.ide').on_esc_pressed()<
 
 -- scratch terminal
 keymap('n', '<C-h>', "<cmd>lua require('FTerm').toggle()<cr>", { desc ='' })
-keymap('n', '<C-h>', "<cmd>lua require('FTerm').toggle()<cr>", { desc ='' })
+keymap('t', '<C-h>', "<cmd>lua require('FTerm').toggle()<cr>", { desc ='' })
 
 -- vim tmux integration
 keymap('n', '<A-h>', ':TmuxNavigateLeft<cr>', { desc ='' })
