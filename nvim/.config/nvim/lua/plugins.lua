@@ -100,7 +100,7 @@ require('packer').startup({function()
   }
   use {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', 'SmiteshP/nvim-navic' },
+      requires = { 'kyazdani42/nvim-web-devicons', 'SmiteshP/nvim-navic', 'Shatur/neovim-session-manager' },
       config = function() require('settings.plugins.lualine').setup() end,
       after = 'nvim-navic',
    }
