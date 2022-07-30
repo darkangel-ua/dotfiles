@@ -14,7 +14,6 @@ function M.setup()
 
             DashboardHeader = { link = 'GruvboxGreen' },
             DashboardCenter = { link = 'GruvboxBlue' },
-            DashboardCenterIcon = { link = 'GruvboxOrange' },
             DashboardShortcut = { link = 'GruvboxRed' },
             DashboardFooter = { link = 'GruvboxYellow' },
 
