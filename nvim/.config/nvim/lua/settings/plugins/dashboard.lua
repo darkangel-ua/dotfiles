@@ -27,13 +27,14 @@ function M.setup()
     [[⠀⠀⠀⠀⠀⠀⠀⠀⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋       ]],
     [[                               ]],
 }
+    local iconhl = { link = 'GruvboxOrange' }
     db.custom_center = {
-        { icon = '☰  ', desc = 'Load session                            ', shortcut = '      O', action = "SessionManager load_session" },
-        { icon = '  ', desc = 'Load last session                       ', shortcut = '      S', action = "SessionManager load_last_session" },
-        { icon = '  ', desc = 'Load current dir session                ', shortcut = '      C', action = "SessionManager load_current_dir_session" },
-        { icon = '  ', desc = 'Recently opened files                   ', shortcut = '      o', action = "lua require('telescope.builtin').oldfiles()" },
-        { icon = '  ', desc = 'Settings                                ', shortcut = '      s', action = "lua require('telescope.builtin').dotfiles()" },
-        { icon = '⎋  ', desc = 'Exit                                    ', shortcut = '      q', action = 'q' },
+        { icon = '☰  ', icon_hl = iconhl, desc = 'Load session                            ', shortcut = '      O', action = "SessionManager load_session" },
+        { icon = '  ', icon_hl = iconhl, desc = 'Load last session                       ', shortcut = '      S', action = "SessionManager load_last_session" },
+        { icon = '  ', icon_hl = iconhl, desc = 'Load current dir session                ', shortcut = '      C', action = "SessionManager load_current_dir_session" },
+        { icon = '  ', icon_hl = iconhl, desc = 'Recently opened files                   ', shortcut = '      o', action = "lua require('telescope.builtin').oldfiles()" },
+        { icon = '  ', icon_hl = iconhl, desc = 'Settings                                ', shortcut = '      s', action = "lua require('telescope.builtin').dotfiles()" },
+        { icon = '⎋  ', icon_hl = iconhl, desc = 'Exit                                    ', shortcut = '      q', action = 'q' },
     }
 end
 
