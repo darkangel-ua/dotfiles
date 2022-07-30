@@ -33,8 +33,8 @@ if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
     sudo rm /usr/local/bin/nvim*
 fi
 
-if ! which nvim > /dev/null; then
-    wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.7.2" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
     sudo dpkg -i nvim-linux64.deb
     rm nvim-linux64.deb
 
