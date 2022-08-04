@@ -41,6 +41,11 @@ keymap('n', '<CR>', '{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()', { expr = tru
 keymap('n', '<M-CR>', ":let v:hlsearch=!v:hlsearch<CR>", { desc ='' })
 -- edit file in the same folder as current buffer
 keymap('n', '<leader>e', ":e <C-R>=expand(\"%:p:h\")<cr>", { silent = false, desc ='' })
+-- moving parameters back and forth
+keymap('n', 'cph', '<cmd>TSTextobjectSwapPrevious @parameter.inner<cr>', { desc = 'Swap parameter left' })
+keymap('n', 'cpk', '<cmd>TSTextobjectSwapPrevious @parameter.inner<cr>', { desc = 'Swap parameter left' })
+keymap('n', 'cpj', '<cmd>TSTextobjectSwapNext @parameter.inner<cr>', { desc = 'Swap parameter right' })
+keymap('n', 'cpl', '<cmd>TSTextobjectSwapNext @parameter.inner<cr>', { desc = 'Swap parameter right' })
 
 -- clipboard
 keymap('n', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
