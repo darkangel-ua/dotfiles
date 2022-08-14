@@ -133,6 +133,11 @@ else
     export -n POWERLINE_CONDITIONAL_HOST
 fi
 
+# https://unix.stackexchange.com/questions/125385/combined-mkdir-and-cd
+function mkcdir() {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
+
 if [ -f ~/.bashrc.local ]; then
     source ~/.bashrc.local
 fi
