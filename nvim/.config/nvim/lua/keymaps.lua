@@ -6,8 +6,7 @@ local keymap = function(mode, lhs, rhs, opts)
 end
 
 -- General movement and editing mappings
--- stupid way to close current buffer
-keymap('n', '<leader>x', ":bd<cr>", { desc ='' })
+keymap('n', '<leader>x', function() require('settings.plugins.ide').bufdelete() end, { desc ='' })
 -- even more stupid way to close tab
 keymap('n', '<leader>X', ":tabc<cr>", { desc ='' })
 -- Set kj/jk to be escape in insert mode

@@ -112,6 +112,11 @@ require('packer').startup({function()
   }
   use 'axelf4/vim-strip-trailing-whitespace'
   use {
+      'famiu/bufdelete.nvim',
+      module = 'bufdelete',
+      cmd = { 'Bdelete', 'Bwipeout' }
+  }
+  use {
       'kylechui/nvim-surround',
       config = function() require('nvim-surround').setup({}) end,
   }

@@ -33,4 +33,16 @@ function M.cmake_open()
     end
 end
 
+function M.bufdelete()
+    local trouble_win = get_win_by_filetype(0, 'Trouble')
+    local cmake_win = get_win_by_filetype(0, 'vimcmake')
+
+    if trouble_win or cmake_win then
+        require('bufdelete').bufdelete(0, true)
+    else
+        vim.cmd(':bd')
+    end
+
+end
+
 return M
