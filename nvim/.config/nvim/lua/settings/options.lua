@@ -5,7 +5,7 @@ opt.guicursor = ''
 opt.hidden = true
 opt.backup = false
 opt.writebackup = false
--- we have airline - no need to show mode twice
+-- we have lualine - no need to show mode twice
 opt.showmode = false
 -- turn hybrid line numbers on
 opt.number = true
