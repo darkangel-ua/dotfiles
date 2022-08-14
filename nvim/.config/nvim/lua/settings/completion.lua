@@ -1,5 +1,5 @@
 local cmp = require('cmp')
-local mapping = require('cmp.config.mapping')
+-- local mapping = require('cmp.config.mapping')
 local types = require('cmp.types')
 local snip = require('luasnip')
 
@@ -56,24 +56,19 @@ cmp.setup({
       end
     },
     mapping = {
+      ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c'}),
+      ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c'}),
+      ['<esc>'] = cmp.mapping({
+          c = function(fallback)
+              if cmp.visible then
+                  cmp.close()
+                  vim.schedule(cmp.suspend())
+              else
+                  fallback()
+              end
+          end,
+      }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Down>'] = mapping({
-          i = mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
-          c = function(fallback)
-              cmp.close()
-              vim.schedule(cmp.suspend())
-              fallback()
-          end,
-      }),
-      ['<Up>'] = mapping({
-          i = mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
-          c = function(fallback)
-              cmp.close()
-              vim.schedule(cmp.suspend())
-              fallback()
-          end,
-      }),
-      -- snippets works only on Tabs
       ["<Tab>"] = cmp.mapping(function(fallback)
           if snip.expand_or_jumpable() then
               snip.expand_or_jump()
@@ -92,12 +87,10 @@ cmp.setup({
       ["<C-j>"] = cmp.mapping({
         i = select_or_choice(1),
         s = select_or_choice(1),
-        c = cmp.mapping.select_next_item()
       }),
       ["<C-k>"] = cmp.mapping({
         i = select_or_choice(-1),
         s = select_or_choice(-1),
-        c = cmp.mapping.select_prev_item()
       }),
     },
     sources = {
