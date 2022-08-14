@@ -91,7 +91,7 @@ require('packer').startup({function()
       'akinsho/bufferline.nvim',
       branch = 'main',
       config = function() require('settings.plugins.bufferline').setup() end,
-      after = 'gruvbox.nvim'
+      before = 'gruvbox.nvim'
   }
   -- hide all buffers that doesn't belong to current tab from bufferline
   use {
