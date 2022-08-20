@@ -56,9 +56,15 @@ cmp.setup({
       end
     },
     mapping = {
-      ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c'}),
-      ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c'}),
-      ['<esc>'] = cmp.mapping({
+      ['<Up>'] = cmp.mapping({
+          i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+          c = cmp.mapping.select_prev_item(),
+      }),
+      ['<Down>'] = cmp.mapping({
+          i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+          c = cmp.mapping.select_next_item(),
+      }),
+      ['<Esc>'] = cmp.mapping({
           c = function(fallback)
               if cmp.visible then
                   cmp.close()
