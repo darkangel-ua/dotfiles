@@ -10,7 +10,7 @@
 # basic system stuff
 sudo apt -y install stow pip mc fontconfig curl
 sudo pip install powerline-status netifaces
-sudo snap install btop
+sudo snap remove btop
 
 # if there is no .bashrc that means we are on clean system
 if [ ! -e ~/.bashrc ]; then
@@ -118,5 +118,15 @@ if ! which clangd-14 > /dev/null; then
     sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
 
     sudo apt -y remove clangd-13
+fi
+
+if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.9" ]]; then
+    tmp=`mktemp -d`
+    pushd "$tmp"
+    wget https://github.com/aristocratos/btop/releases/download/v1.2.9/btop-x86_64-linux-musl.tbz
+    tar -xvf btop-x86_64-linux-musl.tbz
+    ./install.sh
+    popd
+    rm -rf "$tmp"
 fi
 
