@@ -50,6 +50,12 @@ require('packer').startup({function()
       config = function() require('settings.plugins.telescope').setup() end,
   }
   use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      requires = 'nvim-telescope/telescope.nvim',
+      run = 'make',
+      config = function() require('telescope').load_extension('fzf') end,
+  }
+  use {
       'ahmedkhalf/project.nvim',
       requires = 'nvim-telescope/telescope.nvim',
       config = function() require('settings.plugins.projects').setup() end,
