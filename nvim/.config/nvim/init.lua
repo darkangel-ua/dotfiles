@@ -14,4 +14,3 @@ require('plugins')
 require('packer_compiled')
 require('settings')
 
-vim.cmd('colorscheme gruvbox')
