@@ -145,9 +145,7 @@ keymap('n', '<A-l>', ':TmuxNavigateRight<cr>', { desc ='' })
 
 -- hop
 keymap('n', 's', '<cmd>HopWord<cr>', { desc ='' })
-keymap('v', 's', '<cmd>HopWord<cr>', { desc ='' })
 keymap('n', '<leader>s', '<cmd>:HopLine<cr>', { desc ='' })
-keymap('v', '<leader>s', '<cmd>HopLine<cr>', { desc ='' })
 
 -- command history
 keymap('n', '<leader>fc', ':Telescope command_history<cr>', { desc ='' })
