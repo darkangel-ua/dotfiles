@@ -33,8 +33,8 @@ if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
     sudo rm /usr/local/bin/nvim*
 fi
 
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.7.2" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.0-1210-gd367ed9b2" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
     sudo dpkg -i nvim-linux64.deb
     rm nvim-linux64.deb
 
@@ -44,8 +44,10 @@ if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d 
     sudo apt -y install xclip
 
     # packer.nvim bootstrap
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    if [[ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+        git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+             ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    fi
 fi
 
 # rg command https://github.com/BurntSushi/ripgrep
@@ -120,10 +122,10 @@ if ! which clangd-14 > /dev/null; then
     sudo apt -y remove clangd-13
 fi
 
-if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.9" ]]; then
+if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.12" ]]; then
     tmp=`mktemp -d`
     pushd "$tmp"
-    wget https://github.com/aristocratos/btop/releases/download/v1.2.9/btop-x86_64-linux-musl.tbz
+    wget https://github.com/aristocratos/btop/releases/download/v1.2.12/btop-x86_64-linux-musl.tbz
     tar -xvf btop-x86_64-linux-musl.tbz
     ./install.sh
     popd
