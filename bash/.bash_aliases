@@ -16,5 +16,6 @@ alias gs='git status'
 alias gch='git checkout "$(git branch -a | fzf | tr -d '[:space:]')"'
 alias gsu='git submodule update --init --recursive'
 alias gl='git log --oneline -n 20'
+alias gco='git checkout'
 
 [ -f ~/.bash_aliases.local ] && source  ~/.bash_aliases.local
