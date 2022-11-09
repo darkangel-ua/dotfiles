@@ -70,6 +70,7 @@ editor_simple_statusbar=false
 editor_check_new_line=false
 editor_show_right_margin=false
 editor_group_undo=true
+editor_state_full_filename=true
 editor_ask_filename_before_edit=false
 nice_rotating_dash=true
 mcview_remember_file_position=false
@@ -81,8 +82,6 @@ editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 ignore_ftp_chattr_errors=true
 skin=gruvbox16M
-
-editor_state_full_filename=true
 
 safe_overwrite=false
 
@@ -96,7 +95,7 @@ menubar_visible=true
 free_space=true
 horizontal_split=false
 vertical_equal=true
-left_panel_size=127
+left_panel_size=126
 horizontal_equal=true
 top_panel_size=28
 
@@ -114,12 +113,10 @@ clipboard_paste=
 
 [Colors]
 base_color=
-xterm=
+xterm-color=
 color_terminals=
 
-linux=
-
-xterm-color=
+screen=
 
 screen-256color=
 
@@ -166,17 +163,6 @@ ignore_dirs=
 
 [HotlistConfig]
 expanded_view_of_groups=0
-
-[DiffView]
-show_symbols=false
-show_numbers=false
-tab_size=8
-diff_quality=0
-diff_ignore_tws=false
-diff_ignore_all_space=false
-diff_ignore_space_change=false
-diff_tab_expansion=false
-diff_ignore_case=false
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
