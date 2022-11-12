@@ -92,6 +92,7 @@ keymap('n', '<leader>gG', ":DiffviewOpen develop..HEAD<cr>", { desc ='' })
 keymap('n', '<leader>gd', ":Gdiff<cr>", { desc ='' })
 keymap('n', '<leader>gch', ":Telescope git_branches<cr>", { desc ='' })
 keymap('n', '<leader>gb', ":Git blame<cr>", { desc ='' })
+keymap('n', '<leader>gl', ":Telescope git_commits<cr>", { desc ='' })
 
 -- lsp
 keymap('n', 'gd', ":lua require('settings.plugins.telescope').lsp_definitions()<cr>", { desc ='' })
