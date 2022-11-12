@@ -122,11 +122,12 @@ if ! which clangd-14 > /dev/null; then
     sudo apt -y remove clangd-13
 fi
 
-if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.12" ]]; then
+if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.13" ]]; then
     tmp=`mktemp -d`
     pushd "$tmp"
-    wget https://github.com/aristocratos/btop/releases/download/v1.2.12/btop-x86_64-linux-musl.tbz
+    wget https://github.com/aristocratos/btop/releases/download/v1.2.13/btop-x86_64-linux-musl.tbz
     tar -xvf btop-x86_64-linux-musl.tbz
+    cd btop
     ./install.sh
     popd
     rm -rf "$tmp"
