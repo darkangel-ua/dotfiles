@@ -1,4 +1,6 @@
 local cmp = require('cmp')
+local compare = require('cmp.config.compare')
+
 -- local mapping = require('cmp.config.mapping')
 local types = require('cmp.types')
 local snip = require('luasnip')
@@ -107,6 +109,22 @@ cmp.setup({
         { name = 'luasnip' },
         { name = 'calc' },
         { name = 'path' }
+    },
+    sorting = {
+	    -- this is copy-paste from cmp/config/default.lua + my additions
+	    comparators = {
+		    compare.offset,
+		    compare.exact,
+		    -- compare.scopes,
+		    compare.score,
+		    compare.recently_used,
+      	    require("clangd_extensions.cmp_scores"),
+		    compare.locality,
+		    compare.kind,
+		    compare.sort_text,
+		    compare.length,
+		    compare.order,
+	    },
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },

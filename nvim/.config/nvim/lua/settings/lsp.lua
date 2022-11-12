@@ -1,12 +1,18 @@
 local lspconfig = require('lspconfig')
 
-lspconfig.clangd.setup({
+local config = {
   init_options = {
     clangdFileStatus = true
   },
   on_attach = require('settings.plugins.nvim-navic').attach,
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
-})
+  extensions = {
+      autoSetHints = false,
+  },
+}
+config = require('clangd_extensions').prepare(config)
+
+lspconfig.clangd.setup(config)
 
 -- make signs same as in trouble.nvim
 vim.cmd [[
