@@ -106,8 +106,8 @@ keymap('n', 'K', ":lua vim.lsp.buf.hover()<CR>", { desc ='' })
 keymap('n', '<leader>rn', ":lua vim.lsp.buf.rename()<CR>", { desc ='' })
 keymap('n', '<leader>o', "<cmd>lua require('settings.plugins.telescope').lsp_document_symbols()<cr>", { desc ='' })
 keymap('n', 'gs', "<cmd>lua require('settings.plugins.telescope').lsp_dynamic_workspace_symbols()<cr>", { desc ='' })
-keymap('v', '<C-f>', ":lua vim.lsp.buf.range_formatting()<cr>", { desc ='' })
-keymap('n', '<C-f>', "va{ <bar> :lua vim.lsp.buf.range_formatting()<cr>", { desc ='' })
+keymap('v', '<C-f>', ":lua vim.lsp.buf.format({ range = nil })<cr>", { desc ='' })
+keymap('n', '<C-f>', "va{ <bar> :lua vim.lsp.buf.format({ range = nil })<cr>", { desc ='' })
 
 -- troubles
 keymap('n', '<leader>a', ":TroubleToggle document_diagnostics<cr>", { desc ='' })
