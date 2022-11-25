@@ -1,6 +1,5 @@
 local Hydra = require('hydra')
 local splits = require('smart-splits')
-local windows = require('winshift')
 
 local M = {}
 
@@ -35,7 +34,7 @@ function M.setup()
         name = 'Git hunk movements',
         config = {
             invoke_on_body = true,
-            color = 'amaranth',
+            color = 'pink',
         },
         mode = 'n',
         body = '<leader>hg',
@@ -43,8 +42,6 @@ function M.setup()
             { 'j' , '<cmd>Gitsigns next_hunk<cr>', { silent = true, desc = 'Next hunk'} },
             { 'k' , '<cmd>Gitsigns prev_hunk<cr>', { silent = true, desc = 'Prev hunk' } },
             { 'p', '<cmd>Gitsigns preview_hunk<cr>', { silent = true, desc = 'Prev hunk' } },
-            { 'gg' , 'gg' },
-            { 'G' , 'G' },
             { 'q', nil, { exit = true, nowait = true } },
         }
     })
@@ -53,7 +50,7 @@ function M.setup()
         name = 'Buffers',
         config = {
             invoke_on_body = true,
-            color = 'amaranth',
+            color = 'pink',
         },
         mode = 'n',
         body = '<leader>hb',
