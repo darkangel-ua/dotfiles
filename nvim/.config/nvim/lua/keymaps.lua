@@ -146,7 +146,14 @@ keymap('n', '<A-l>', ':TmuxNavigateRight<cr>', { desc ='' })
 
 -- hop
 keymap('n', 's', '<cmd>HopWord<cr>', { desc ='' })
-keymap('n', '<leader>s', '<cmd>:HopLine<cr>', { desc ='' })
+keymap('n', '<leader>s', '<cmd>HopLine<cr>', { desc ='' })
+-- this is hop powered f/t variants
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+vim.keymap.set('', 'f', function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, {remap=true})
+vim.keymap.set('', 'F', function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, {remap=true})
+vim.keymap.set('', 't', function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }) end, {remap=true})
+vim.keymap.set('', 'T', function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end, {remap=true})
 
 -- command history
 keymap('n', '<leader>fc', ':Telescope command_history<cr>', { desc ='' })
