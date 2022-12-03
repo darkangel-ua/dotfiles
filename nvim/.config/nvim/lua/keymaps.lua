@@ -6,7 +6,7 @@ local keymap = function(mode, lhs, rhs, opts)
 end
 
 -- General movement and editing mappings
-keymap('n', '<leader>x', require('settings.plugins.ide').bufdelete, { desc ='' })
+keymap('n', '<leader>x', function() require('settings.plugins.ide').bufdelete() end, { desc ='' })
 -- even more stupid way to close tab
 keymap('n', '<leader>X', ":tabc<cr>", { desc ='' })
 -- Set kj/jk to be escape in insert mode
@@ -52,19 +52,19 @@ keymap('i', '<C-P>', "<C-o>:Telescope neoclip plus<cr>", { desc ='' })
 keymap('v', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
 
 -- Telescope
-keymap('n', '<leader>ff', require('telescope.builtin').find_files, { desc ='' })
-keymap('n', '<leader>fF', require('settings.plugins.telescope').find_files_buffer, { desc ='' })
-keymap('n', '<leader>fd', require('settings.plugins.telescope').dotfiles, { desc ='' })
-keymap('n', '<leader>fD', require('settings.plugins.telescope').dotfiles_local, { desc ='' })
-keymap('n', '<leader>fe', require 'telescope'.extensions.file_browser.file_browser, { desc ='' })
-keymap('n', '<leader>fE', require('settings.plugins.telescope').file_browser_buffer, { desc ='' })
-keymap('n', '<leader>fg', require('telescope.builtin').git_files, { desc ='' })
-keymap('n', '<leader>fo', require('telescope.builtin').oldfiles, { desc ='' })
-keymap('n', '<leader>fb', require('telescope.builtin').buffers, { desc ='' })
-keymap('n', '<leader>fh', require('telescope.builtin').help_tags, { desc ='' })
+keymap('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc ='' })
+keymap('n', '<leader>fF', function() require('settings.plugins.telescope').find_files_buffer() end, { desc ='' })
+keymap('n', '<leader>fd', function() require('settings.plugins.telescope').dotfiles() end, { desc ='' })
+keymap('n', '<leader>fD', function() require('settings.plugins.telescope').dotfiles_local() end, { desc ='' })
+keymap('n', '<leader>fe', function() require 'telescope'.extensions.file_browser.file_browser() end, { desc ='' })
+keymap('n', '<leader>fE', function() require('settings.plugins.telescope').file_browser_buffer() end, { desc ='' })
+keymap('n', '<leader>fg', function() require('telescope.builtin').git_files() end, { desc ='' })
+keymap('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end, { desc ='' })
+keymap('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc ='' })
+keymap('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc ='' })
 keymap('n', '<leader>fs', function() require('telescope.builtin').live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end}) end, { desc ='' })
-keymap('n', '<leader>fw', require('telescope.builtin').grep_string, { desc ='' })
-keymap('n', '<leader>fW', require('settings.plugins.telescope').grep_string_in_buffer, { desc ='' })
+keymap('n', '<leader>fw', function() require('telescope.builtin').grep_string() end, { desc ='' })
+keymap('n', '<leader>fW', function() require('settings.plugins.telescope').grep_string_in_buffer() end, { desc ='' })
 keymap('n', '<leader>p', "<cmd>Telescope resume<cr>", { desc ='' })
 keymap('n', 'S', ":Telescope spell_suggest<cr>", { desc ='' })
 keymap('n', '<leader>fm', "<cmd>Telescope man_pages<cr>", { desc ='' })
@@ -95,11 +95,11 @@ keymap('n', '<leader>gb', ":Git blame<cr>", { desc ='' })
 keymap('n', '<leader>gl', ":Telescope git_commits<cr>", { desc ='' })
 
 -- lsp
-keymap('n', 'gd', require('settings.plugins.telescope').lsp_definitions, { desc ='' })
+keymap('n', 'gd', function() require('settings.plugins.telescope').lsp_definitions() end, { desc ='' })
 keymap('n', 'gD', ":Telescope lsp_type_definitions<cr>", { desc ='' })
 keymap('n', 'gi', ":Telescope lsp_implementations<cr>", { desc ='' })
 keymap('v', 'gi', ":TSCppDefineClassFunc<cr>", { desc ='' })
-keymap('n', 'gr', require('settings.plugins.telescope').lsp_references, { desc ='' })
+keymap('n', 'gr', function() require('settings.plugins.telescope').lsp_references() end, { desc ='' })
 keymap('n', 'gh', ":ClangdSwitchSourceHeader<cr>", { desc ='' })
 keymap('n', 'ga', ":CodeActionMenu<cr>", { desc ='' })
 keymap('n', 'K', vim.lsp.buf.hover, { desc ='' })
@@ -115,28 +115,28 @@ keymap('n', '<leader>;', ":TroubleToggle quickfix<cr>:CMakeClose<cr>", { desc ='
 
 -- building
 keymap('n', '<leader>mm', ":TroubleClose<cr> <bar> :CMakeBuild<cr>", { desc ='' })
-keymap('n', '<leader>mo', require('settings.plugins.ide').cmake_open, { desc ='' })
+keymap('n', '<leader>mo', function() require('settings.plugins.ide').cmake_open() end, { desc ='' })
 keymap('n', '<leader>mc', ":CMakeClose<cr>", { desc ='' })
-keymap('n', '<leader>mt', require('settings.plugins.cmake').select_build_targets, { desc ='' })
+keymap('n', '<leader>mt', function() require('settings.plugins.cmake').select_build_targets() end, { desc ='' })
 
 -- debugging
-keymap('n', '<F5>', require('dap').continue, { desc ='' })
-keymap('n', '<F8>', require('dap').step_over, { desc ='' })
-keymap('n', '<F9>', require('dap').step_into, { desc ='' })
-keymap('n', '<F21>', require('dap').step_out, { desc ='' }) -- F21 is actually Shift-F9
-keymap('n', '<F2>', require('dap').toggle_breakpoint, { desc ='' })
-keymap('n', '<F22>', require('dap').terminate, { desc ='' }) -- F22 is actually Shift-F10
+keymap('n', '<F5>', function() require('dap').continue() end, { desc ='' })
+keymap('n', '<F8>', function() require('dap').step_over() end, { desc ='' })
+keymap('n', '<F9>', function() require('dap').step_into() end, { desc ='' })
+keymap('n', '<F21>', function() require('dap').step_out() end, { desc ='' }) -- F21 is actually Shift-F9
+keymap('n', '<F2>', function() require('dap').toggle_breakpoint() end, { desc ='' })
+keymap('n', '<F22>', function() require('dap').terminate() end, { desc ='' }) -- F22 is actually Shift-F10
 
 -- reloading config/files
-keymap('n', '<leader>rc', require('settings.reload').reload_all, { desc ='' })
-keymap('n', '<leader>rf', require('settings.reload').source_current_file, { desc ='' })
+keymap('n', '<leader>rc', function() require('settings.reload').reload_all() end, { desc ='' })
+keymap('n', '<leader>rf', function() require('settings.reload').source_current_file() end, { desc ='' })
 
 -- ide like behaviour to close support windows by esc leaving only main window
-keymap('n', '<esc>', require('settings.plugins.ide').on_esc_pressed, { desc ='' })
+keymap('n', '<esc>', function() require('settings.plugins.ide').on_esc_pressed() end, { desc ='' })
 
 -- scratch terminal
-keymap('n', '<C-h>', require('FTerm').toggle, { desc ='' })
-keymap('t', '<C-h>', require('FTerm').toggle, { desc ='' })
+keymap('n', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
+keymap('t', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
 
 -- vim tmux integration
 keymap('n', '<A-h>', ':TmuxNavigateLeft<cr>', { desc ='' })
