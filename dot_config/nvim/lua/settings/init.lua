@@ -8,5 +8,6 @@ require('settings.options')
 require("settings.snippets")
 
 source('highlighted_yank.vim')
+source('chezmoi.vim')
 
 return { source = source }

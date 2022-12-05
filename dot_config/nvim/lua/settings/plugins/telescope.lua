@@ -53,7 +53,7 @@ function M.dotfiles()
   local opts = {
       prompt_title = '~ dotfiles ~',
       show_untracked = true,
-      cwd = '~/.dotfiles'
+      cwd = '~/.local/share/chezmoi'
   }
 
   builtin.git_files(opts)
@@ -63,7 +63,7 @@ function M.dotfiles_local()
   local opts = {
       prompt_title = '~ dotfiles.local ~',
       show_untracked = true,
-      cwd = '~/.dotfiles.local'
+      cwd = '~/.local/share/chezmoi.local'
   }
 
   builtin.git_files(opts)
