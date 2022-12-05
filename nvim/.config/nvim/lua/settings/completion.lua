@@ -115,10 +115,10 @@ cmp.setup({
 	    comparators = {
 		    compare.offset,
 		    compare.exact,
+      	    require("clangd_extensions.cmp_scores"),
 		    -- compare.scopes,
 		    compare.score,
 		    compare.recently_used,
-      	    require("clangd_extensions.cmp_scores"),
 		    compare.locality,
 		    compare.kind,
 		    compare.sort_text,
