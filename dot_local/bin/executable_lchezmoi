@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+chezmoi --config ~/.config/chezmoi.local/chezmoi.yaml \
+        --persistent-state ~/.config/chezmoi.local/chezmoistate.boltdb \
+        --cache ~/.cache/chezmoi.local \
+        --source ~/.local/share/chezmoi.local \
+        --destination ~ $@
