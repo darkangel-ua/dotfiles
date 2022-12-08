@@ -1,6 +1,12 @@
 #!/usr/bin/bash
 
-chezmoi --config ~/.config/chezmoi.local/chezmoi.yaml \
+configPath=""
+if [ "$1" == "init" ]; then
+    configPath="--config-path ~/.config/chezmoi.local/chezmoi.toml"
+fi
+
+chezmoi --config ~/.config/chezmoi.local/chezmoi.toml \
+        $configPath \
         --persistent-state ~/.config/chezmoi.local/chezmoistate.boltdb \
         --cache ~/.cache/chezmoi.local \
         --source ~/.local/share/chezmoi.local \
