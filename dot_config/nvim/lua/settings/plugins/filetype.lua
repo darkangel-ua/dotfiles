@@ -10,6 +10,7 @@ function M.setup()
                 ['dot_bash_aliases'] = 'sh',
                 ['dot_bash_aliases.local'] = 'sh',
                 ['dot_profile.local'] = 'sh',
+                ['tmux.conf'] = 'tmux',
             }
         }
     })
