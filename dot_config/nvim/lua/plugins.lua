@@ -5,10 +5,6 @@ require('packer').startup({function()
   use 'wbthomason/packer.nvim'
 
   -- system
-  use {
-      'nathom/filetype.nvim',
-      config = function() require('settings.plugins.filetype').setup() end,
-  }
   use 'lewis6991/impatient.nvim'
   use {
       'rcarriga/nvim-notify',

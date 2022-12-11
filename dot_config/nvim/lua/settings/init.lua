@@ -2,6 +2,7 @@ local function source(filepath)
     vim.cmd("source " .. vim.fn.stdpath('config') .. "/lua/settings/" .. filepath)
 end
 
+require('settings.filetypes')
 require('settings.completion')
 require('settings.lsp')
 require('settings.options')
