@@ -1,6 +1,7 @@
 vim.filetype.add({
     filename = {
         ['dot_profile'] = 'sh',
+        ['dot_profile.tmpl'] = 'sh',
         ['dot_bashrc'] = 'sh',
         ['dot_bashrc.local'] = 'sh',
         ['dot_bash_aliases'] = 'sh',
@@ -10,5 +11,6 @@ vim.filetype.add({
     },
     pattern = {
         ['.+%.toml%.tmpl'] = { 'toml' },
+        ['.+%.sh%.tmpl'] = { 'sh' },
     },
 })

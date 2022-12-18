@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+if [ ! -e ~/.config/distcc/hosts.current ]; then
+    exec $@
+else
+    source ~/.config/distcc/hosts.current
+    exec distcc $@
+fi

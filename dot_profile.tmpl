@@ -11,6 +11,10 @@
 export COLORTERM=truecolor
 export EDITOR=nvim
 
+{{ if $.use_distcc -}}
+export CCACHE_PREFIX="distcc-wrapper"
+{{- end -}}
+
 # this is part that runs only when we are not under tmux - tmux creates all panes with logined bash
 # and because I usually do bash login first this part already has been executed
 if [[ -z "$TMUX" ]]; then

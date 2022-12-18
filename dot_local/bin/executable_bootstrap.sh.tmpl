@@ -1,53 +1,19 @@
 #!/bin/bash
 
-# remove those files is they are not links - that means we are on clean system
-[ ! -L ~/.bashrc ] && rm ~/.bashrc
-[ ! -L ~/.profile ] && rm ~/.profile
-
 # in lxc containers there is no ~/.cache directory
 [ ! -e ~/.cache ] && mkdir ~/.cache
 
 # basic system stuff
-sudo apt -y install stow pip mc fontconfig curl
+sudo apt -y install pip mc curl
 sudo pip install powerline-status netifaces
-sudo snap remove btop
 
-# if there is no .bashrc that means we are on clean system
-if [ ! -e ~/.bashrc ]; then
-    pushd ~/.dotfiles
-    stow --no-folding */ || { echo 'Initial stow has failed. Stopping...'; exit 1; }
-    popd
-fi
-
+# we need recent git because nvim telescope uses specific flags from newest one
 # git - install latest from ppa
 git_core_list="/etc/apt/sources.list.d/git-core-ubuntu-ppa-$(lsb_release -cs).list"
 if [[ ! -f "$git_core_list" ]]; then
     sudo add-apt-repository ppa:git-core/ppa -y
     sudo apt update
     sudo apt -y install git
-fi
-
-# nvim
-# remove appimage variant first if any
-if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
-    sudo rm /usr/local/bin/nvim*
-fi
-
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.0-1210-gd367ed9b2" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
-    sudo dpkg -i nvim-linux64.deb
-    rm nvim-linux64.deb
-
-    # nvim Python integration module
-    sudo pip install neovim
-    # this is needed otherwise yank to system clipboard will not work
-    sudo apt -y install xclip
-
-    # packer.nvim bootstrap
-    if [[ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
-        git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-             ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    fi
 fi
 
 # rg command https://github.com/BurntSushi/ripgrep
@@ -98,8 +64,45 @@ if ! which vivid > /dev/null; then
     rm vivid_0.7.0_amd64.deb
 fi
 
+sudo snap remove btop
+if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.13" ]]; then
+    tmp=`mktemp -d`
+    pushd "$tmp"
+    wget https://github.com/aristocratos/btop/releases/download/v1.2.13/btop-x86_64-linux-musl.tbz
+    tar -xvf btop-x86_64-linux-musl.tbz
+    cd btop
+    ./install.sh
+    popd
+    rm -rf "$tmp"
+fi
+
+# nvim
+# remove appimage variant first if any
+if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
+    sudo rm /usr/local/bin/nvim*
+fi
+
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.0-1210-gd367ed9b2" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
+    sudo dpkg -i nvim-linux64.deb
+    rm nvim-linux64.deb
+
+    # nvim Python integration module
+    sudo pip install neovim
+    # this is needed otherwise yank to system clipboard will not work
+    sudo apt -y install xclip
+
+    # packer.nvim bootstrap
+    if [[ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+        git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+             ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    fi
+fi
+
 # Hack Nerd font
 if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
+    sudo apt -y fontconfig
+
     sudo mkdir /usr/local/share/fonts/Hack
     tmp=`mktemp`
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -O "$tmp"
@@ -108,8 +111,15 @@ if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
     sudo fc-cache -f -v
 fi
 
+{{ if $.cpp_dev_tools -}}
 # development tools
-sudo apt -y install cmake clangd ninja-build
+sudo apt -y install cmake ninja-build ccache distcc
+
+# setup ccache - not perfect way to do this, but it's only way if makes are not ready for ccache support
+[ ! -e ~/.local/bin/cc ]  && ln -s /usr/bin/ccache ~/.local/bin/cc
+[ ! -e ~/.local/bin/c++ ] && ln -s /usr/bin/ccache ~/.local/bin/c++
+[ ! -e ~/.local/bin/gcc ] && ln -s /usr/bin/ccache ~/.local/bin/gcc
+[ ! -e ~/.local/bin/g++ ] && ln -s /usr/bin/ccache ~/.local/bin/g++
 
 if ! which clangd-14 > /dev/null; then
     tmp=`mktemp`
@@ -121,15 +131,5 @@ if ! which clangd-14 > /dev/null; then
 
     sudo apt -y remove clangd-13
 fi
-
-if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.13" ]]; then
-    tmp=`mktemp -d`
-    pushd "$tmp"
-    wget https://github.com/aristocratos/btop/releases/download/v1.2.13/btop-x86_64-linux-musl.tbz
-    tar -xvf btop-x86_64-linux-musl.tbz
-    cd btop
-    ./install.sh
-    popd
-    rm -rf "$tmp"
-fi
+{{- end -}}
 

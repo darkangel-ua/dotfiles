@@ -1,0 +1,17 @@
+{{- $cpp_dev_tools := false -}}
+{{- $use_distcc := false -}}
+{{- $limit_disk_usage := false -}}
+
+{{- if eq .chezmoi.hostname "bj20.lp" -}}
+{{- $limit_disk_usage = true -}}
+{{- end -}}
+
+{{- $cpp_dev_tools = promptBoolOnce . "cpp_dev_tools" "Need c++ development tools" -}}
+{{- if $cpp_dev_tools -}}
+{{-     $use_distcc = promptBoolOnce . "use_distcc" "Use distcc" -}}
+{{- end -}}
+
+[data]
+    cpp_dev_tools = {{ $cpp_dev_tools }}
+    use_distcc = {{ $use_distcc }}
+    limit_disk_usage = {{ $limit_disk_usage }}

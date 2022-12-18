@@ -1,0 +1,9 @@
+# Set maximum cache size
+{{ if .limit_disk_usage -}}
+    max_size = 20G
+{{ else -}}
+     max_size = 50G
+{{ end -}}
+
+hard_link = true
+

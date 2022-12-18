@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+case $1 in
+    disable)
+        [ -h ~/.config/distcc/hosts.current ] && rm ~/.config/distcc/hosts.current
+        ;;
+    use)
+        [ ! -e ~/.config/distcc/hosts.$2 ] && echo "$2 doesn't exists" && exit 1
+        ln -sf ~/.config/distcc/hosts.$2 ~/.config/distcc/hosts.current
+        ;;
+    ls)
+        exa -1g --icons ~/.config/distcc/hosts.*
+        ;;
+    *)
+        echo "Unrecognized command"
+        ;;
+esac
