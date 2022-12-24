@@ -113,7 +113,8 @@ fi
 
 {{ if $.cpp_dev_tools -}}
 # development tools
-sudo apt -y install cmake ninja-build ccache distcc
+sudo apt -y install ninja-build ccache distcc
+sudo snap install cmake --classic
 
 # setup ccache - not perfect way to do this, but it's only way if makes are not ready for ccache support
 [ ! -e ~/.local/bin/cc ]  && ln -s /usr/bin/ccache ~/.local/bin/cc
@@ -131,5 +132,5 @@ if ! which clangd-14 > /dev/null; then
 
     sudo apt -y remove clangd-13
 fi
-{{- end -}}
+{{- end }}
 
