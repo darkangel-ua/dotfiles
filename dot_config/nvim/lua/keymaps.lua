@@ -47,9 +47,9 @@ keymap('n', 'cpj', '<cmd>TSTextobjectSwapNext @parameter.inner<cr>', { desc = 'S
 keymap('n', 'cpl', '<cmd>TSTextobjectSwapNext @parameter.inner<cr>', { desc = 'Swap parameter right' })
 
 -- clipboard
-keymap('n', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
-keymap('i', '<C-P>', "<C-o>:Telescope neoclip plus<cr>", { desc ='' })
-keymap('v', '<C-P>', ":Telescope neoclip plus<cr>", { desc ='' })
+keymap('n', '<C-P>', "<cmd>Telescope neoclip plus<cr>", { desc ='' })
+keymap('i', '<C-P>', "<C-o><cmd>Telescope neoclip plus<cr>", { desc ='' })
+keymap('v', '<C-P>', "<cmd>Telescope neoclip plus<cr>", { desc ='' })
 
 -- Telescope
 keymap('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc ='' })
@@ -67,11 +67,11 @@ keymap('n', '<leader>fS', function() require('telescope.builtin').live_grep({add
 keymap('n', '<leader>fw', function() require('telescope.builtin').grep_string() end, { desc ='' })
 keymap('n', '<leader>fW', function() require('settings.plugins.telescope').grep_string_in_buffer() end, { desc ='' })
 keymap('n', '<leader>p', "<cmd>Telescope resume<cr>", { desc ='' })
-keymap('n', 'S', ":Telescope spell_suggest<cr>", { desc ='' })
+keymap('n', 'S', "<cmd>Telescope spell_suggest<cr>", { desc ='' })
 keymap('n', '<leader>fm', "<cmd>Telescope man_pages<cr>", { desc ='' })
 
 -- projects
-keymap('n', '<leader>fp', ':Telescope projects<cr>', { desc = 'Find a project' })
+keymap('n', '<leader>fp', '<cmd>Telescope projects<cr>', { desc = 'Find a project' })
 
 -- buffers
 keymap('n', '<leader>1', function() require('bufferline').go_to(1, true) end, { desc ='' })
@@ -83,41 +83,41 @@ keymap('n', '<leader>6', function() require('bufferline').go_to(6, true) end, { 
 keymap('n', '<leader>7', function() require('bufferline').go_to(7, true) end, { desc ='' })
 keymap('n', '<leader>8', function() require('bufferline').go_to(8, true) end, { desc ='' })
 keymap('n', '<leader>9', function() require('bufferline').go_to(9, true) end, { desc ='' })
-keymap('n', '<leader>0', ":BufferLineTogglePin<cr> <bar> :lua require('bufferline').sort_by('none')<cr>", { desc ='' })
+keymap('n', '<leader>0', "<cmd>BufferLineTogglePin<cr> <bar> <cmd>lua require('bufferline').sort_by('none')<cr>", { desc ='' })
 -- this is something similar to Ctrl-Tab in most IDEs - to switch between buffers
 keymap('n', '<leader>j', "<cmd>lua require('settings.plugins.telescope').quick_buffers()<cr>", { desc ='' })
 
 -- git
-keymap('n', '<leader>gg', ":DiffviewOpen<cr>", { desc ='' })
-keymap('n', '<leader>gG', ":DiffviewOpen develop..HEAD<cr>", { desc ='' })
-keymap('n', '<leader>gd', ":Gdiff<cr>", { desc ='' })
-keymap('n', '<leader>gch', ":Telescope git_branches<cr>", { desc ='' })
-keymap('n', '<leader>gb', ":Git blame<cr>", { desc ='' })
-keymap('n', '<leader>gl', ":Telescope git_commits<cr>", { desc ='' })
+keymap('n', '<leader>gg', "<cmd>DiffviewOpen<cr>", { desc ='' })
+keymap('n', '<leader>gG', "<cmd>DiffviewOpen develop..HEAD<cr>", { desc ='' })
+keymap('n', '<leader>gd', "<cmd>Gdiff<cr>", { desc ='' })
+keymap('n', '<leader>gch', "<cmd>Telescope git_branches<cr>", { desc ='' })
+keymap('n', '<leader>gb', "<cmd>Git blame<cr>", { desc ='' })
+keymap('n', '<leader>gl', "<cmd>Telescope git_commits<cr>", { desc ='' })
 
 -- lsp
 keymap('n', 'gd', function() require('settings.plugins.telescope').lsp_definitions() end, { desc ='' })
-keymap('n', 'gD', ":Telescope lsp_type_definitions<cr>", { desc ='' })
-keymap('n', 'gi', ":Telescope lsp_implementations<cr>", { desc ='' })
-keymap('v', 'gi', ":TSCppDefineClassFunc<cr>", { desc ='' })
+keymap('n', 'gD', "<cmd>Telescope lsp_type_definitions<cr>", { desc ='' })
+keymap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", { desc ='' })
+keymap('v', 'gi', "<cmd>TSCppDefineClassFunc<cr>", { desc ='' })
 keymap('n', 'gr', function() require('settings.plugins.telescope').lsp_references() end, { desc ='' })
-keymap('n', 'gh', ":ClangdSwitchSourceHeader<cr>", { desc ='' })
-keymap('n', 'ga', ":CodeActionMenu<cr>", { desc ='' })
+keymap('n', 'gh', "<cmd>ClangdSwitchSourceHeader<cr>", { desc ='' })
+keymap('n', 'ga', "<cmd>CodeActionMenu<cr>", { desc ='' })
 keymap('n', 'K', vim.lsp.buf.hover, { desc ='' })
-keymap('n', '<leader>rn', ":lua vim.lsp.buf.rename()<CR>", { desc ='' })
+keymap('n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<CR>", { desc ='' })
 keymap('n', '<leader>o', function() require('settings.plugins.telescope').lsp_document_symbols() end, { desc ='' })
 keymap('n', 'gs', function() require('settings.plugins.telescope').lsp_dynamic_workspace_symbols() end, { desc ='' })
 keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
 keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
 
 -- troubles
-keymap('n', '<leader>a', ":TroubleToggle document_diagnostics<cr>", { desc ='' })
-keymap('n', '<leader>;', ":TroubleToggle quickfix<cr>:CMakeClose<cr>", { desc ='' })
+keymap('n', '<leader>a', "<cmd>TroubleToggle document_diagnostics<cr>", { desc ='' })
+keymap('n', '<leader>;', "<cmd>TroubleToggle quickfix<cr><cmd>CMakeClose<cr>", { desc ='' })
 
 -- building
-keymap('n', '<leader>mm', ":TroubleClose<cr> <bar> :CMakeBuild<cr>", { desc ='' })
+keymap('n', '<leader>mm', "<cmd>TroubleClose<cr> <bar> <cmd>CMakeBuild<cr>", { desc ='' })
 keymap('n', '<leader>mo', function() require('settings.plugins.ide').cmake_open() end, { desc ='' })
-keymap('n', '<leader>mc', ":CMakeClose<cr>", { desc ='' })
+keymap('n', '<leader>mc', "<cmd>CMakeClose<cr>", { desc ='' })
 keymap('n', '<leader>mt', function() require('settings.plugins.cmake').select_build_targets() end, { desc ='' })
 
 -- debugging
@@ -140,10 +140,10 @@ keymap('n', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
 keymap('t', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
 
 -- vim tmux integration
-keymap('n', '<A-h>', ':TmuxNavigateLeft<cr>', { desc ='' })
-keymap('n', '<A-j>', ':TmuxNavigateDown<cr>', { desc ='' })
-keymap('n', '<A-k>', ':TmuxNavigateUp<cr>', { desc ='' })
-keymap('n', '<A-l>', ':TmuxNavigateRight<cr>', { desc ='' })
+keymap('n', '<A-h>', '<cmd>TmuxNavigateLeft<cr>', { desc ='' })
+keymap('n', '<A-j>', '<cmd>TmuxNavigateDown<cr>', { desc ='' })
+keymap('n', '<A-k>', '<cmd>TmuxNavigateUp<cr>', { desc ='' })
+keymap('n', '<A-l>', '<cmd>TmuxNavigateRight<cr>', { desc ='' })
 
 -- hop
 keymap('n', 's', '<cmd>HopWord<cr>', { desc ='' })
@@ -157,14 +157,14 @@ vim.keymap.set('', 't', function() hop.hint_char1({ direction = directions.AFTER
 vim.keymap.set('', 'T', function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end, {remap=true})
 
 -- command history
-keymap('n', '<leader>fc', ':Telescope command_history<cr>', { desc ='' })
+keymap('n', '<leader>fc', '<cmd>Telescope command_history<cr>', { desc ='' })
 
 local M = {}
 
 function M.dashboard()
-    keymap('n', 'O', ':SessionManager load_session<cr>', { buffer = true })
-    keymap('n', 'S', ':SessionManager load_last_session<cr>', { buffer = true })
-    keymap('n', 'C', ':SessionManager load_current_dir_session<cr>', { buffer = true })
+    keymap('n', 'O', '<cmd>SessionManager load_session<cr>', { buffer = true })
+    keymap('n', 'S', '<cmd>SessionManager load_last_session<cr>', { buffer = true })
+    keymap('n', 'C', '<cmd>SessionManager load_current_dir_session<cr>', { buffer = true })
     keymap('n', 'o', function() require('telescope.builtin').oldfiles() end, { buffer = true })
     keymap('n', 's', function() require('settings.plugins.telescope').dotfiles() end, { buffer = true })
     keymap('n', 'q', ':q<cr>', { buffer = true })

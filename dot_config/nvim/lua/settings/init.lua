@@ -3,10 +3,7 @@ local function source(filepath)
 end
 
 require('settings.filetypes')
-require('settings.completion')
-require('settings.lsp')
 require('settings.options')
-require("settings.snippets")
 
 source('highlighted_yank.vim')
 source('chezmoi.vim')

@@ -66,6 +66,7 @@ local function get_targets_from_cmake()
 end
 
 M.select_build_targets = function(opts)
+    vim.cmd [[ Lazy load vim-cmake ]]
     opts = opts or {}
     pickers.new(opts, {
         prompt_title = "Select CMake targets",
