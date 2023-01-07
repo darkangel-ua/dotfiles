@@ -34,6 +34,7 @@ function M.setup()
         { icon = '  ', icon_hl = iconhl, desc = 'Load current dir session                ', shortcut = '      C', action = "SessionManager load_current_dir_session" },
         { icon = '  ', icon_hl = iconhl, desc = 'Recently opened files                   ', shortcut = '      o', action = "lua require('telescope.builtin').oldfiles()" },
         { icon = '  ', icon_hl = iconhl, desc = 'Settings                                ', shortcut = '      s', action = "lua require('telescope.builtin').dotfiles()" },
+        { icon = '💤 ', icon_hl = iconhl, desc = 'Lazy                                    ', shortcut = '      L', action = "Lazy" },
         { icon = '⎋  ', icon_hl = iconhl, desc = 'Exit                                    ', shortcut = '      q', action = 'q' },
     }
 end

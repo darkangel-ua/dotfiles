@@ -167,6 +167,7 @@ function M.dashboard()
     keymap('n', 'C', '<cmd>SessionManager load_current_dir_session<cr>', { buffer = true })
     keymap('n', 'o', function() require('telescope.builtin').oldfiles() end, { buffer = true })
     keymap('n', 's', function() require('settings.plugins.telescope').dotfiles() end, { buffer = true })
+    keymap('n', 'L', '<Cmd>Lazy<cr>', { buffer = true })
     keymap('n', 'q', ':q<cr>', { buffer = true })
 end
 
