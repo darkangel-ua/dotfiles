@@ -25,10 +25,10 @@ fi
 
 # fd command https://github.com/sharkdp/fd
 # it is used in telescope.nvim mostly
-if ! which fd > /dev/null; then
-    wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-    sudo dpkg -i fd_8.2.1_amd64.deb
-    rm fd_8.2.1_amd64.deb
+if ! which fd > /dev/null || [[ `fd --version` != "fd 8.6.0" ]]; then
+    wget https://github.com/sharkdp/fd/releases/download/v8.6.0/fd_8.6.0_amd64.deb
+    sudo dpkg -i fd_8.6.0_amd64.deb
+    rm fd_8.6.0_amd64.deb
 fi
 
 # fzf
@@ -82,8 +82,8 @@ if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
     sudo rm /usr/local/bin/nvim*
 fi
 
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.0-1210-gd367ed9b2" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.2" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.deb
     sudo dpkg -i nvim-linux64.deb
     rm nvim-linux64.deb
 
@@ -91,12 +91,6 @@ if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d 
     sudo pip install neovim
     # this is needed otherwise yank to system clipboard will not work
     sudo apt -y install xclip
-
-    # packer.nvim bootstrap
-    if [[ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
-        git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-             ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    fi
 fi
 
 # Hack Nerd font
