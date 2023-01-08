@@ -23,6 +23,11 @@ require('lazy').setup({
       'numToStr/FTerm.nvim',
       config = function() require('settings.plugins.fterm').setup() end,
   },
+  {
+      'williamboman/mason.nvim',
+      config = true,
+      event = 'VeryLazy',
+  },
 
   -- Colors
   {
@@ -173,7 +178,7 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function() require('settings.lsp') end,
-    ft = { 'cpp' },
+    ft = { 'cpp', 'cmake', },
   },
   {
       'SmiteshP/nvim-navic',
@@ -182,7 +187,7 @@ require('lazy').setup({
   {
       'j-hui/fidget.nvim',
       config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end,
-      ft = { 'cpp' },
+      ft = { 'cpp', 'cmake', },
   },
   {
       'folke/trouble.nvim',
@@ -190,7 +195,7 @@ require('lazy').setup({
       config = function() require('settings.plugins.trouble').setup() end,
       cmd = { 'TroubleToggle', 'TroubleClose' },
   },
-  { 'kosayoda/nvim-lightbulb', ft = { 'cpp' }, },
+  { 'kosayoda/nvim-lightbulb', ft = { 'cpp', 'cmake', }, },
   { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' },
   {
       'Badhi/nvim-treesitter-cpp-tools',
