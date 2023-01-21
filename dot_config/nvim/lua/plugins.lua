@@ -79,7 +79,8 @@ require('lazy').setup({
   },
   {
       'mrjones2014/smart-splits.nvim',
-      config = {},
+      config = true,
+      opts = {},
   },
   {
       'anuvyklack/hydra.nvim',
@@ -124,7 +125,8 @@ require('lazy').setup({
   },
   {
       'kylechui/nvim-surround',
-      config = {},
+      config = true,
+      opts = {},
       event = on_some_buffer,
   },
   -- to uncomment word use gciC inside comment block. Here iC is treesitter comment text object
