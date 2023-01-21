@@ -1,8 +1,7 @@
 #!/usr/bin/bash
 
 # have to disable Vulkan otherwise gaming become disaster
-google-chrome-stable --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization \
-                     --disable-features=Vulkan \
+google-chrome-stable --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,Vulkan \
                      --enable-zero-copy \
                      --use-gl=desktop \
                      --ignore-gpu-blocklist \
@@ -12,4 +11,5 @@ google-chrome-stable --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,Canva
                      --enable-raw-draw \
                      --enable-drdc \
                      --enable-smooth-scrolling \
+                     --enable-vulkan \
                      "$@"
