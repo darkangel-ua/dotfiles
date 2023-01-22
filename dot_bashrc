@@ -138,6 +138,14 @@ function mkcdir() {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
+function gch() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 if [ -f ~/.bashrc.local ]; then
     source ~/.bashrc.local
 fi
