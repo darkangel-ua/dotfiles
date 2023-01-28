@@ -42,7 +42,7 @@ require('lazy').setup({
   {
       'glepnir/dashboard-nvim',
       config = function() require('settings.plugins.dashboard').setup() end,
-      lazy = false,
+      event = { 'VimEnter' },
   },
   {
       'Shatur/neovim-session-manager',

@@ -13,9 +13,10 @@ function M.setup()
             GruvboxAquaSign = { bg = colors.dark0_hard },
 
             DashboardHeader = { link = 'GruvboxGreen' },
-            DashboardCenter = { link = 'GruvboxBlue' },
-            DashboardShortcut = { link = 'GruvboxRed' },
+            DashboardDesc = { link = 'GruvboxBlue' },
+            DashboardKey = { link = 'GruvboxRed' },
             DashboardFooter = { link = 'GruvboxYellow' },
+            DashboardIcon = { link = 'GruvboxOrange' },
 
             LuasnipInsertNodePassive = { fg = colors.bright_blue, bg = colors.dark1, italic = true },
             LuasnipChoiceNodePassive = { fg = colors.bright_blue, bg = colors.dark1, italic = true },
