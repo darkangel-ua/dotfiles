@@ -102,7 +102,7 @@ require('lazy').setup({
       'akinsho/bufferline.nvim',
       branch = 'main',
       config = function() require('settings.plugins.bufferline').setup() end,
-      event = on_some_buffer,
+      lazy = false,
   },
   -- hide all buffers that doesn't belong to current tab from bufferline
   {
