@@ -62,7 +62,7 @@ keymap('n', '<leader>fg', function() require('telescope.builtin').git_files() en
 keymap('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end, { desc ='' })
 keymap('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc ='' })
 keymap('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc ='' })
-keymap('n', '<leader>fs', function() require('telescope.builtin').live_grep() end, { desc ='' })
+keymap('n', '<leader>fs', function() require('telescope').extensions.live_grep_args.live_grep_args() end, { desc ='' })
 keymap('n', '<leader>fS', function() require('telescope.builtin').live_grep({additional_args = function() return {'--hidden', '--iglob', '!.git/'} end}) end, { desc ='' })
 keymap('n', '<leader>fw', function() require('telescope.builtin').grep_string() end, { desc ='' })
 keymap('n', '<leader>fW', function() require('settings.plugins.telescope').grep_string_in_buffer() end, { desc ='' })

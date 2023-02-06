@@ -48,6 +48,7 @@
   "spellsitter.nvim": { "branch": "master", "commit": "4af8640d9d706447e78c13150ef7475ea2c16b30" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "304508fb7bea78e3c0eeddd88c4837501e403ae8" },
   "telescope-fzf-native.nvim": { "branch": "keep_lines_order", "commit": "832e3285285f4a31ac83f394d78d7ec46469d1aa" },
+  "telescope-live-grep-args.nvim": { "branch": "master", "commit": "7de3baef1ec4fb77f7a8195fe87bebd513244b6a" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "62ea5e58c7bbe191297b983a9e7e89420f581369" },
   "telescope.nvim": { "branch": "master", "commit": "203bf5609137600d73e8ed82703d6b0e320a5f36" },
   "trouble.nvim": { "branch": "main", "commit": "490f7fe6d227f4f7a64f00be8c7dcd7a508ed271" },

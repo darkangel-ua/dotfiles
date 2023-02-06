@@ -73,6 +73,10 @@ require('lazy').setup({
       dependencies = 'nvim-telescope/telescope.nvim',
   },
   {
+      'nvim-telescope/telescope-live-grep-args.nvim',
+      dependencies = 'nvim-telescope/telescope.nvim',
+  },
+  {
       'christoomey/vim-tmux-navigator',
       init = function() require('settings.plugins.vim-tmux') end,
       cmd = { 'TmuxNavigateLeft', 'TmuxNavigateRight',  'TmuxNavigateUp',  'TmuxNavigateDown' },

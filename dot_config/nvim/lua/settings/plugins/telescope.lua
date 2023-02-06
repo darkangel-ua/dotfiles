@@ -7,6 +7,8 @@ local actions_layout = require('telescope.actions.layout')
 local M = {}
 
 function M.setup()
+    local lga_actions = require("telescope-live-grep-args.actions")
+
     telescope.setup({
         defaults = {
           sorting_strategy = "ascending",
@@ -26,13 +28,24 @@ function M.setup()
                       ['<C-p>'] = actions_layout.toggle_preview,
               }
           }
-        }
+        },
+        extensions = {
+            live_grep_args = {
+                auto_quoting = false,
+                mappings = {
+                    i = {
+                        ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                    },
+                },
+            },
+        },
     })
 
     require('telescope').load_extension('notify')
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('file_browser')
     require('telescope').load_extension('projects')
+    require('telescope').load_extension('live_grep_args')
 end
 
 function M.quick_buffers()
