@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    local colors = require('gruvbox.palette')
+    local colors = require('gruvbox.palette').get_base_colors(nil, "hard")
     require("bufferline").setup({
         options = {
             numbers = function(opts)
@@ -12,24 +12,23 @@ function M.setup()
         },
         highlights = {
             fill = {
-                bg = colors.dark0_hard,
+                bg = colors.bg0,
             },
             background = {
-                fg = colors.dark4,
-                bg = colors.dark0_hard,
+                fg = colors.bg4,
+                bg = colors.bg0,
             },
             numbers = {
-                bg = colors.dark0_hard,
+                bg = colors.bg0,
             },
             modified = {
-                bg = colors.dark0_hard,
+                bg = colors.bg0,
             },
             separator = {
-                fg = colors.dark0,
-                bg = colors.dark0_hard,
+                bg = colors.bg0,
             },
             indicator_selected = {
-                fg = colors.dark0_hard,
+                fg = colors.bg0,
             },
         }
     })
