@@ -66,16 +66,14 @@ cmp.setup({
           i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
           c = cmp.mapping.select_next_item(),
       }),
-      ['<Esc>'] = cmp.mapping({
-          c = function(fallback)
-              if cmp.visible then
-                  cmp.close()
-                  vim.schedule(cmp.suspend())
-              else
-                  fallback()
-              end
-          end,
-      }),
+      ['<Esc>'] = cmp.mapping(function(fallback)
+          if cmp.visible then
+              cmp.close()
+              vim.schedule(cmp.suspend())
+          else
+              fallback()
+          end
+      end, { "i", "c" }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       ["<Tab>"] = cmp.mapping(function(fallback)
           if snip.expand_or_jumpable() then
