@@ -42,6 +42,10 @@ opt.smartcase = true
 
 opt.splitright = true
 
+-- lets try to move swap file to memory - just to check if this will
+-- prevent from nvim freezes because of disk io load
+vim.go.directory = '/tmp/nvim.'..vim.env.USER..'/swap//'
+
 -- this section is options for terminal
 vim.cmd [[
 augroup my_term_settings
