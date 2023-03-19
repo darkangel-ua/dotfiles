@@ -31,9 +31,6 @@ require('clangd_extensions').setup {
       },
       on_attach = on_lsp_attach,
       capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      extensions = {
-          autoSetHints = false,
-      },
   },
 }
 
