@@ -1,55 +1,54 @@
-local opt = vim.opt
+vim.o.guicursor = ''
 
-opt.guicursor = ''
-
-opt.hidden = true
-opt.backup = false
-opt.writebackup = false
+vim.o.hidden = true
+vim.o.backup = false
+vim.o.writebackup = false
 -- we have lualine - no need to show mode twice
-opt.showmode = false
+vim.o.showmode = false
 -- turn hybrid line numbers on
-opt.number = true
+vim.o.number = true
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
-opt.updatetime = 300
+vim.o.updatetime = 300
 -- Don't pass messages to |ins-completion-menu|.
-opt.shortmess = opt.shortmess + 'c'
+vim.o.shortmess = vim.o.shortmess .. 'c'
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appear/become resolved.
-opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 -- Enable filetype plugins
-vim.cmd [[ filetype plugin on ]]
+vim.cmd.filetype('plugin', 'on')
 -- use system clipboard on yank and paste
-opt.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 -- indentation settings
-vim.cmd [[ filetype indent on ]]
+vim.cmd.filetype('indent', 'on')
 -- set smartindent " can't use smartindent with filetype indentation
-opt.autoindent = true
+vim.o.autoindent = true
 -- Use spaces instead of tabs
-opt.expandtab = true
+vim.o.expandtab = true
 -- Be smart when using tabs ;)
-opt.smarttab = true
+vim.o.smarttab = true
 -- 1 tab == 4 spaces
-opt.shiftwidth = 4
+vim.o.shiftwidth = 4
 
-opt.tabstop=4
+vim.o.tabstop=4
 
--- Search options
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+-- Search vim.oions
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-opt.splitright = true
+vim.o.splitright = true
 
 -- lets try to move swap file to memory - just to check if this will
 -- prevent from nvim freezes because of disk io load
 vim.go.directory = '/tmp/nvim.'..vim.env.USER..'/swap//'
 
 -- this section is options for terminal
-vim.cmd [[
-augroup my_term_settings
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-augroup end
-]]
+vim.api.nvim_create_autocmd('TermOpen', {
+    group = vim.api.nvim_create_augroup('my_term_settings', { clear = true }),
+    callback = function()
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+    end
+})
