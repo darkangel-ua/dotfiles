@@ -11,13 +11,19 @@ esac
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth:erasedups
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=20000
+
+# this part is very crucial - we read history early and then disable history writing
+# completely. This is to deal with tmux-kill with tons of opened bash sessions.
+# We are dealing with history ourself upon exit otherwise history will be overwritten/partially lost
+# with nested bash sessions we have to set HISTFILE if it was unset before reading history
+if [ -z "$HISTFILE" ]; then
+    HISTFILE="$HOME/.bash_history"
+fi
+history -r
+unset HISTFILE
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -68,16 +74,19 @@ fi
 
 # friendly history stuff
 # this should fix history by removing duplicates and yet preserves chronology
-alias hfix='history -n && history | sort -k2 -k1nr | uniq -f1 | sort -n | cut -c8- > ~/.tmp$$ && history -c && history -r ~/.tmp$$ && history -w && rm ~/.tmp$$'
+function hfix {
+    HISTFILE="$HOME/.bash_history"
+    history -n && history | sort -k2 -k1nr | uniq -f1 | sort -n | cut -c8- > ~/.tmp$$ && history -c && history -r ~/.tmp$$ && history -w && rm ~/.tmp$$
+    unset HISTFILE
+}
+
 # this part will merge all history upon exit
 # it also ensures that when we do tmux kill-server bashes will save their history
 # in serial manner and we will not loose any history lines
 function historymerge {
     (
         flock 99
-        echo "begin historymerge" >> ~/.bash_history_update.log
-        history -n; history -w; history -c; history -r;
-        echo "end historymerge" >> ~/.bash_history_update.log
+        history -a "$HOME/.bash_history"
         flock -u 99
     ) 99>/var/lock/bashhistory-$USER
 }
