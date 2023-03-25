@@ -97,6 +97,11 @@ require('lazy').setup({
       config = function() require('settings.plugins.winshift').setup() end,
       cmd = { 'WinShift' },
   },
+  {
+      'chrishrb/gx.nvim',
+      config = true,
+      event = on_some_buffer,
+  },
 
   -- Icons
   'kyazdani42/nvim-web-devicons',
