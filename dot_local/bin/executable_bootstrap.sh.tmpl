@@ -77,15 +77,16 @@ if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.2.13" ]];
 fi
 
 # nvim
-# remove appimage variant first if any
-if [[ -L /usr/local/bin/nvim && -f /usr/local/bin/nvim.appimage ]]; then
-    sudo rm /usr/local/bin/nvim*
-fi
+# remove deb variant first if any
+sudo apt remove neovim
 
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.8.2" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.deb
-    sudo dpkg -i nvim-linux64.deb
-    rm nvim-linux64.deb
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.9.0" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
+    sudo chown root:root nvim.appimage
+    sudo mv -f nvim.appimage /usr/local/bin/
+    sudo chmod +x /usr/local/bin/nvim.appimage
+
+    [ ! -e /usr/local/bin/nvim ] && { cd /usr/local/bin; sudo ln -s nvim.appimage nvim; }
 
     # nvim Python integration module
     sudo pip install neovim
