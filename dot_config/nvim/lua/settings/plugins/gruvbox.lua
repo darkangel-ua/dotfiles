@@ -18,6 +18,12 @@ function M.setup()
             DashboardFooter = { link = 'GruvboxYellow' },
             DashboardIcon = { link = 'GruvboxOrange' },
 
+            ["@lsp.mod.readonly.cpp"] = { link = "GruvboxPurple" },
+            ["@lsp.typemod.method.readonly.cpp"] = { link = "@lsp.type.method.cpp" },
+            ["@lsp.type.macro.cpp"] = { fg = colors.red, bold = true },
+            ["@lsp.type.parameter.cpp"] = { fg = colors.blue, italic = true },
+            ["@lsp.type.variable.cpp"] = { fg = colors.fg1 },
+
             LuasnipInsertNodePassive = { fg = colors.blue, bg = colors.bg1, italic = true },
             LuasnipChoiceNodePassive = { fg = colors.blue, bg = colors.bg1, italic = true },
             LuasnipExitNodePassive = { fg = colors.red, bg = colors.bg1, italic = true },
