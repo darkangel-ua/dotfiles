@@ -21,7 +21,7 @@ function M.setup()
             lualine_a = { 'mode' },
             lualine_b = { { function() return 'Ⓢ ' end, cond = function() return session_utils.is_session end }, 'branch', 'diff', 'diagnostics' },
             lualine_c = { { 'filename', path = 1 } },
-            lualine_x = { { navic.get_location, cond = navic.is_available } },
+            lualine_x = { { function() return navic.get_location({}) end, cond = navic.is_available } },
             lualine_y = { 'filetype' },
             lualine_z = { 'progress', 'location' }
         },
