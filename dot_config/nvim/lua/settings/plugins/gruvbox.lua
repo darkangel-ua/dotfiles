@@ -18,6 +18,9 @@ function M.setup()
             DashboardFooter = { link = 'GruvboxYellow' },
             DashboardIcon = { link = 'GruvboxOrange' },
 
+            ["@lsp.type.namespace"] = { link = 'GruvboxAqua' },
+            ["@lsp.type.class"] = { link = 'GruvboxAqua' },
+            ["@lsp.type.enum"] = { link = 'GruvboxAqua' },
             ["@lsp.mod.readonly.cpp"] = { link = "GruvboxPurple" },
             ["@lsp.typemod.method.readonly.cpp"] = { link = "@lsp.type.method.cpp" },
             ["@lsp.type.macro.cpp"] = { fg = colors.red, bold = true },
