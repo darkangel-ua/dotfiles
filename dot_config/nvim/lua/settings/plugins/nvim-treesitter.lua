@@ -28,13 +28,6 @@ require('nvim-treesitter.configs').setup({
             },
         },
     },
-    nt_cpp_tools = {
-        enable = true,
-        preview = {
-            quit = 'q', -- optional keymapping for quit preview
-            accept = 'i' -- optional keymapping for accept preview
-        },
-    },
     endwise = {
         enable = true
     },

@@ -211,6 +211,7 @@ require('lazy').setup({
   {
       'Badhi/nvim-treesitter-cpp-tools',
       dependencies = 'nvim-treesitter/nvim-treesitter',
+      config = function() require('settings.plugins.nvim-treesitter-cpp-tools').setup() end,
       ft = 'cpp',
   },
   { 'p00f/clangd_extensions.nvim', ft = { 'cpp' }, },
