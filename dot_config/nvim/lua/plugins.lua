@@ -58,8 +58,8 @@ require('lazy').setup({
       cmd = { 'Telescope' },
   },
   {
-      'darkangel-ua/telescope-fzf-native.nvim',
-      branch = 'keep_lines_order',
+      'nvim-telescope/telescope-fzf-native.nvim',
+      branch = 'main',
       dependencies = 'nvim-telescope/telescope.nvim',
       build = 'make',
   },

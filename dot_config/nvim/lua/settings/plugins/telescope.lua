@@ -176,9 +176,11 @@ function M.grep_string_in_buffer()
             preview_height = 0.7,
             mirror = true,
         },
+        tiebreak = function(current_entry, existing_entry, _)
+            return current_entry.index < existing_entry.index
+        end,
         -- fzf sorter options
-        fuzzy = false,
-        case_mode = 'ignore_case',
+        -- case_mode = 'ignore_case',
     }
 
     builtin.current_buffer_fuzzy_find(opts)
