@@ -12,6 +12,8 @@ function M.setup()
             GruvboxGreenSign = { bg = colors.bg0 },
             GruvboxAquaSign = { bg = colors.bg0 },
 
+            LightBulbSign = { bg = colors.bg0 },
+
             DashboardHeader = { link = 'GruvboxGreen' },
             DashboardDesc = { link = 'GruvboxBlue' },
             DashboardKey = { link = 'GruvboxRed' },

@@ -197,6 +197,7 @@ require('lazy').setup({
   },
   {
       'j-hui/fidget.nvim',
+      tag = 'legacy',
       config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end,
       ft = { 'cpp', 'cmake', },
   },

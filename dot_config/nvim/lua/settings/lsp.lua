@@ -1,3 +1,7 @@
+require("nvim-lightbulb").setup({
+  autocmd = { enabled = false }
+})
+
 local
 function cursor_hold_actions(client, bufnr)
     local lightbulb = require('nvim-lightbulb')
@@ -22,19 +26,21 @@ local
 function on_lsp_attach(client, bufnr)
     require('nvim-navic').attach(client, bufnr)
     cursor_hold_actions(client, bufnr)
+
+    require("clangd_extensions.inlay_hints").setup_autocmd()
+    require("clangd_extensions.inlay_hints").set_inlay_hints()
 end
 
-require('clangd_extensions').setup {
-  server = {
+local lspconfig = require('lspconfig')
+
+lspconfig.clangd.setup {
       init_options = {
         clangdFileStatus = true
       },
       on_attach = on_lsp_attach,
       capabilities = require('cmp_nvim_lsp').default_capabilities(),
-  },
 }
 
-local lspconfig = require('lspconfig')
 lspconfig.cmake.setup {
     init_options = {
         buildDirectory = '.build/Debug',
