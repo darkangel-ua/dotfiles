@@ -158,8 +158,7 @@ require('lazy').setup({
 
   -- building
   {
-    'darkangel-ua/vim-cmake',
-    branch = 'generate-cmake-codemodel',
+    'cdelledonne/vim-cmake',
     cmd = { 'CMakeOpen', 'CMakeClose', 'CMakeGenerate', 'CMakeBuild', },
   },
   -- use { 'Shatur/neovim-cmake', config = function() require('cmake').setup({}) end }
