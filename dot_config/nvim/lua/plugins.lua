@@ -32,6 +32,7 @@ require('lazy').setup({
   -- Colors
   {
       'ellisonleao/gruvbox.nvim',
+      tag = '1.1.0',
       config = function() require('settings.plugins.gruvbox').setup() end,
       lazy = false,
   },

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    local colors = require('gruvbox.palette').get_base_colors(nil, "hard")
+    local colors = require('gruvbox.palette').get_base_colors({}, nil, "hard")
     require("bufferline").setup({
         options = {
             numbers = function(opts)
