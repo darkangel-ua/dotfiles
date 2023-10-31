@@ -189,7 +189,8 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function() require('settings.lsp') end,
-    ft = { 'cpp', 'cmake', },
+    ft = { 'cpp', 'cmake', 'cuda' },
+    dependencies = 'williamboman/mason.nvim'
   },
   {
       'SmiteshP/nvim-navic',
