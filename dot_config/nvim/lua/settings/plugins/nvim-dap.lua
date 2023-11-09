@@ -12,11 +12,13 @@ dap.configurations.cpp = {
     type = "cpp",
     request = "launch",
     program = function()
-      return require('settings.plugins.cmake').get_selected_target_executable_path()
+      if vim.fn.executable('gdb') ~= 1 then
+          require('notify').notify('You need to install GDB to be able to debug', vim.log.levels.ERROR, { title = 'dap' })
+          return dap.ABORT
+      else
+        return require('settings.plugins.cmake').get_selected_target_executable_path()
+      end
     end,
-    -- program = function()
-    --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    -- end,
     cwd = '${workspaceFolder}',
     stopAtEntry = true,
   },
@@ -33,5 +35,7 @@ dap.configurations.cpp = {
   --   end,
   -- },
 }
+
+dap.configurations.cuda = dap.configurations.cpp
 
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})

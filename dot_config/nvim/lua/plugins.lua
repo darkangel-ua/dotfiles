@@ -160,7 +160,7 @@ require('lazy').setup({
   -- building
   {
     'cdelledonne/vim-cmake',
-    cmd = { 'CMakeOpen', 'CMakeClose', 'CMakeGenerate', 'CMakeBuild', },
+    cmd = { 'CMakeOpen', 'CMakeClose', 'CMakeGenerate', 'CMakeBuild', 'CMakeSwitch', 'CMakeClean' },
   },
   -- use { 'Shatur/neovim-cmake', config = function() require('cmake').setup({}) end }
 
