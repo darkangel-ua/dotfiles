@@ -114,4 +114,15 @@ M.select_build_targets = function(opts)
     }):find()
 end
 
+M.get_selected_target_executable_path = function()
+    if #selected_targets == 0 then
+        require('notify').notify('You must select some targets to build beforehand',
+                                 vim.log.levels.ERROR,
+                                 { title = 'dap' })
+        return require('dap').ABORT
+    end
+
+    return vim.api.nvim_eval('cmake#buildsys#Get().GetPathToCurrentConfig()') .. '/' .. selected_targets[1]
+end
+
 return M

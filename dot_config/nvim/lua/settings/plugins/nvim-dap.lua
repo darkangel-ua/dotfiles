@@ -3,8 +3,7 @@ local dap = require('dap')
 dap.adapters.cpp = {
   id = "cppdbg",
   type = 'executable',
-  -- command = '/home/darkangel/.local/share/nvim/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
-  command = vim.fn.stdpath("data") .. '/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = vim.fn.stdpath("data") .. '/mason/bin/OpenDebugAD7',
 }
 
 dap.configurations.cpp = {
@@ -13,7 +12,7 @@ dap.configurations.cpp = {
     type = "cpp",
     request = "launch",
     program = function()
-      return vim.fn.getcwd() .. '/' .. ".build/Debug/simple"
+      return require('settings.plugins.cmake').get_selected_target_executable_path()
     end,
     -- program = function()
     --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
