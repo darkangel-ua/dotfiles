@@ -67,7 +67,7 @@ cmp.setup({
           c = cmp.mapping.select_next_item(),
       }),
       ['<Esc>'] = cmp.mapping(function(fallback)
-          if cmp.visible then
+          if cmp.visible() then
               cmp.close()
               vim.schedule(cmp.suspend())
           else
