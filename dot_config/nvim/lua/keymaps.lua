@@ -25,8 +25,8 @@ keymap('c', '<C-k>', "<C-p>", { desc ='' })
 -- Ctrl j and k for page up and page down
 keymap('n', '<C-j>', "<C-d>", { desc ='' })
 keymap('n', '<C-k>', "<C-u>", { desc ='' })
-keymap('n', '<C-j>', "<C-d>", { desc ='' })
-keymap('n', '<C-k>', "<C-u>", { desc ='' })
+keymap('v', '<C-j>', "<C-d>", { desc ='' })
+keymap('v', '<C-k>', "<C-u>", { desc ='' })
 -- lets make saving convenient
 keymap('n', '<C-s>', ":update<cr>", { desc ='' })
 keymap('i', '<C-s>', "<C-o>:update<cr>", { desc ='' })
