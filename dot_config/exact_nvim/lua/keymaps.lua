@@ -9,9 +9,8 @@ end
 keymap('n', '<leader>x', function() require('settings.plugins.ide').bufdelete() end, { desc ='' })
 -- even more stupid way to close tab
 keymap('n', '<leader>X', ":tabc<cr>", { desc ='' })
--- Set kj/jk to be escape in insert mode
-keymap('i', 'kj', "<esc>", { desc ='' })
-keymap('i', 'jk', "<esc>", { desc ='' })
+-- Set kj/jk to be escape in insert mode for terminal only
+-- because everything else handled by better-escape plugin
 keymap('t', 'kj', "<C-\\><C-N>", { desc ='' })
 keymap('t', 'jk', "<C-\\><C-N>", { desc ='' })
 -- same for command mode
