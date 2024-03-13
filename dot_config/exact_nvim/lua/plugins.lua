@@ -2,6 +2,9 @@ local lazy_options = {
     defaults = {
         lazy = true,
     },
+    dev = {
+        path = "~/projects/nvim-plugins",
+    }
 }
 
 local on_some_buffer = { 'BufReadPre', 'BufAdd', }
