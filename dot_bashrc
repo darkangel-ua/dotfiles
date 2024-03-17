@@ -109,13 +109,17 @@ eval "$(zoxide init bash)"
 if [ -z "${MC_SID}" ]; then
     # need to cache location because pip invocation is quite costly
     powerline_cached_location="$HOME/.cache/powerline-status-dist-path"
+    if [ -n "$SCHROOT_SESSION_ID" ]; then
+        powerline_cached_location="$powerline_cached_location.$SCHROOT_SESSION_ID"
+    fi
+
     if [ -e $powerline_cached_location ]; then
         powerline_dist_path=$(<$powerline_cached_location)
     else
         powerline_dist_path=`pip show powerline-status 2>/dev/null | egrep "^Location:" | cut -d ' ' -f 2 | tee $powerline_cached_location`
     fi
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
+    export POWERLINE_BASH_CONTINUATION=1
+    export POWERLINE_BASH_SELECT=1
     export POWERLINE_CONFIG_PATHS=$powerline_dist_path/powerline/config_files:~/.config/powerline:~/.config/powerline.local
     export POWERLINE_DIST_PATH="$powerline_dist_path"
     source $powerline_dist_path/powerline/bindings/bash/powerline.sh
@@ -124,13 +128,21 @@ fi
 if [[ -z "$TMUX" ]]; then
     hostname=$(hostname)
 
-    virt=$(systemd-detect-virt)
+    virt="none"
+    if which systemd-detect-virt > /dev/null; then
+        virt=$(systemd-detect-virt)
+    fi
+
     if [[ "$virt" != "none" ]]; then
         hostname="$virt($hostname)"
     fi
 
-    if [[ ! -z "$SSH_CLIENT" ]]; then
+    if [[ -n "$SSH_CLIENT" ]]; then
         hostname="ssh($hostname)"
+    fi
+
+    if [ -n "$SCHROOT_SESSION_ID" ]; then
+        hostname="($SCHROOT_SESSION_ID)"
     fi
 
     export POWERLINE_CONDITIONAL_HOST="$hostname"
