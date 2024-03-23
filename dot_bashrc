@@ -113,7 +113,7 @@ if [ -z "${MC_SID}" ]; then
         powerline_cached_location="$powerline_cached_location.$SCHROOT_SESSION_ID"
     fi
 
-    if [ -e $powerline_cached_location ]; then
+    if [[ -s "$powerline_cached_location" ]]; then
         powerline_dist_path=$(<$powerline_cached_location)
     else
         powerline_dist_path=`pip show powerline-status 2>/dev/null | egrep "^Location:" | cut -d ' ' -f 2 | tee $powerline_cached_location`

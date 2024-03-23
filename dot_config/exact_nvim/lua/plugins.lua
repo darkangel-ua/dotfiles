@@ -9,7 +9,7 @@ local lazy_options = {
 
 local on_some_buffer = { 'BufReadPre', 'BufAdd', }
 
-require('lazy').setup({
+plugins = {
   -- system
   {
       'rcarriga/nvim-notify',
@@ -256,4 +256,15 @@ require('lazy').setup({
 
   -- Profiling
   { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
-}, lazy_options)
+}
+
+local private_config_dir = vim.fn.stdpath("config") .. "/../nvim.private/";
+vim.opt.rtp:append(private_config_dir)
+
+if (vim.loop.fs_stat(private_config_dir .. 'lua/private/plugins.lua')) then
+    for _,v in ipairs(require('private.plugins')) do
+        table.insert(plugins, v)
+    end
+end
+
+require('lazy').setup(plugins, lazy_options)
