@@ -208,8 +208,8 @@ plugins = {
   },
   {
       'j-hui/fidget.nvim',
-      tag = 'legacy',
-      config = function() require('fidget').setup({ text = { spinner = 'dots_negative' } }) end,
+      tag = 'v1.4.0',
+      opts = {},
       ft = { 'cpp', 'cmake', },
   },
   {
