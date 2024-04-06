@@ -7,7 +7,7 @@ case $1 in
         [ -h ~/.config/distcc/hosts.current ] && rm ~/.config/distcc/hosts.current
         ;;
     use)
-        [ -n "$2" ] || die "Usage: distccctl use <host file name>"
+        [ -n "$2" ] || die "Usage: distccctl use <host file name sufix>"
         [ ! -e ~/.config/distcc/hosts.$2 ] && echo "$2 doesn't exists" && exit 1
         ln -sf ~/.config/distcc/hosts.$2 ~/.config/distcc/hosts.current
         ;;
@@ -20,6 +20,6 @@ case $1 in
         echo "export DISTCC_HOSTS='127.0.0.1/16,lzo" > ~/.config/distcc/hosts.local
         ;;
     *)
-        echo "Usage: distccctl <disable|ls|new>"
+        echo "Usage: distccctl <use|disable|ls|new>"
         ;;
 esac
