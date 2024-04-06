@@ -4,7 +4,12 @@ local lazy_options = {
     },
     dev = {
         path = "~/projects/nvim-plugins",
-    }
+    },
+    performance = {
+        rtp = {
+            paths = { "~/.config/nvim.private" },
+        },
+    },
 }
 
 local on_some_buffer = { 'BufReadPre', 'BufAdd', }
