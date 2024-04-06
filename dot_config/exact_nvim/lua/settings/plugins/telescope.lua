@@ -1,13 +1,20 @@
 local telescope = require('telescope')
 local builtin = require('telescope.builtin')
+local action_state = require("telescope.actions.state")
 local actions = require('telescope.actions')
-local utils = require('telescope.utils')
 local actions_layout = require('telescope.actions.layout')
+local utils = require('telescope.utils')
 
 local M = {}
 
 function M.setup()
     local lga_actions = require("telescope-live-grep-args.actions")
+
+    local interactive_rebase = function(prompt_bufnr)
+        local commit = action_state.get_selected_entry().value
+        actions.close(prompt_bufnr)
+        vim.fn.system(("tmux new-window -n git-rebase git rebase --interactive %s"):format(commit))
+    end
 
     telescope.setup({
         defaults = {
@@ -28,6 +35,22 @@ function M.setup()
                       ['<C-p>'] = actions_layout.toggle_preview,
               }
           }
+        },
+        pickers = {
+            git_bcommits = {
+                mappings = {
+                    i = {
+                        ["<c-r>i"] = interactive_rebase,
+                    },
+                },
+            },
+            git_commits = {
+                mappings = {
+                    i = {
+                        ["<c-r>i"] = interactive_rebase,
+                    },
+                },
+            },
         },
         extensions = {
             live_grep_args = {
