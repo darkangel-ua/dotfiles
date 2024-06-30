@@ -160,7 +160,6 @@ plugins = {
       config = function() require('Comment').setup() end,
       event = on_some_buffer,
   },
-  { 'lewis6991/spellsitter.nvim', config = true, event = on_some_buffer, },
   {
       'AckslD/nvim-neoclip.lua',
       dependencies = 'nvim-telescope/telescope.nvim',
