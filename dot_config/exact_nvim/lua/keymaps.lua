@@ -1,7 +1,10 @@
 local keymap = function(mode, lhs, rhs, opts)
-    if opts.desc and opts.desc == '' then
-        opts.desc = rhs
+    if not opts or not opts.desc then
+    	if type(rsh) == 'string' then
+    		opts.desc = rhs
+    	end
     end
+
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true, noremap = true }, opts))
 end
 
