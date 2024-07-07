@@ -80,8 +80,8 @@ fi
 # remove deb variant first if any
 sudo apt remove neovim
 
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.9.0" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
+if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.10.0" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
     sudo chown root:root nvim.appimage
     sudo mv -f nvim.appimage /usr/local/bin/
     sudo chmod +x /usr/local/bin/nvim.appimage
