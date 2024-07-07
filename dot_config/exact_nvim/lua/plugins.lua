@@ -142,6 +142,7 @@ plugins = {
   { 'axelf4/vim-strip-trailing-whitespace', event = on_some_buffer, },
   { 'max397574/better-escape.nvim',
     config = function() require('settings.plugins.better-escape').setup() end,
+    tag = 'v1.0.0',
     event = { 'InsertEnter' },
   },
   {
