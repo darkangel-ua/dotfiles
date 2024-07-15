@@ -11,17 +11,25 @@ dap.configurations.cpp = {
     name = "Launch file",
     type = "cpp",
     request = "launch",
-    program = function()
-      if vim.fn.executable('gdb') ~= 1 then
-          require('notify').notify('You need to install GDB to be able to debug', vim.log.levels.ERROR, { title = 'dap' })
-          return dap.ABORT
-      else
-        return require('settings.plugins.cmake').get_selected_target_executable_path()
-      end
-    end,
+    program = function() return 'build/src/Tests/bcmtests' end,
     cwd = '${workspaceFolder}',
     stopAtEntry = true,
   },
+  -- {
+  --   name = "Launch file",
+  --   type = "cpp",
+  --   request = "launch",
+  --   program = function()
+  --     if vim.fn.executable('gdb') ~= 1 then
+  --         require('notify').notify('You need to install GDB to be able to debug', vim.log.levels.ERROR, { title = 'dap' })
+  --         return dap.ABORT
+  --     else
+  --       return require('settings.plugins.cmake').get_selected_target_executable_path()
+  --     end
+  --   end,
+  --   cwd = '${workspaceFolder}',
+  --   stopAtEntry = true,
+  -- },
   -- {
   --   name = 'Attach to gdbserver :1234',
   --   type = 'cpp',

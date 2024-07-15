@@ -91,7 +91,7 @@ keymap('n', '<leader>j', "<cmd>lua require('settings.plugins.telescope').quick_b
 
 -- git
 keymap('n', '<leader>gg', "<cmd>DiffviewOpen<cr>", { desc ='' })
-keymap('n', '<leader>gG', "<cmd>DiffviewOpen develop..HEAD<cr>", { desc ='' })
+keymap('n', '<leader>gG', "<cmd>DiffviewOpen main..HEAD<cr>", { desc ='' })
 keymap('n', '<leader>gd', "<cmd>Gdiff<cr>", { desc ='' })
 keymap('n', '<leader>gch', "<cmd>Telescope git_branches<cr>", { desc ='' })
 keymap('n', '<leader>gb', "<cmd>Git blame<cr>", { desc ='' })

@@ -34,6 +34,7 @@ end
 local lspconfig = require('lspconfig')
 
 lspconfig.clangd.setup {
+      cmd = { "clangd", "--malloc-trim" },
       init_options = {
         clangdFileStatus = true
       },
