@@ -38,6 +38,9 @@ function M.setup()
             HopNextKey2 = { link = "GruvboxOrange" },
 
             Pmenu = { bg = colors.bg1 },
+
+            TroubleNormal = { link = 'Normal' },
+            TroubleNormalNC = { link = 'Normal' },
         },
     })
 

@@ -13,7 +13,7 @@ function get_win_by_filetype(tabpage, ft)
 end
 
 function M.on_esc_pressed()
-    local trouble_win = get_win_by_filetype(0, 'Trouble')
+    local trouble_win = get_win_by_filetype(0, 'trouble')
     local cmake_win = get_win_by_filetype(0, 'vimcmake')
 
     if trouble_win then
@@ -34,7 +34,7 @@ function M.cmake_open()
 end
 
 function M.bufdelete()
-    local trouble_win = get_win_by_filetype(0, 'Trouble')
+    local trouble_win = get_win_by_filetype(0, 'trouble')
     local cmake_win = get_win_by_filetype(0, 'vimcmake')
 
     if trouble_win or cmake_win then

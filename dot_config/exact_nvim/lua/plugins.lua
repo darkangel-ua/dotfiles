@@ -221,7 +221,7 @@ plugins = {
       'folke/trouble.nvim',
       dependencies = 'kyazdani42/nvim-web-devicons',
       config = function() require('settings.plugins.trouble').setup() end,
-      cmd = { 'TroubleToggle', 'TroubleClose' },
+      cmd = 'Trouble',
   },
   { 'kosayoda/nvim-lightbulb', ft = { 'cpp', 'cmake', }, },
   { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' },
