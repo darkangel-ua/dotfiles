@@ -113,7 +113,8 @@ keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
 keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
 
 -- troubles
-keymap('n', '<leader>a', "<cmd>Trouble toggle diagnostics<cr>", { desc ='' })
+keymap('n', '<leader>A', "<cmd>Trouble toggle diagnostics<cr>", { desc ='' })
+keymap('n', '<leader>a', "<cmd>Trouble toggle diagnostics filter.buf=0<cr>", { desc ='' })
 keymap('n', '<leader>;', "<cmd>Trouble toggle quickfix<cr><cmd>CMakeClose<cr>", { desc ='' })
 
 -- building
