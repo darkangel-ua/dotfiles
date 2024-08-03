@@ -27,7 +27,6 @@ function on_lsp_attach(client, bufnr)
     require('nvim-navic').attach(client, bufnr)
     cursor_hold_actions(client, bufnr)
 
-    require("clangd_extensions.inlay_hints").setup_autocmd()
     require("clangd_extensions.inlay_hints").set_inlay_hints()
 end
 
