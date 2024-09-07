@@ -224,7 +224,6 @@ plugins = {
       cmd = 'Trouble',
   },
   { 'kosayoda/nvim-lightbulb', ft = { 'cpp', 'cmake', }, },
-  { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' },
   {
       'Badhi/nvim-treesitter-cpp-tools',
       dependencies = 'nvim-treesitter/nvim-treesitter',
