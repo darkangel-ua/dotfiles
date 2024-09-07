@@ -4,17 +4,19 @@
 [ ! -e ~/.cache ] && mkdir ~/.cache
 
 # basic system stuff
-sudo apt -y install pip mc curl
+sudo apt -y install pip mc curl git
 sudo pip install powerline-status netifaces
 
 # we need recent git because nvim telescope uses specific flags from newest one
 # git - install latest from ppa
-git_core_list="/etc/apt/sources.list.d/git-core-ubuntu-ppa-$(lsb_release -cs).list"
-if [[ ! -f "$git_core_list" ]]; then
-    sudo add-apt-repository ppa:git-core/ppa -y
-    sudo apt update
-    sudo apt -y install git
-fi
+# Correction: Recent ubuntu version already have proper version, so commenting this out
+#
+# git_core_list="/etc/apt/sources.list.d/git-core-ubuntu-ppa-$(lsb_release -cs).list"
+# if [[ ! -f "$git_core_list" ]]; then
+#     sudo add-apt-repository ppa:git-core/ppa -y
+#     sudo apt update
+#     sudo apt -y install git
+# fi
 
 # rg command https://github.com/BurntSushi/ripgrep
 if ! which rg > /dev/null; then
