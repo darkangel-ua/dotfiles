@@ -111,6 +111,7 @@ keymap('n', '<leader>o', function() require('settings.plugins.telescope').lsp_do
 keymap('n', 'gs', function() require('settings.plugins.telescope').lsp_dynamic_workspace_symbols() end, { desc ='' })
 keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
 keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
+keymap('n', '\\', "<cmd>ClangdToggleInlayHints<cr>", { desc ='Toggle inlay hints' })
 
 -- troubles
 keymap('n', '<leader>A', "<cmd>Trouble toggle diagnostics<cr>", { desc ='' })
