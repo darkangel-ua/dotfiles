@@ -16,6 +16,7 @@ function M.setup()
         options = {
             theme = custom_gruvbox,
             component_separators = '',
+            section_separators = { left = '', right = '' },
         },
         sections = {
             lualine_a = { 'mode' },
