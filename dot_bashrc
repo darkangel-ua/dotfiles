@@ -108,10 +108,7 @@ eval "$(zoxide init bash)"
 # dont use powerline under MC shell - it looks baaad
 if [ -z "${MC_SID}" ]; then
     # need to cache location because pip invocation is quite costly
-    powerline_cached_location="$HOME/.cache/powerline-status-dist-path"
-    if [ -n "$SCHROOT_SESSION_ID" ]; then
-        powerline_cached_location="$powerline_cached_location.$SCHROOT_SESSION_ID"
-    fi
+    powerline_cached_location="/tmp/powerline-status-dist-path"
 
     if [[ -s "$powerline_cached_location" ]]; then
         powerline_dist_path=$(<$powerline_cached_location)
