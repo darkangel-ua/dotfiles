@@ -102,7 +102,7 @@ if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
 
     sudo mkdir /usr/local/share/fonts/Hack
     tmp=`mktemp`
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip -O "$tmp"
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip -O "$tmp"
     sudo unzip "$tmp" -d /usr/local/share/fonts/Hack
     rm "$tmp"
     sudo fc-cache -f -v
