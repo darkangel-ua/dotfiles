@@ -19,7 +19,7 @@ plugins = {
   {
       'rcarriga/nvim-notify',
       dependencies = 'nvim-telescope/telescope.nvim',
-      config = true,
+      opts = {},
   },
   {
       'nvim-telescope/telescope-ui-select.nvim',
@@ -33,7 +33,7 @@ plugins = {
   },
   {
       'williamboman/mason.nvim',
-      config = true,
+      opts = {},
       event = 'VeryLazy',
   },
 
@@ -90,11 +90,7 @@ plugins = {
       init = function() require('settings.plugins.vim-tmux') end,
       cmd = { 'TmuxNavigateLeft', 'TmuxNavigateRight',  'TmuxNavigateUp',  'TmuxNavigateDown' },
   },
-  {
-      'mrjones2014/smart-splits.nvim',
-      config = true,
-      opts = {},
-  },
+  { 'mrjones2014/smart-splits.nvim', opts = {} },
   {
       'anuvyklack/hydra.nvim',
       dependencies = 'anuvyklack/keymap-layer.nvim',
@@ -111,7 +107,7 @@ plugins = {
       keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" }} },
       cmd = { "Browse" },
       dependencies = { "nvim-lua/plenary.nvim" },
-      config = true,
+      opts = {},
       event = on_some_buffer,
   },
 
@@ -128,7 +124,7 @@ plugins = {
   -- hide all buffers that doesn't belong to current tab from bufferline
   {
       'tiagovla/scope.nvim',
-      config = true,
+      opts = {},
       event = on_some_buffer,
   },
   {
@@ -151,7 +147,6 @@ plugins = {
   },
   {
       'kylechui/nvim-surround',
-      config = true,
       opts = {},
       event = on_some_buffer,
   },
@@ -167,10 +162,7 @@ plugins = {
       config = function() require('settings.plugins.neoclip').setup() end,
       event = on_some_buffer,
   },
-  {
-      'phaazon/hop.nvim',
-      config = true,
-  },
+  { 'phaazon/hop.nvim', opts = {} },
 
   -- building
   {
@@ -245,7 +237,7 @@ plugins = {
   },
 
   -- Autocomplete
-  { 'windwp/nvim-autopairs', config = true },
+  { 'windwp/nvim-autopairs', opts = {} },
   {
       'hrsh7th/nvim-cmp',
       dependencies = {
@@ -262,9 +254,6 @@ plugins = {
       config = function() require('settings.plugins.nvim-cmp') end,
       event = { 'CmdlineEnter', 'InsertEnter' },
   },
-
-  -- Profiling
-  { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
 
   -- Private plugins
   {
