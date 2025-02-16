@@ -178,6 +178,11 @@ plugins = {
     cmd = { 'CMakeOpen', 'CMakeClose', 'CMakeGenerate', 'CMakeBuild', 'CMakeSwitch', 'CMakeClean' },
   },
   -- use { 'Shatur/neovim-cmake', config = function() require('cmake').setup({}) end }
+  {
+      'stevearc/overseer.nvim',
+      config = function() require('settings.plugins.overseer').setup() end,
+      event = { 'VeryLazy' },
+  },
 
   -- debugging
   { 'mfussenegger/nvim-dap', config = function() require('settings.plugins.nvim-dap') end },
@@ -260,15 +265,15 @@ plugins = {
 
   -- Profiling
   { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
+
+  -- Private plugins
+  {
+      import = 'private.plugins',
+      cond = function()
+          local status = pcall(require, 'private.plugins')
+          return status
+      end
+  }
 }
-
-local private_config_dir = vim.fn.stdpath("config") .. "/../nvim.private/";
-vim.opt.rtp:append(private_config_dir)
-
-if (vim.loop.fs_stat(private_config_dir .. 'lua/private/plugins.lua')) then
-    for _,v in ipairs(require('private.plugins')) do
-        table.insert(plugins, v)
-    end
-end
 
 require('lazy').setup(plugins, lazy_options)
