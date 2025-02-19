@@ -7,35 +7,24 @@
 sudo apt -y install pip mc curl git
 sudo pip install powerline-status netifaces
 
-# we need recent git because nvim telescope uses specific flags from newest one
-# git - install latest from ppa
-# Correction: Recent ubuntu version already have proper version, so commenting this out
-#
-# git_core_list="/etc/apt/sources.list.d/git-core-ubuntu-ppa-$(lsb_release -cs).list"
-# if [[ ! -f "$git_core_list" ]]; then
-#     sudo add-apt-repository ppa:git-core/ppa -y
-#     sudo apt update
-#     sudo apt -y install git
-# fi
-
 # rg command https://github.com/BurntSushi/ripgrep
-if ! which rg > /dev/null; then
-    wget https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-    sudo dpkg -i ripgrep_13.0.0_amd64.deb
-    rm ripgrep_13.0.0_amd64.deb
+if ! which rg > /dev/null || [[ $(rg --version | head -n 1 | cut -f 2 -d ' ') != "14.1.1" ]] ; then
+    wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb
+    sudo dpkg -i ripgrep_14.1.1-1_amd64.deb
+    rm ripgrep_14.1.1-1_amd64.deb
 fi
 
 # fd command https://github.com/sharkdp/fd
 # it is used in telescope.nvim mostly
-if ! which fd > /dev/null || [[ `fd --version` != "fd 8.6.0" ]]; then
-    wget https://github.com/sharkdp/fd/releases/download/v8.6.0/fd_8.6.0_amd64.deb
-    sudo dpkg -i fd_8.6.0_amd64.deb
-    rm fd_8.6.0_amd64.deb
+if ! which fd > /dev/null || [[ $(fd --version) != "fd 10.2.0" ]]; then
+    wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd_10.2.0_amd64.deb
+    sudo dpkg -i fd_10.2.0_amd64.deb
+    rm fd_10.2.0_amd64.deb
 fi
 
 # fzf
 if ! which fzf > /dev/null; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
+    git clone -b v0.60.0 --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
 fi
 
 # fzf tab completion
@@ -44,12 +33,12 @@ if [ ! -e ~/.fzf-tab-completion/bash/fzf-bash-completion.sh ]; then
 fi
 
 if ! which zoxide > /dev/null; then
-    curl -sS https://webinstall.dev/zoxide | bash
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 
 # exa
 if ! which exa > /dev/null; then
-    tmp=`mktemp -d`
+    tmp=$(mktemp -d)
     pushd "$tmp"
     wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
     unzip exa-linux-x86_64-v0.10.1.zip
@@ -66,11 +55,11 @@ if ! which vivid > /dev/null; then
     rm vivid_0.7.0_amd64.deb
 fi
 
-sudo snap remove btop
-if ! which btop > /dev/null || [[ `btop --version` != "btop version: 1.3.1" ]]; then
-    tmp=`mktemp -d`
+snap list | grep btop -cq && sudo snap remove btop
+if ! which btop > /dev/null || [[ $(btop --version | head -n 1) != "btop version: 1.4.0" ]]; then
+    tmp=$(mktemp -d)
     pushd "$tmp"
-    wget https://github.com/aristocratos/btop/releases/download/v1.3.1/btop-x86_64-linux-musl.tbz
+    wget https://github.com/aristocratos/btop/releases/download/v1.4.0/btop-x86_64-linux-musl.tbz
     tar -xvf btop-x86_64-linux-musl.tbz
     cd btop
     ./install.sh
@@ -82,13 +71,13 @@ fi
 # remove deb variant first if any
 sudo apt remove neovim
 
-if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d ' '` != "v0.10.0" ]]; then
-    wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
-    sudo chown root:root nvim.appimage
-    sudo mv -f nvim.appimage /usr/local/bin/
-    sudo chmod +x /usr/local/bin/nvim.appimage
+if ! which nvim > /dev/null || [[ $(nvim --version | grep "NVIM v" | cut -f 2 -d ' ') != "v0.10.4" ]]; then
+    wget https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.appimage
+    sudo chown root:root nvim-linux-x86_64.appimage
+    sudo mv -f nvim-linux-x86_64.appimage /usr/local/bin/
+    sudo chmod +x /usr/local/bin/nvim-linux-x86_64.appimage
 
-    [ ! -e /usr/local/bin/nvim ] && { cd /usr/local/bin; sudo ln -s nvim.appimage nvim; }
+    [ ! -e /usr/local/bin/nvim ] && { cd /usr/local/bin; sudo ln -s nvim-linux-x86_64.appimage nvim; }
 
     # nvim Python integration module
     sudo pip install neovim
@@ -96,10 +85,11 @@ if ! which nvim > /dev/null || [[ `nvim --version | grep "NVIM v" | cut -f 2 -d 
     sudo apt -y install xclip
 fi
 
+# fontconfig required
+#   sudo apt -y fontconfig
+#
 # Hack Nerd font
-if [[ `fc-list | grep -m 1 -c "Hack Nerd"` == '0' ]]; then
-    sudo apt -y fontconfig
-
+if which fc-list && [[ $(fc-list | grep -m 1 -c "Hack Nerd") == '0' ]]; then
     sudo mkdir /usr/local/share/fonts/Hack
     tmp=`mktemp`
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip -O "$tmp"
@@ -114,7 +104,7 @@ sudo apt -y install ninja-build ccache distcc
 sudo snap install cmake --classic
 
 # setup ccache - not the perfect way to do this, but it's the only way if `make` is not ready for ccache support
-for i in `fd --base-directory /usr/bin "^g(cc|\+\+)(-\d+(\.\d+)?)?$"`; do
+for i in $(fd --base-directory /usr/bin "^g(cc|\+\+)(-\d+(\.\d+)?)?$"); do
     ln -sf /usr/bin/ccache ~/.local/bin/$i
 done
 {{- end }}
