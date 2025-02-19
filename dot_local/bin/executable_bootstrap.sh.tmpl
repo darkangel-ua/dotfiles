@@ -7,6 +7,10 @@
 sudo apt -y install pip mc curl git
 sudo pip install powerline-status netifaces
 
+if ! which starship > /dev/null || [[ $(starship --version | head -n 1 | cut -f 2 -d ' ') != '1.22.1' ]]; then
+    curl -sS https://starship.rs/install.sh | sudo sh -s - -y -v v1.22.1
+fi
+
 # rg command https://github.com/BurntSushi/ripgrep
 if ! which rg > /dev/null || [[ $(rg --version | head -n 1 | cut -f 2 -d ' ') != "14.1.1" ]] ; then
     wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb

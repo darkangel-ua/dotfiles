@@ -101,9 +101,6 @@ if [ -f ~/.fzf-tab-completion/bash/fzf-bash-completion.sh ]; then
     bind -x '"\t": fzf_bash_completion'
 fi
 
-# zoxide for z
-eval "$(zoxide init bash)"
-
 # powerline
 # dont use powerline under MC shell - it looks baaad
 if [ -z "${MC_SID}" ]; then
@@ -115,12 +112,16 @@ if [ -z "${MC_SID}" ]; then
     else
         powerline_dist_path=`pip show powerline-status 2>/dev/null | egrep "^Location:" | cut -d ' ' -f 2 | tee $powerline_cached_location`
     fi
-    export POWERLINE_BASH_CONTINUATION=1
-    export POWERLINE_BASH_SELECT=1
+    # still need this for tmux
     export POWERLINE_CONFIG_PATHS=$powerline_dist_path/powerline/config_files:~/.config/powerline:~/.config/powerline.local
     export POWERLINE_DIST_PATH="$powerline_dist_path"
-    source $powerline_dist_path/powerline/bindings/bash/powerline.sh
 fi
+
+# https://github.com/starship/starship
+eval "$(starship init bash)"
+
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init bash)"
 
 if [[ -z "$TMUX" ]]; then
     hostname=$(hostname)
@@ -142,9 +143,9 @@ if [[ -z "$TMUX" ]]; then
         hostname="($SCHROOT_SESSION_ID)"
     fi
 
-    export POWERLINE_CONDITIONAL_HOST="$hostname"
+    export STARSHIP_HOST="$hostname"
 else
-    export -n POWERLINE_CONDITIONAL_HOST
+    export -n STARSHIP_HOST
 fi
 
 # https://unix.stackexchange.com/questions/125385/combined-mkdir-and-cd
