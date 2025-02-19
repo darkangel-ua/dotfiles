@@ -1,6 +1,6 @@
 format = """
+${env_var.STARSHIP_HOST}\
 $username\
-$hostname\
 $kubernetes\
 $directory\
 $git_branch\
@@ -18,7 +18,6 @@ $python\
 $buf\
 $memory_usage\
 $direnv\
-$env_var\
 $custom\
 $sudo\
 $cmd_duration\
