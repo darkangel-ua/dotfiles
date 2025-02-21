@@ -86,9 +86,9 @@ function hfix {
 function historymerge {
     (
         flock 99
-        history -a "$HOME/.bash_history"
+        history -a ~/.bash_history
         flock -u 99
-    ) 99>/var/lock/bashhistory-$USER
+    ) 99>~/.local/state/bash_history_lock
 }
 trap historymerge EXIT SIGHUP
 
