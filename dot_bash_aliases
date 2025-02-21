@@ -8,8 +8,6 @@ alias l='exa -lg --group-directories-first --icons'
 alias ll='exa -lga --group-directories-first --icons'
 alias lt='exa -lg --group-directories-first --icons -snew'
 
-alias restow-dotfiles-local='pushd ~/.dotfiles.local > /dev/null && stow --no-folding -R */;popd > /dev/null'
-
 # git
 alias gs='git status'
 alias gsu='git submodule update --init --recursive'
@@ -17,4 +15,4 @@ alias gl='git log --oneline -n 20'
 alias gll='git log --pretty=format:"%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(30,trunc)%ad (%C(cyan)%cr%C(reset)) %C(auto,green)%<(15,trunc)%aN%C(auto)%d %s" -n 20'
 alias gco='git checkout'
 
-[ -f ~/.bash_aliases.local ] && source  ~/.bash_aliases.local
+[ -f ~/.bash_aliases.local ] && source ~/.bash_aliases.local

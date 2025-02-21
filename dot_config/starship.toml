@@ -1,22 +1,12 @@
 format = """
 ${env_var.STARSHIP_HOST}\
 $username\
-$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$docker_context\
-$package\
-$c\
-$cmake\
-$lua\
-$nodejs\
-$python\
-$buf\
-$memory_usage\
 $direnv\
 $custom\
 $sudo\
@@ -24,7 +14,6 @@ $cmd_duration\
 $fill\
 $line_break\
 $jobs\
-$battery\
 $time\
 $status\
 $os\
@@ -55,6 +44,9 @@ format="[$env_value](bold bright_aqua) "
 [fill]
 style = "#333333"
 symbol = '─'
+
+[username]
+detect_env_vars = ['!STARSHIP_HIDE_USERNAME']
 
 [palettes.gruvbox]
 dark0_hard = '#1d2021'

@@ -133,10 +133,14 @@ if [[ -z "$TMUX" ]]; then
 
     if [[ "$virt" != "none" ]]; then
         hostname="$virt($hostname)"
+    else
+        if [[ "$container" == "podman" ]]; then
+            hostname="⬢ $hostname"
+        fi
     fi
 
     if [[ -n "$SSH_CLIENT" ]]; then
-        hostname="ssh($hostname)"
+        hostname="󰬚 $hostname"
     fi
 
     if [ -n "$SCHROOT_SESSION_ID" ]; then
@@ -161,7 +165,5 @@ function gch() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
