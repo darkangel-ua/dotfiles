@@ -132,7 +132,11 @@ if [[ -z "$TMUX" ]]; then
     fi
 
     if [[ "$virt" != "none" ]]; then
-        hostname="$virt($hostname)"
+        if [[ "$virt" == "podman" ]]; then
+            hostname="⬢ $hostname"
+        else
+            hostname="$virt($hostname)"
+        fi
     else
         if [[ "$container" == "podman" ]]; then
             hostname="⬢ $hostname"
