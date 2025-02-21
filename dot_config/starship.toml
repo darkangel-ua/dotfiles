@@ -37,6 +37,7 @@ disabled = true
 
 [directory]
 style = 'bold light0'
+home_symbol = '🏠'
 
 [env_var.STARSHIP_HOST]
 format="[$env_value](bold bright_aqua) "
@@ -46,7 +47,7 @@ style = "#333333"
 symbol = '─'
 
 [username]
-detect_env_vars = ['!STARSHIP_HIDE_USERNAME']
+disabled = true
 
 [palettes.gruvbox]
 dark0_hard = '#1d2021'
