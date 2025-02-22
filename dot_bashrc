@@ -37,7 +37,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # LS_COLORS setup
-if [[ ! -z "$TMUX" ]] || [ -z "$container" ]; then
+if [[ ! -z "$TMUX" ]] || [ -n "$container" ]; then
     # this runs only under tmux because if I run this outside
     # that will ruin KDE for some reason - it look like it has some
     # too small limits and it chokes on such a big variable
