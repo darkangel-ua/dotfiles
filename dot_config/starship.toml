@@ -25,7 +25,7 @@ palette = 'gruvbox'
 
 [character]
 format = "$symbol "
-success_symbol = "[==❯](bold bright_green)"
+success_symbol = "[❯](bright_orange)"
 error_symbol = "[==❯](bold bright_red)"
 disabled = false
 

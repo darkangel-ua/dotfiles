@@ -117,11 +117,21 @@ if [ -z "${MC_SID}" ]; then
     export POWERLINE_DIST_PATH="$powerline_dist_path"
 fi
 
+function __clear_colors() {
+    printf "\e[0m"
+}
+trap __clear_colors DEBUG
+
 # https://github.com/starship/starship
 eval "$(starship init bash)"
 
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init bash)"
+
+function __insert_prompt_color() {
+    PS1="$PS1\[\e[1;38;2;254;128;25m\]"
+}
+PROMPT_COMMAND="$PROMPT_COMMAND;__insert_prompt_color"
 
 if [[ -z "$TMUX" ]]; then
     hostname=$(hostname)
