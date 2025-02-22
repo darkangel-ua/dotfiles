@@ -25,8 +25,8 @@ palette = 'gruvbox'
 
 [character]
 format = "$symbol "
-success_symbol = "[❯](bright_orange)"
-error_symbol = "[❯](bright_red)"
+success_symbol = "[==❯](bold bright_green)"
+error_symbol = "[==❯](bold bright_red)"
 disabled = false
 
 [git_branch]
@@ -37,7 +37,7 @@ disabled = true
 
 [directory]
 style = 'bold light0'
-home_symbol = '🏠'
+truncation_length = 100
 
 [env_var.STARSHIP_HOST]
 format="[$env_value](bold bright_aqua) "
