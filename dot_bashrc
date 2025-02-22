@@ -88,7 +88,7 @@ function historymerge {
         flock 99
         history -a ~/.bash_history
         flock -u 99
-    ) 99>~/.local/state/bash_history_lock
+    ) 99>~/.bash_history.lock
 }
 trap historymerge EXIT
 
