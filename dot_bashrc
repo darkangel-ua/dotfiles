@@ -90,7 +90,7 @@ function historymerge {
         flock -u 99
     ) 99>~/.local/state/bash_history_lock
 }
-trap historymerge EXIT SIGHUP
+trap historymerge EXIT
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
