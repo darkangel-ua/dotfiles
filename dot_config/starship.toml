@@ -30,7 +30,7 @@ error_symbol = "[==❯](bold bright_red)"
 disabled = false
 
 [git_branch]
-style = 'bright_orange'
+style = 'green'
 
 [container]
 disabled = true
