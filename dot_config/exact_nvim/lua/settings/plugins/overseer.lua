@@ -9,6 +9,8 @@ function M.setup()
                 ["<up>"] = "PrevTask",
                 ["<down>"] = "NextTask",
                 ["dd"] = "<cmd>OverseerQuickAction dispose<cr>",
+                ["q"] = "<cmd>OverseerClose<cr>",
+                ["<leader>w"] = "<cmd>OverseerClose<cr>",
             },
         },
         component_aliases = {
