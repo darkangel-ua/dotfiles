@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 die() { echo "$*" 1>&2 ; exit 1; }
 
@@ -18,6 +18,8 @@ case $1 in
         [ -e ~/.config/distcc/hosts.local ] && die "hosts.local already exists!"
         mkdir -p ~/.config/distcc
         echo "export DISTCC_HOSTS='127.0.0.1/16,lzo" > ~/.config/distcc/hosts.local
+        # echo "export DISTCC_FALLBACK=0" >> ~/.config/distcc/hosts.local
+        # echo "export DISTCC_BACKOFF_PERIOD=0" >> ~/.config/distcc/hosts.local
         ;;
     *)
         echo "Usage: distccctl <use|disable|ls|new>"
