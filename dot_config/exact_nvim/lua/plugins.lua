@@ -201,7 +201,7 @@ plugins = {
   {
     'neovim/nvim-lspconfig',
     config = function() require('settings.lsp') end,
-    ft = { 'cpp', 'cmake', 'cuda' },
+    ft = { 'c', 'cpp', 'cmake', 'cuda' },
     dependencies = 'williamboman/mason.nvim'
   },
   {
@@ -212,7 +212,7 @@ plugins = {
       'j-hui/fidget.nvim',
       tag = 'v1.4.0',
       opts = {},
-      ft = { 'cpp', 'cmake', },
+      ft = { 'c', 'cpp', 'cmake', },
   },
   {
       'folke/trouble.nvim',
@@ -227,8 +227,41 @@ plugins = {
       config = function() require('settings.plugins.nvim-treesitter-cpp-tools').setup() end,
       ft = 'cpp',
   },
-  { 'p00f/clangd_extensions.nvim', ft = { 'cpp' }, },
-
+  { 'p00f/clangd_extensions.nvim', ft = { 'c', 'cpp' }, },
+  {
+      "jmacadie/telescope-hierarchy.nvim",
+      branch = 'fix/callback-on-lsp-error',
+      dependencies = { "nvim-telescope/telescope.nvim" },
+      keys = {
+          { -- lazy style key map
+              -- Choose your own keys, this works for me
+              "<leader>Lic",
+              "<cmd>Telescope hierarchy incoming_calls<cr>",
+              desc = "LSP: [S]earch [I]ncoming Calls",
+          },
+          {
+              "<leader>Loc",
+              "<cmd>Telescope hierarchy outgoing_calls<cr>",
+              desc = "LSP: [S]earch [O]utgoing Calls",
+          },
+      },
+      opts = {
+          -- don't use `defaults = { }` here, do this in the main telescope spec
+          extensions = {
+              hierarchy = {
+                  -- telescope-hierarchy.nvim config, see below
+              },
+              -- no other extensions here, they can have their own spec too
+          },
+      },
+      config = function(_, opts)
+          -- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
+          -- configs for us. We won't use data, as everything is in it's own namespace (telescope
+          -- defaults, as well as each extension).
+          require("telescope").setup(opts)
+          require("telescope").load_extension("hierarchy")
+      end,
+  },
   -- Snippets
   {
     'L3MON4D3/LuaSnip',
