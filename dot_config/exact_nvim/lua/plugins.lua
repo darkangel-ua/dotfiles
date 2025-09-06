@@ -230,7 +230,6 @@ plugins = {
   { 'p00f/clangd_extensions.nvim', ft = { 'c', 'cpp' }, },
   {
       "jmacadie/telescope-hierarchy.nvim",
-      branch = 'fix/callback-on-lsp-error',
       dependencies = { "nvim-telescope/telescope.nvim" },
       keys = {
           { -- lazy style key map
