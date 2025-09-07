@@ -92,8 +92,7 @@ plugins = {
   },
   { 'mrjones2014/smart-splits.nvim', opts = {} },
   {
-      'anuvyklack/hydra.nvim',
-      dependencies = 'anuvyklack/keymap-layer.nvim',
+      'nvimtools/hydra.nvim',
       config = function() require('settings.plugins.hydra').setup() end,
       event = 'VeryLazy',
   },
@@ -193,7 +192,14 @@ plugins = {
   },
 
   -- treesitter
-  { 'nvim-treesitter/nvim-treesitter', config = function() require('settings.plugins.nvim-treesitter') end },
+  {
+      'nvim-treesitter/nvim-treesitter',
+      config = function() require('settings.plugins.nvim-treesitter') end,
+      branch = 'master',
+      -- docs say it doesn't support lazy load, but it works fine for me
+      -- lazy = false,
+      build = ":TSUpdate"
+  },
   { 'nvim-treesitter/nvim-treesitter-textobjects', event = on_some_buffer, },
   { 'RRethy/nvim-treesitter-endwise', event = 'InsertEnter' },
 

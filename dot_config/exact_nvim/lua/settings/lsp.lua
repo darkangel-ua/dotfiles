@@ -33,14 +33,17 @@ function on_lsp_attach(client, bufnr)
 end
 
 local lspconfig = require('lspconfig')
-
+local capabilities = vim.tbl_deep_extend("force",
+    vim.lsp.protocol.make_client_capabilities(),
+    require('cmp_nvim_lsp').default_capabilities()
+)
 lspconfig.clangd.setup {
       cmd = { "clangd", "--malloc-trim" },
       init_options = {
         clangdFileStatus = true
       },
       on_attach = on_lsp_attach,
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      capabilities = capabilities
 }
 
 lspconfig.cmake.setup {
