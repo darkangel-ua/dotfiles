@@ -28,6 +28,7 @@ function M.setup()
             ["@lsp.type.macro.cpp"] = { fg = colors.red, bold = true },
             ["@lsp.type.parameter.cpp"] = { fg = colors.blue, italic = true },
             ["@lsp.type.variable.cpp"] = { fg = colors.fg1 },
+            ["@lsp.type.comment"] = { link = "Comment" },
 
             LuasnipInsertNodePassive = { fg = colors.blue, bg = colors.bg1, italic = true },
             LuasnipChoiceNodePassive = { fg = colors.blue, bg = colors.bg1, italic = true },
