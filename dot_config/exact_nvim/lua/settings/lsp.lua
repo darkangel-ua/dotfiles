@@ -32,25 +32,27 @@ function on_lsp_attach(client, bufnr)
     -- require("clangd_extensions.inlay_hints").set_inlay_hints()
 end
 
-local lspconfig = require('lspconfig')
 local capabilities = vim.tbl_deep_extend("force",
     vim.lsp.protocol.make_client_capabilities(),
     require('cmp_nvim_lsp').default_capabilities()
 )
-lspconfig.clangd.setup {
+
+vim.lsp.config('clangd', {
       cmd = { "clangd", "--malloc-trim" },
       init_options = {
         clangdFileStatus = true
       },
       on_attach = on_lsp_attach,
       capabilities = capabilities
-}
+})
+vim.lsp.enable('clangd')
 
-lspconfig.cmake.setup {
+vim.lsp.config('cmake', {
     init_options = {
         buildDirectory = '.build/Debug',
     },
-}
+})
+vim.lsp.enable('cmake')
 
 -- make signs same as in trouble.nvim
 vim.cmd [[
