@@ -13,6 +13,7 @@ multiplier = 3
 
 [terminal]
 shell = { program = "/bin/bash", args = [ "--login"] }
+osc52 = "CopyPaste"
 
 [window]
 decorations = "none"

@@ -17,8 +17,9 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.signcolumn = 'yes'
 -- Enable filetype plugins
 vim.cmd.filetype('plugin', 'on')
--- use system clipboard on yank and paste
-vim.o.clipboard = 'unnamedplus'
+-- Set up OSC 52 as the clipboard provider.
+-- This tells Neovim to use the terminal's OSC 52 capability for copy/paste.
+vim.g.clipboard = 'osc52'
 -- indentation settings
 vim.cmd.filetype('indent', 'on')
 -- set smartindent " can't use smartindent with filetype indentation
