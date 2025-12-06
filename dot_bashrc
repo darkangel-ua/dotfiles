@@ -176,5 +176,5 @@ function gch() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local || :
 
