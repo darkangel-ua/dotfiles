@@ -162,6 +162,19 @@ plugins = {
       event = on_some_buffer,
   },
   { 'phaazon/hop.nvim', opts = {} },
+  {
+      'MeanderingProgrammer/render-markdown.nvim',
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+      opts = {
+          code = {
+             position = 'right',
+             width = 'block',
+             left_pad = 4,
+             right_pad = 4,
+          },
+      },
+      ft = { 'markdown' },
+  },
 
   -- building
   {
