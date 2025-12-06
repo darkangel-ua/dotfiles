@@ -184,6 +184,7 @@ plugins = {
   -- use { 'Shatur/neovim-cmake', config = function() require('cmake').setup({}) end }
   {
       'stevearc/overseer.nvim',
+      tag = "v1.6.0",
       config = function() require('settings.plugins.overseer').setup() end,
       event = { 'VeryLazy' },
   },
