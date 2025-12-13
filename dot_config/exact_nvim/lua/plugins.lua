@@ -240,7 +240,13 @@ plugins = {
       config = function() require('settings.plugins.trouble').setup() end,
       cmd = 'Trouble',
   },
-  { 'kosayoda/nvim-lightbulb', ft = { 'cpp', 'cmake', }, },
+  { 'kosayoda/nvim-lightbulb',
+    ft = { 'cpp', 'cmake', },
+    opts = {
+      autocmd = { enabled = true },
+      sign = { text = "", lens_text = ""}
+    },
+  },
   {
       'Badhi/nvim-treesitter-cpp-tools',
       dependencies = 'nvim-treesitter/nvim-treesitter',
