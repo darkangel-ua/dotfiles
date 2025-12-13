@@ -17,7 +17,6 @@ end
 
 local
 function on_lsp_attach(client, bufnr)
-    require('nvim-navic').attach(client, bufnr)
     cursor_hold_actions(client, bufnr)
 
     -- disable hints by default because it's pretty annoying

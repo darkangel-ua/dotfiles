@@ -222,11 +222,18 @@ plugins = {
     'neovim/nvim-lspconfig',
     config = function() require('settings.lsp') end,
     ft = { 'c', 'cpp', 'cmake', 'cuda' },
-    dependencies = 'williamboman/mason.nvim'
+    dependencies = {
+        'williamboman/mason.nvim',
+        'SmiteshP/nvim-navic',
+    }
   },
   {
       'SmiteshP/nvim-navic',
-      config = function() require('settings.plugins.nvim-navic').setup() end,
+      opts = {
+          lsp = {
+              auto_attach = true,
+          },
+      },
   },
   {
       'j-hui/fidget.nvim',
