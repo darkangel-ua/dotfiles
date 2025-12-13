@@ -41,6 +41,10 @@ vim.o.smartcase = true
 
 vim.o.splitright = true
 
+-- make signs same as in trouble.nvim
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarning', { text = '', texthl = 'DiagnosticSignWarning' })
+
 -- lets try to move swap file to memory - just to check if this will
 -- prevent from nvim freezes because of disk io load
 vim.go.directory = '/tmp/nvim.'..vim.env.USER..'/swap//'

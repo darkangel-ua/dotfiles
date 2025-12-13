@@ -46,10 +46,3 @@ vim.lsp.config('cmake', {
     },
 })
 vim.lsp.enable('cmake')
-
--- make signs same as in trouble.nvim
-vim.cmd [[
-    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
-    sign define DiagnosticSignWarning text= texthl=DiagnosticSignWarning linehl= numhl=
-]]
-
