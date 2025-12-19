@@ -97,22 +97,6 @@ keymap('n', '<leader>gch', "<cmd>Telescope git_branches<cr>", { desc ='' })
 keymap('n', '<leader>gb', "<cmd>Git blame<cr>", { desc ='Git blame' })
 keymap('n', '<leader>gl', "<cmd>Telescope git_commits<cr>", { desc ='Git log' })
 
--- lsp
-keymap('n', 'gd', function() require('settings.plugins.telescope').lsp_definitions() end, { desc ='' })
-keymap('n', 'gD', "<cmd>Telescope lsp_type_definitions<cr>", { desc ='' })
-keymap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", { desc ='' })
-keymap('v', 'gi', ":TSCppDefineClassFunc<cr>", { desc ='' })
-keymap('n', 'gr', function() require('settings.plugins.telescope').lsp_references() end, { desc ='' })
-keymap('n', 'gh', "<cmd>ClangdSwitchSourceHeader<cr>", { desc ='' })
-keymap('n', 'ga', vim.lsp.buf.code_action, { desc ='' })
-keymap('n', 'K', vim.lsp.buf.hover, { desc ='' })
-keymap('n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<CR>", { desc ='' })
-keymap('n', '<leader>o', function() require('settings.plugins.telescope').lsp_document_symbols() end, { desc ='' })
-keymap('n', 'gs', function() require('settings.plugins.telescope').lsp_dynamic_workspace_symbols() end, { desc ='' })
-keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
-keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", { desc ='' })
-keymap('n', '\\', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc ='Toggle inlay hints' })
-
 -- troubles
 keymap('n', '<leader>A', "<cmd>Trouble toggle diagnostics<cr>", { desc ='' })
 keymap('n', '<leader>a', "<cmd>Trouble toggle diagnostics filter.buf=0<cr>", { desc ='' })
