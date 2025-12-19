@@ -139,10 +139,6 @@ keymap('n', '<leader>rf', function() require('settings.reload').source_current_f
 -- ide like behaviour to close support windows by esc leaving only main window
 keymap('n', '<esc>', function() require('settings.plugins.ide').on_esc_pressed() end, { desc ='' })
 
--- scratch terminal
-keymap('n', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
-keymap('t', '<C-h>', function() require('FTerm').toggle() end, { desc ='' })
-
 -- vim tmux integration
 keymap('n', '<A-h>', '<cmd>TmuxNavigateLeft<cr>', { desc ='' })
 keymap('n', '<A-j>', '<cmd>TmuxNavigateDown<cr>', { desc ='' })

@@ -28,10 +28,6 @@ plugins = {
       event = { 'VeryLazy' },
   },
   {
-      'numToStr/FTerm.nvim',
-      config = function() require('settings.plugins.fterm').setup() end,
-  },
-  {
       'williamboman/mason.nvim',
       opts = {},
       event = 'VeryLazy',
