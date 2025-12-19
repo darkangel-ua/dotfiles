@@ -71,6 +71,7 @@ keymap('n', '<leader>fW', function() require('settings.plugins.telescope').grep_
 keymap('n', '<leader>p', "<cmd>Telescope resume<cr>", { desc ='' })
 keymap('n', 'S', "<cmd>Telescope spell_suggest<cr>", { desc ='' })
 keymap('n', '<leader>fm', "<cmd>Telescope man_pages<cr>", { desc ='' })
+keymap('n', '<leader>fk', function() require('telescope.builtin').keymaps() end, { desc ='Keymaps' })
 
 -- projects
 keymap('n', '<leader>fp', '<cmd>Telescope projects<cr>', { desc = 'Find a project' })
@@ -91,11 +92,10 @@ keymap('n', '<leader>j', "<cmd>lua require('settings.plugins.telescope').quick_b
 
 -- git
 keymap('n', '<leader>gg', "<cmd>DiffviewOpen<cr>", { desc ='' })
-keymap('n', '<leader>gG', "<cmd>DiffviewOpen main..HEAD<cr>", { desc ='' })
-keymap('n', '<leader>gd', "<cmd>Gdiff<cr>", { desc ='' })
+keymap('n', '<leader>gG', "<cmd>DiffviewOpen origin/main<cr>", { desc ='' })
 keymap('n', '<leader>gch', "<cmd>Telescope git_branches<cr>", { desc ='' })
-keymap('n', '<leader>gb', "<cmd>Git blame<cr>", { desc ='' })
-keymap('n', '<leader>gl', "<cmd>Telescope git_commits<cr>", { desc ='' })
+keymap('n', '<leader>gb', "<cmd>Git blame<cr>", { desc ='Git blame' })
+keymap('n', '<leader>gl', "<cmd>Telescope git_commits<cr>", { desc ='Git log' })
 
 -- lsp
 keymap('n', 'gd', function() require('settings.plugins.telescope').lsp_definitions() end, { desc ='' })
