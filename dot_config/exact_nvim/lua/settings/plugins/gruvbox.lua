@@ -7,6 +7,7 @@ function M.setup()
         overrides = {
             -- make sign column same as background
             SignColumn = { bg = colors.bg0 },
+            FoldColumn = { bg = colors.bg0 },
             GruvboxRedSign = { bg = colors.bg0 },
             GruvboxYellowSign = { bg = colors.bg0 },
             GruvboxGreenSign = { bg = colors.bg0 },

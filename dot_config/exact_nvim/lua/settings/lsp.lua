@@ -45,12 +45,6 @@ local
 function on_lsp_attach(client, bufnr)
     cursor_hold_actions(client, bufnr)
     keymaps(client, bufnr)
-
-    if client.name == 'clangd' then
-        vim.wo.foldmethod = 'expr'
-        vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
-        vim.wo.foldlevel = 99
-    end
 end
 
 local capabilities = vim.tbl_deep_extend("force",
