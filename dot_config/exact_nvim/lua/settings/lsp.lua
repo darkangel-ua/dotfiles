@@ -36,6 +36,9 @@ function keymaps(client, bufnr)
     keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format selection')
     keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format inside {}')
 
+    keymap('n', 'gO', "<cmd>Outline<cr>", 'Outline: Open')
+    keymap('n', 'go', "<cmd>Outline<cr>", 'Outline: Open')
+
     if client.name == 'clangd' and vim.bo[bufnr].filetype == 'cpp' then
         keymap('n', 'gh', "<cmd>ClangdSwitchSourceHeader<cr>", 'LSP: Switch source/header')
     end

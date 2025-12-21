@@ -1,5 +1,7 @@
 local M = {}
 
+local outline = require('outline')
+
 local
 function get_win_by_filetype(tabpage, ft)
     local wins = vim.api.nvim_tabpage_list_wins(tabpage)
@@ -23,6 +25,10 @@ function M.on_esc_pressed()
     if cmake_win then
         vim.cmd(':CMakeClose')
     end
+
+    if outline.is_open() then
+        outline.close()
+    end
 end
 
 function M.cmake_open()
@@ -40,7 +46,7 @@ function M.bufdelete()
     if trouble_win or cmake_win then
         require('bufdelete').bufdelete(0, true)
     else
-        vim.cmd(':bd')
+        require('bufdelete').bufdelete(0, false)
     end
 
 end

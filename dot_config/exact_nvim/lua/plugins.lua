@@ -237,6 +237,8 @@ plugins = {
     dependencies = {
         'williamboman/mason.nvim',
         'SmiteshP/nvim-navic',
+        'jmacadie/telescope-hierarchy.nvim',
+        'hedyhli/outline.nvim',
     }
   },
   {
@@ -305,6 +307,17 @@ plugins = {
           require("telescope").setup(opts)
           require("telescope").load_extension("hierarchy")
       end,
+  },
+  {
+      'hedyhli/outline.nvim',
+      opts = {
+          outline_items = {
+              auto_set_cursor = false,
+          },
+          symbol_folding = {
+              autofold_depth = false,
+          }
+      },
   },
   -- Snippets
   {
