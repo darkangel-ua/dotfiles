@@ -30,17 +30,22 @@ function keymaps(client, bufnr)
     keymap('n', 'gr', function() require('settings.plugins.telescope').lsp_references() end, 'LSP: Find references')
     keymap('n', 'ga', vim.lsp.buf.code_action, 'LSP: Code action')
     keymap('n', 'K', vim.lsp.buf.hover, 'LSP: Hover')
-    keymap('n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<CR>", 'LSP: Rename')
+    keymap('n', '<leader>rn', vim.lsp.buf.rename, 'LSP: Rename')
     keymap('n', '<leader>o', function() require('settings.plugins.telescope').lsp_document_symbols() end, 'LSP: Document symbols')
     keymap('n', 'gs', function() require('settings.plugins.telescope').lsp_dynamic_workspace_symbols() end, 'LSP: Workspace symbols')
     keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format selection')
-    keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format inside {}')
+    keymap('n', '<C-f>', function() vim.notify('Can format visual selection only', vim.log.levels.WARN) end, 'LSP: Format selection')
 
     keymap('n', 'gO', "<cmd>Outline<cr>", 'Outline: Open')
     keymap('n', 'go', "<cmd>Outline<cr>", 'Outline: Open')
 
     if client.name == 'clangd' and vim.bo[bufnr].filetype == 'cpp' then
+        keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format inside {}')
         keymap('n', 'gh', "<cmd>ClangdSwitchSourceHeader<cr>", 'LSP: Switch source/header')
+    end
+
+    if vim.bo[bufnr].filetype == 'lua' then
+        keymap('v', '<C-f>', "<cmd>lua require('conform').format()<cr><esc>", 'LSP: Format selection')
     end
 end
 
@@ -116,6 +121,7 @@ vim.lsp.config('lua_ls', {
       }
     })
   end,
+  on_attach = on_lsp_attach,
   settings = {
       Lua = {}
   },

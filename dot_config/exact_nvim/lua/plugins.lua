@@ -320,6 +320,17 @@ local plugins = {
           }
       },
   },
+  {
+      'stevearc/conform.nvim',
+      ft = { 'lua' },
+      opts = {
+          log_level = vim.log.levels.TRACE,
+          formatters_by_ft = {
+            lua = { 'stylua' },
+        },
+      },
+  },
+
   -- Snippets
   {
     'L3MON4D3/LuaSnip',
