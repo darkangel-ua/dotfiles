@@ -13,8 +13,9 @@ local lazy_options = {
 }
 
 local on_some_buffer = { 'BufReadPre', 'BufAdd', }
+local lsp_file_types = { 'c', 'cpp', 'cmake', 'cuda', 'lua' }
 
-plugins = {
+local plugins = {
   -- system
   {
       'rcarriga/nvim-notify',
@@ -233,7 +234,7 @@ plugins = {
   {
     'neovim/nvim-lspconfig',
     config = function() require('settings.lsp') end,
-    ft = { 'c', 'cpp', 'cmake', 'cuda' },
+    ft = lsp_file_types,
     dependencies = {
         'williamboman/mason.nvim',
         'SmiteshP/nvim-navic',
@@ -253,7 +254,7 @@ plugins = {
       'j-hui/fidget.nvim',
       tag = 'v1.4.0',
       opts = {},
-      ft = { 'c', 'cpp', 'cmake', },
+      ft = lsp_file_types,
   },
   {
       'folke/trouble.nvim',
@@ -262,7 +263,7 @@ plugins = {
       cmd = 'Trouble',
   },
   { 'kosayoda/nvim-lightbulb',
-    ft = { 'cpp', 'cmake', },
+    ft = lsp_file_types,
     opts = {
       autocmd = { enabled = true },
       sign = { text = "", lens_text = ""}
