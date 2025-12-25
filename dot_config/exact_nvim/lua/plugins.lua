@@ -13,7 +13,7 @@ local lazy_options = {
 }
 
 local on_some_buffer = { 'BufReadPre', 'BufAdd', }
-local lsp_file_types = { 'c', 'cpp', 'cmake', 'cuda', 'lua' }
+local lsp_file_types = { 'c', 'cpp', 'cmake', 'cuda', 'lua', 'markdown' }
 
 local plugins = {
   -- system
@@ -316,7 +316,7 @@ local plugins = {
               auto_set_cursor = false,
           },
           symbol_folding = {
-              autofold_depth = false,
+              autofold_depth = 2,
           }
       },
   },

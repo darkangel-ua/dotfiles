@@ -1,4 +1,5 @@
 local lsp_document_highlight_group = vim.api.nvim_create_augroup('lsp_document_highlight_group', { clear = true })
+local outline = require('outline')
 
 local
 function cursor_hold_actions(_, bufnr)
@@ -14,6 +15,15 @@ function cursor_hold_actions(_, bufnr)
         buffer = bufnr,
         callback = vim.lsp.buf.clear_references,
     })
+end
+
+local
+function toggle_outline()
+    if outline.is_open() then
+        outline.focus_toggle()
+    else
+        outline.open()
+    end
 end
 
 local
@@ -36,8 +46,8 @@ function keymaps(client, bufnr)
     keymap('v', '<C-f>', "<cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format selection')
     keymap('n', '<C-f>', function() vim.notify('Can format visual selection only', vim.log.levels.WARN) end, 'LSP: Format selection')
 
-    keymap('n', 'gO', "<cmd>Outline<cr>", 'Outline: Open')
-    keymap('n', 'go', "<cmd>Outline<cr>", 'Outline: Open')
+    keymap('n', 'gO', toggle_outline, 'Outline: Open/Focus')
+    keymap('n', 'go', toggle_outline, 'Outline: Open/Focus')
 
     if client.name == 'clangd' and vim.bo[bufnr].filetype == 'cpp' then
         keymap('n', '<C-f>', "va{<bar><cmd>lua vim.lsp.buf.format()<cr><esc>", 'LSP: Format inside {}')
@@ -51,7 +61,9 @@ end
 
 local
 function on_lsp_attach(client, bufnr)
-    cursor_hold_actions(client, bufnr)
+    if client.server_capabilities.documentHighlightProvider then
+        cursor_hold_actions(client, bufnr)
+    end
     keymaps(client, bufnr)
 end
 
@@ -106,6 +118,10 @@ vim.lsp.config('lua_ls', {
         checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME,
+          vim.fn.stdpath('config') .. '/lua',
+          -- this is for lazy plugins, when needed
+          -- vim.fn.stdpath('data') .. '/lazy/outline.nvim',
+          --
           -- Depending on the usage, you might want to add additional paths
           -- here.
           '${3rd}/luv/library'
@@ -127,4 +143,9 @@ vim.lsp.config('lua_ls', {
   },
 })
 vim.lsp.enable('lua_ls')
+
+vim.lsp.config('marksman', {
+  on_attach = on_lsp_attach,
+})
+vim.lsp.enable('marksman')
 
